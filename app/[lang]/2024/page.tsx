@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useServerTranslation } from "@/i18n";
 import { LangParams } from "@/types/common";
+import Speaker from "../../components/speaker";
 
 export default async function Home({
   params: { lang },
@@ -19,6 +20,12 @@ export default async function Home({
           <Link href="/zh-TW/2024">zh-TW</Link>
         </div>
       </div>
+      <Speaker
+        name="大瀬良 亮"
+        nameEN="OSERA Ryo"
+        title="幹事"
+        imgSrc="/images/osera-ryo.png"
+      />
     </main>
   );
 }
