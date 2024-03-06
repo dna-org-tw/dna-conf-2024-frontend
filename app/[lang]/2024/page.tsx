@@ -20,7 +20,12 @@ export default async function Home({
           <Link href="/zh-TW/2024">zh-TW</Link>
         </div>
       </div>
-      <Speaker />
+      <Speaker
+        name="大瀬良 亮"
+        nameEN="OSERA Ryo"
+        title="幹事"
+        imgSrc="/images/osera-ryo.png"
+      />
     </main>
   );
 }

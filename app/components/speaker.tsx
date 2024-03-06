@@ -1,13 +1,21 @@
 import Image from "next/image";
 import clsx from "clsx";
 
-function Speaker() {
+interface IProps {
+  name?: string;
+  nameEN?: string;
+  title?: string;
+  imgSrc?: string;
+}
+
+function Speaker(props: IProps) {
+  const { name = "", nameEN = "", title = "", imgSrc = "" } = props;
   return (
     <section>
       <div className={clsx("flex flex-col", "md:flex-row")}>
         <Image
-          src="/images/osera-ryo.png"
-          alt="大瀬良 亮 幹事"
+          src={imgSrc}
+          alt={`${name} ${title}`}
           width={328}
           height={371}
           className="w-full max-w-[328px]"
@@ -24,12 +32,12 @@ function Speaker() {
               "md:text-[36px]"
             )}
           >
-            大瀬良 亮
+            {name}
             <span className={clsx("text-[20px] ml-3", "md:text-[16px]")}>
-              幹事
+              {title}
             </span>
           </div>
-          <div className={clsx("font-light text-[20px]")}>OSERA Ryo</div>
+          <div className={clsx("font-light text-[20px]")}>{nameEN}</div>
         </div>
       </div>
     </section>
