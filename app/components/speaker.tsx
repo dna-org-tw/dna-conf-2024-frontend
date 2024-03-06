@@ -11,7 +11,7 @@ interface IProps {
 function Speaker(props: IProps) {
   const { name = "", nameEN = "", title = "", imgSrc = "" } = props;
   return (
-    <section>
+    <section className="flex justify-center w-full">
       <div className={clsx("flex flex-col", "md:flex-row")}>
         <Image
           src={imgSrc}

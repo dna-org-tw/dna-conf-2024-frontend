@@ -2,6 +2,7 @@ import Link from "next/link";
 import { useServerTranslation } from "@/i18n";
 import { LangParams } from "@/types/common";
 import Speaker from "../../components/speaker";
+import HeaderTitleWithLine from "@/app/components/HeaderTitleWithLine";
 
 export default async function Home({
   params: { lang },
@@ -12,7 +13,7 @@ export default async function Home({
   const { t } = await useServerTranslation(lang);
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <main className="flex min-h-screen flex-col items-center justify-between py-24">
       <div>
         <p className="text-4xl font-extrabold text-center">{t("conf")}</p>
         <div className="flex justify-center gap-4 mt-2">
@@ -20,12 +21,30 @@ export default async function Home({
           <Link href="/zh-TW/2024">zh-TW</Link>
         </div>
       </div>
-      <Speaker
-        name="大瀬良 亮"
-        nameEN="OSERA Ryo"
-        title="幹事"
-        imgSrc="/images/osera-ryo.png"
-      />
+      <section className="w-full py-20 px-24">
+        <HeaderTitleWithLine
+          title={t("KEYNOTE SPEAKER")}
+          lineColor="darkBlue"
+        />
+        <Speaker
+          name="大瀬良 亮"
+          nameEN="OSERA Ryo"
+          title="幹事"
+          imgSrc="/images/osera-ryo.png"
+        />
+      </section>
+      <section className="w-full bg-[#D3D3D3] py-20 px-24">
+        <HeaderTitleWithLine title={t("AGENDA")} lineColor="red" />
+      </section>
+      <section className="w-full py-20 px-24">
+        <HeaderTitleWithLine
+          title={t("TRANSPORTATION INFORMATION")}
+          lineColor="green"
+        />
+      </section>
+      <section className="w-full py-20 px-24">
+        <HeaderTitleWithLine title={t("CALL FOR SPONSOR")} lineColor="yellow" />
+      </section>
     </main>
   );
 }
