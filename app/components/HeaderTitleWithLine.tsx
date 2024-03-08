@@ -1,6 +1,6 @@
 import React from "react"
 
-type LineColor = "yellow" | "blue" | "darkBlue" | "cyan" | "pink" | "orange" | "green" | "red" | "BrightPink"
+type LineColor = "yellow" | "blue" | "darkBlue" | "cyan" | "pink" | "orange" | "green" | "red" | "brightPink"
 
 type Props = {
   title: string
@@ -16,7 +16,7 @@ const lineColors: Record<LineColor, string> = {
   orange: "border-[#E74310]",
   green: "border-[#00993E]",
   red: "border-[#E4003D]",
-  BrightPink: "border-[#C54090]",
+  brightPink: "border-[#C54090]",
 }
 
 const HeaderTitleWithLine = ({ title, lineColor }: Props) => {
