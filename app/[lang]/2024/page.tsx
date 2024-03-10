@@ -3,6 +3,7 @@ import { useServerTranslation } from "@/i18n";
 import { LangParams } from "@/types/common";
 import Speaker from "../../components/speaker";
 import HeaderTitleWithLine from "@/app/components/HeaderTitleWithLine";
+import Banner from "@/app/components/Banner";
 
 export default async function Home({
   params: { lang },
@@ -21,6 +22,7 @@ export default async function Home({
           <Link href="/zh-TW/2024">zh-TW</Link>
         </div>
       </div>
+      <Banner lang={lang} />
       <section className="w-full py-20 px-24">
         <HeaderTitleWithLine
           title={t("KEYNOTE SPEAKER")}
