@@ -58,7 +58,7 @@ export default async function Banner({ lang }: { lang: Lang }) {
           </div>
           <div
             className="flex w-[30px] h-[180px] bg-no-repeat bg-center bg-cover"
-            style={{ backgroundImage: 'url(/images/divider-vertical.png)' }}
+            style={{ backgroundImage: 'url(/images/divider-vertical.svg)' }}
           />
           <div className="flex flex-col  gap-y-2">
             <h1 className="text-4xl tracking-[10px]">{t('conf')}</h1>
