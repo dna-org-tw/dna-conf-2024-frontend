@@ -3,6 +3,7 @@ import { useServerTranslation } from "@/i18n";
 import { LangParams } from "@/types/common";
 import Speaker from "../../components/speaker";
 import HeaderTitleWithLine from "@/app/components/HeaderTitleWithLine";
+import Guidelines from "@/app/components/guidelines";
 
 export default async function Home({
   params: { lang },
@@ -35,6 +36,18 @@ export default async function Home({
       </section>
       <section className="w-full bg-[#D3D3D3] py-20 px-24">
         <HeaderTitleWithLine title={t("AGENDA")} lineColor="red" />
+          <div className="App container">
+            <Guidelines
+              open
+              title={t("Ticket Purchase Guidelines")}
+              buttonText={{
+                expand: t("expand"),
+                collapse: t("collapse")
+              }}
+            >
+            {t("notice")}
+            </Guidelines>
+          </div>
       </section>
       <section className="w-full py-20 px-24">
         <HeaderTitleWithLine
