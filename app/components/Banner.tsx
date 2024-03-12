@@ -9,7 +9,7 @@ export default async function Banner({ lang }: { lang: Lang }) {
   const { t } = await useServerTranslation(lang);
   return (
     <section
-      className="w-full bg-right-top bg-no-repeat bg-100%"
+      className="w-full bg-right-top bg-no-repeat bg-w-100%"
       style={{ backgroundImage: 'url(/images/banner-background.png)' }}
     >
       <div className="container mx-auto pt-11 sm:pt-36">
@@ -39,7 +39,7 @@ export default async function Banner({ lang }: { lang: Lang }) {
             'mt-12 items-center gap-x-10 lg:mx-[120px]',
           )}
         >
-          <div className=" flex flex-col  gap-y-2 min-w-[287px]">
+          <div className="flex flex-col  gap-y-2 min-w-[287px]">
             <h2 className="text-4xl tracking-[4px] font-bold">
               {t('conf date')}
             </h2>
@@ -60,7 +60,7 @@ export default async function Banner({ lang }: { lang: Lang }) {
             className="flex w-[30px] h-[180px] bg-no-repeat bg-center bg-cover"
             style={{ backgroundImage: 'url(/images/divider-vertical.svg)' }}
           />
-          <div className="flex flex-col  gap-y-2">
+          <div className="flex flex-col gap-y-2">
             <h1 className="text-4xl tracking-[10px]">{t('conf')}</h1>
             <p>{t('conf description')}</p>
           </div>

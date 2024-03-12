@@ -8,7 +8,7 @@ const config: Config = {
   ],
   theme: {
     backgroundSize: {
-      "100%": "100%",
+      "w-100%": "100% auto",
     },
   },
   plugins: [],
