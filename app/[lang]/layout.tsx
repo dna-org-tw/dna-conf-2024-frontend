@@ -4,6 +4,7 @@ import I18nTranslateProvider from "@/context/I18nTranslateProvider";
 import { LangParams } from "@/types/common";
 import Footer from "../components/footer";
 import Image from "next/image";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 export const metadata: Metadata = {
   title: "Taiwan Digital Nomad Association",
@@ -33,6 +34,7 @@ export default function RootLayout({
             />
           </div>
         </body>
+        <GoogleAnalytics gaId="G-04W60ZKKVP"/>
       </I18nTranslateProvider>
     </html>
   );
