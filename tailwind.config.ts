@@ -6,7 +6,11 @@ const config: Config = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  theme: {},
+  theme: {
+    backgroundSize: {
+      "w-100%": "100% auto",
+    },
+  },
   plugins: [],
 };
 export default config;
