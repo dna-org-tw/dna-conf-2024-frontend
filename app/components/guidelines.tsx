@@ -24,30 +24,6 @@ const Guidelines: React.FC<IProps> = ({ open, children, title, buttonText }) => 
     setIsOpen((prev) => !prev);
   };
 
-  // const emailText: "us@dna.org.tw";
-  // const formattedNoticeItems = () => {
-  //   if (!isOpen) {
-      
-  //     const items = children.split(';');
-      
-  //     return (
-  //       <div className="whitespace-normal tracking-widest list-outside">
-  //         <ol>
-  //           {items.map((item, index) => (
-  //             <li className="p-3" key={index}>{item.trim()}</li>
-  //           ))}
-  //         </ol>
-  //       </div>
-  //     );
-  //   }
-
-  //   return null;
-  // };
-  // if (children.includes("us@dna.org.tw")) {
-  //   children.replace
-  // }
-  console.log(children);
-
   return (
     <div className="lg:mx-2 mx-0 lg:whitespace-nowrap container mx-auto pt-10 pb-20 px-8">
       <h6 className="text-[16px] text-black flex-2 font-bold text-center tracking-widest mb-4">
