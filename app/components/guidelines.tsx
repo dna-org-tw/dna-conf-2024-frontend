@@ -11,7 +11,7 @@ interface buttonText {
 interface IProps {
   open?: boolean;
   title: string;
-  children: string;
+  children: string[];
   buttonText: buttonText
 }
 
@@ -24,34 +24,47 @@ const Guidelines: React.FC<IProps> = ({ open, children, title, buttonText }) => 
     setIsOpen((prev) => !prev);
   };
 
-  const formattedNoticeItems = () => {
-    if (!isOpen) {
+  // const emailText: "us@dna.org.tw";
+  // const formattedNoticeItems = () => {
+  //   if (!isOpen) {
       
-      const items = children.split(';');
+  //     const items = children.split(';');
       
-      return (
-        <div className="whitespace-normal tracking-widest list-outside">
-          <ol>
-            {items.map((item, index) => (
-              <li className="p-3" key={index}>{item.trim()}</li>
-            ))}
-          </ol>
-        </div>
-      );
-    }
+  //     return (
+  //       <div className="whitespace-normal tracking-widest list-outside">
+  //         <ol>
+  //           {items.map((item, index) => (
+  //             <li className="p-3" key={index}>{item.trim()}</li>
+  //           ))}
+  //         </ol>
+  //       </div>
+  //     );
+  //   }
 
-    return null;
-  };
+  //   return null;
+  // };
+  // if (children.includes("us@dna.org.tw")) {
+  //   children.replace
+  // }
+  console.log(children);
 
   return (
     <div className="lg:mx-2 mx-0 lg:whitespace-nowrap container mx-auto pt-10 pb-20 px-8">
       <h6 className="text-[16px] text-black flex-2 font-bold text-center tracking-widest mb-4">
         {title}
       </h6>
-      <div className="flex-col items-center mt-2">
-        {!isOpen && <div className="p-2">
-        {formattedNoticeItems()}
-        </div>}
+      <div className="whitespace-normal tracking-widest list-outside mt-2">
+        {!isOpen && <ul className="p-2">
+          {children.map((notice, index) => (
+            <li key={index} className="p-3">
+              {notice.includes("us@dna.org.tw") ? (
+                <p dangerouslySetInnerHTML={{ __html: notice.replace("us@dna.org.tw", '<u>us@dna.org.tw</u>') }} />
+              ) : (
+                notice
+              )}
+            </li>
+          ))}
+        </ul>}
       </div>
       <div className="flex flex-col items-center justify-center">
         <button type="button" className="mx-auto mt-2" onClick={collapsibleHandler}>

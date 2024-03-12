@@ -31,16 +31,18 @@ export default async function Home({params: {lang}}: { params: LangParams }) {
       <section className="w-full bg-[#D3D3D3] py-20 px-24">
         <HeaderTitleWithLine title={t("AGENDA")} lineColor="red" />
           <div className="App container">
-            <Guidelines
-              open
-              title={t("Ticket Purchase Guidelines")}
-              buttonText={{
-                expand: t("expand"),
-                collapse: t("collapse")
-              }}
-            >
-            {t("notice")}
-            </Guidelines>
+              <Guidelines
+                open
+                title={t("Ticket Purchase Guidelines")}
+                buttonText={{
+                  expand: t("expand"),
+                  collapse: t("collapse")
+                }}
+                >
+                {Array.from({ length: 7 }, (_, index) => (
+                  t(`notice${index + 1}`)
+                ))}
+              </Guidelines>
           </div>
       </section>
       <section className="w-full py-20 px-24">
