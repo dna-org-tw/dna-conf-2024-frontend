@@ -3,6 +3,7 @@ import { useServerTranslation } from "@/i18n";
 import { LangParams } from "@/types/common";
 import Speaker from "../../components/speaker";
 import HeaderTitleWithLine from "@/app/components/HeaderTitleWithLine";
+import Transportation from "@/app/components/transportation";
 
 export default async function Home({
   params: { lang },
@@ -41,6 +42,9 @@ export default async function Home({
           title={t("TRANSPORTATION INFORMATION")}
           lineColor="green"
         />
+        <div className="flex flex-col">
+        <Transportation />
+        </div>
       </section>
       <section className="w-full py-20 px-24">
         <HeaderTitleWithLine title={t("CALL FOR SPONSOR")} lineColor="yellow" />
