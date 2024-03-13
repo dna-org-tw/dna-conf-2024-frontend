@@ -11,12 +11,13 @@ interface buttonText {
 interface IProps {
   open?: boolean;
   title: string;
+  lang: string;
   children: string[];
   buttonText: buttonText
 }
 
 
-const Guidelines: React.FC<IProps> = ({ open, children, title, buttonText }) => {
+const Guidelines: React.FC<IProps> = ({ open, children, title, lang, buttonText }) => {
   
   const [isOpen, setIsOpen] = useState(open);
   
@@ -32,7 +33,7 @@ const Guidelines: React.FC<IProps> = ({ open, children, title, buttonText }) => 
       <div className="lg:whitespace-normal lg:pl-4 xl:pl-10">
         {!isOpen && <ol className="list-decimal lg:ml-6 p-4 xl:ml-20">
           {children.map((notice, index) => (
-            <li key={index} className="tracking-widest lg:pb-4">
+            <li key={index} className={`lg:pb-4 ${lang === 'zh-TW' ? 'tracking-widest' : ''}`}>
               {notice.includes("us@dna.org.tw") ? (
                 <p dangerouslySetInnerHTML={{ __html: notice.replace("us@dna.org.tw", '<u>us@dna.org.tw</u>') }} />
               ) : (

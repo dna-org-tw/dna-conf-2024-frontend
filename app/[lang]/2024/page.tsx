@@ -33,7 +33,8 @@ export default async function Home({params: {lang}}: { params: LangParams }) {
           <div className="App container">
               <Guidelines
                 open
-                title={t("Ticket Purchase Guidelines")}
+                title={t("TICKET PURCHASE GUIDE")}
+                lang={lang}
                 buttonText={{
                   expand: t("expand"),
                   collapse: t("collapse")
