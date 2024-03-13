@@ -25,14 +25,14 @@ const Guidelines: React.FC<IProps> = ({ open, children, title, buttonText }) => 
   };
 
   return (
-    <div className="lg:mx-2 mx-0 lg:whitespace-nowrap container mx-auto pt-10 pb-20 px-8">
-      <h6 className="text-[16px] text-black flex-2 font-bold text-center tracking-widest mb-4">
+    <div className="container mx-auto mx-2 mx-0 lg:whitespace-nowrap lg:pt-10 lg:pb-20 lg:px-8">
+      <h6 className="lg:text-[16px] text-black flex-2 font-bold text-center tracking-widest mb-2">
         {title}
       </h6>
-      <div className="whitespace-normal tracking-widest list-outside mt-2">
-        {!isOpen && <ul className="p-2">
+      <div className="lg:whitespace-normal lg:pl-4 xl:pl-10">
+        {!isOpen && <ol className="list-decimal lg:ml-6 p-4 xl:ml-20">
           {children.map((notice, index) => (
-            <li key={index} className="p-3">
+            <li key={index} className="tracking-widest lg:pb-4">
               {notice.includes("us@dna.org.tw") ? (
                 <p dangerouslySetInnerHTML={{ __html: notice.replace("us@dna.org.tw", '<u>us@dna.org.tw</u>') }} />
               ) : (
@@ -40,10 +40,10 @@ const Guidelines: React.FC<IProps> = ({ open, children, title, buttonText }) => 
               )}
             </li>
           ))}
-        </ul>}
+        </ol>}
       </div>
       <div className="flex flex-col items-center justify-center">
-        <button type="button" className="mx-auto mt-2" onClick={collapsibleHandler}>
+        <button type="button" className="mx-auto lg:mt-3" onClick={collapsibleHandler}>
           {!isOpen ? (
             <Image
             src="/images/button-up.png"
@@ -60,7 +60,7 @@ const Guidelines: React.FC<IProps> = ({ open, children, title, buttonText }) => 
               />
               )}
         </button>
-        <div className="p-2 text-[#7D7D77] text-sm tracking-widest">
+        <div className="lg:p-2 text-[#7D7D77] text-sm tracking-widest">
           {isOpen ? buttonText.expand: buttonText.collapse}
         </div>
       </div>
