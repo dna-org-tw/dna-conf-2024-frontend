@@ -4,6 +4,7 @@ import {LangParams} from "@/types/common";
 import Speaker from "../../components/speaker";
 import HeaderTitleWithLine from "@/app/components/HeaderTitleWithLine";
 import Banner from "@/app/components/Banner";
+import CountDownTimer from '@/app/components/CountDownTimer';
 
 export default async function Home({params: {lang}}: { params: LangParams }) {
   const {t} = await useServerTranslation(lang);
@@ -15,6 +16,7 @@ export default async function Home({params: {lang}}: { params: LangParams }) {
         <Link href="/zh-TW/2024">zh-TW</Link>
       </div>
       <Banner lang={lang}/>
+      <CountDownTimer lang={lang} />
       <section className="w-full py-20 px-24">
         <HeaderTitleWithLine
           title={t("KEYNOTE SPEAKER")}
