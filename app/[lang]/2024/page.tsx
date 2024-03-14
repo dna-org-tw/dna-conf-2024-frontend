@@ -3,8 +3,8 @@ import {useServerTranslation} from "@/i18n";
 import {LangParams} from "@/types/common";
 import Speaker from "../../components/speaker";
 import HeaderTitleWithLine from "@/app/components/HeaderTitleWithLine";
-import Banner from "@/app/components/Banner";
 import Transportation from "@/app/components/transportation";
+import Banner from "@/app/components/Banner";
 
 export default async function Home({params: {lang}}: { params: LangParams }) {
   const {t} = await useServerTranslation(lang);
