@@ -1,41 +1,43 @@
-import type { Metadata } from "next";
-import "../globals.css";
-import I18nTranslateProvider from "@/context/I18nTranslateProvider";
-import { LangParams } from "@/types/common";
-import Footer from "../components/footer";
-import Image from "next/image";
-import { GoogleAnalytics } from "@next/third-parties/google";
+import type { Metadata } from 'next';
+import '../globals.css';
+import I18nTranslateProvider from '@/context/I18nTranslateProvider';
+import { LangParams } from '@/types/common';
+import Footer from '../components/footer';
+import Image from 'next/image';
+import { GoogleAnalytics } from '@next/third-parties/google';
+import Nav from '../components/Nav';
 
 export const metadata: Metadata = {
-  title: "Taiwan Digital Nomad Association",
-  description: "The official website of the Taiwan Digital Nomad Association",
+	title: 'Taiwan Digital Nomad Association',
+	description: 'The official website of the Taiwan Digital Nomad Association',
 };
 
 export default function RootLayout({
-  children,
-  params,
+	children,
+	params,
 }: Readonly<{
-  children: React.ReactNode;
-  params: LangParams;
+	children: React.ReactNode;
+	params: LangParams;
 }>) {
-  return (
-    <html lang={params.lang}>
-      <I18nTranslateProvider lng={params.lang}>
-        <body>
-          <div className="relative">
-            {children}
-            <Footer />
+	return (
+		<html lang={params.lang}>
+			<I18nTranslateProvider lng={params.lang}>
+				<body>
+					<div className="relative">
+						<Nav />
+						{children}
+						<Footer />
 
-            <Image
-              src="/images/footer-bg.png"
-              alt=""
-              fill
-              className="absolute w-screen -z-10 object-contain object-right-bottom"
-            />
-          </div>
-        </body>
-        <GoogleAnalytics gaId="G-04W60ZKKVP" />
-      </I18nTranslateProvider>
-    </html>
-  );
+						<Image
+							src="/images/footer-bg.png"
+							alt=""
+							fill
+							className="absolute w-screen -z-10 object-contain object-right-bottom"
+						/>
+					</div>
+				</body>
+				<GoogleAnalytics gaId="G-04W60ZKKVP" />
+			</I18nTranslateProvider>
+		</html>
+	);
 }
