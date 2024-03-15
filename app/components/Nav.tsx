@@ -14,6 +14,7 @@ export interface TranslationData {
 	TICKETS: string;
 	TRANSPORTATION: string;
 	CALL_FOR_SPONSOR: string;
+	BUY_TICKET: string;
 }
 
 export default function Nav() {
@@ -26,6 +27,7 @@ export default function Nav() {
 		TICKETS: translate?.('TICKETS') || '',
 		TRANSPORTATION: translate?.('TRANSPORTATION') || '',
 		CALL_FOR_SPONSOR: translate?.('CALL FOR SPONSOR') || '',
+		BUY_TICKET: translate?.('BUY_TICKET') || '',
 	};
 
 	return (
