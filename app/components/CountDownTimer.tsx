@@ -1,10 +1,10 @@
-"use client"
-import React, { useEffect, useState } from 'react'
-import { Lang } from '@/types/common';
-import { useServerTranslation } from '@/i18n';
+"use client";
+import React, { useEffect, useState } from "react";
+import { Lang } from "@/types/common";
+import { useServerTranslation } from "@/i18n";
 
 export default function CountDownTimer({ lang }: { lang: Lang }) {
-  const isZhTw = lang === 'zh-TW';
+  const isZhTw = lang === "zh-TW";
   // const { t } = await useServerTranslation(lang);
   const [days, setDays] = useState(0);
   const [hours, setHours] = useState(0);
@@ -30,43 +30,40 @@ export default function CountDownTimer({ lang }: { lang: Lang }) {
 
       const s = Math.floor((difference % (1000 * 60)) / 1000);
       setSeconds(s);
-
     }, 1000);
 
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <>
-      <div className='flex flex-col justify-center items-center border border-indigo-600 w-screen h-28 bg-slate-300'>
-        <div>
-          {isZhTw ? (
-            <>
-              <div className='bg-white rounded-xl' >
-                <div className='flex justify-center'>大會倒數</div>
-                <div className=' flex flex-row justify-center w-auto 	'>
-                  <span>{days} 天 </span>
-                  <span>{hours} 小時 </span>
-                  <span>{minutes} 分 </span>
-                  <span>{seconds} 秒 </span>
-                </div>
-              </div>
-            </>
-          ) : (
-            <>
-              <div className='bg-white rounded-xl' >
-                <div className='flex justify-center'>countdown</div>
-                <div className=' flex flex-row justify-center w-auto 	'>
-                  <span>{days} days </span>
-                  <span>{hours} hrs </span>
-                  <span>{minutes} min </span>
-                  <span>{seconds} sec </span>
-                </div>
-              </div>
-            </>
-          )}
-        </div>
-      </div >
-    </>
-  )
+    <div className="max-w-lg mx-auto">
+      {isZhTw ? (
+        <>
+          <div className="bg-white rounded-3xl p-5">
+            <div className="flex justify-center text-lg font-bold pb-5">
+              大會倒數
+            </div>
+            <div className="flex flex-row justify-center w-auto text-3xl font-bold">
+              <span>{days} 天 </span>
+              <span>{hours} 小時 </span>
+              <span>{minutes} 分 </span>
+              <span>{seconds} 秒 </span>
+            </div>
+          </div>
+        </>
+      ) : (
+        <>
+          <div className="bg-white rounded-xl">
+            <div className="flex justify-center">countdown</div>
+            <div className=" flex flex-row justify-center w-auto 	">
+              <span>{days} days </span>
+              <span>{hours} hrs </span>
+              <span>{minutes} min </span>
+              <span>{seconds} sec </span>
+            </div>
+          </div>
+        </>
+      )}
+    </div>
+  );
 }

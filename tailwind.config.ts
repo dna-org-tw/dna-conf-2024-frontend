@@ -6,15 +6,16 @@ const config: Config = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+
   theme: {
-    backgroundSize: {
-      "w-100%": "100% auto",
-    },
     extend: {
+      backgroundSize: {
+        "w-100%": "100% auto",
+      },
       letterSpacing: {
-        widest: "0.2em"
-      }
-    }
+        widest: "0.2em",
+      },
+    },
   },
   plugins: [],
 };
