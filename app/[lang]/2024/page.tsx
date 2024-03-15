@@ -64,7 +64,7 @@ export default async function Home({
           </Guidelines>
         </div>
       </section>
-      <section className="w-full px-24">
+      <section className="w-full py-20 px-8 sm:px-24">
         <HeaderTitleWithLine
           title={t("TRANSPORTATION INFORMATION")}
           lineColor="green"
