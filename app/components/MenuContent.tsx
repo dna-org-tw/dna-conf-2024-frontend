@@ -24,7 +24,7 @@ const MenuContent: React.FC<MenuContentProp> = ({ translatedData, lng }) => {
 			<Link href={`/${lng}/2024#call-for-sponsor`}>
 				{translatedData.CALL_FOR_SPONSOR}
 			</Link>
-			<button className="bg-cta rounded-lg px-4 py-2">線上購票</button>
+			<button className="bg-cta rounded-lg px-4 py-2 w-fit">線上購票</button>
 			<Link href={lng === 'zh-TW' ? '/en-US/2024' : '/zh-TW/2024'}>
 				<Image
 					src="/images/i18n.png"

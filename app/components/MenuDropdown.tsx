@@ -43,7 +43,12 @@ export default function MenuDropdown({
 			</div>
 
 			{showDropdown && (
-				<div className="flex flex-col gap-6 bg-black/80 text-white w-fit h-fit p-12 absolute left-0 top-[60px] md:top-[94px] xl:hidden">
+				<div
+					className={`
+					flex flex-col gap-6 bg-black/80 text-white  h-fit p-12 absolute left-0 top-[60px] md:top-[94px] xl:hidden
+					${lng === 'zh-TW' ? 'w-screen items-center' : 'w-fit'}
+				`}
+				>
 					<MenuContent translatedData={translatedData} lng={lng} />
 				</div>
 			)}
