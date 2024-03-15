@@ -49,7 +49,7 @@ const Guidelines: React.FC<IProps> = ({
                     dangerouslySetInnerHTML={{
                       __html: notice.replace(
                         "us@dna.org.tw",
-                        "<u>us@dna.org.tw</u>"
+                        "<u>us@dna.org.tw</u>",
                       ),
                     }}
                   />

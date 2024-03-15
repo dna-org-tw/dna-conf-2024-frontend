@@ -23,13 +23,13 @@ function Speaker(props: IProps) {
         <div
           className={clsx(
             "mt-[30px] flex flex-col justify-center text-center text-[#004E9D]",
-            "md:w-[328px] md:flex md:flex-col md:justify-center md:text-end"
+            "md:w-[328px] md:flex md:flex-col md:justify-center md:text-end",
           )}
         >
           <div
             className={clsx(
               "text-[#004E9D] font-bold text-[20px]",
-              "md:text-[36px]"
+              "md:text-[36px]",
             )}
           >
             {name}

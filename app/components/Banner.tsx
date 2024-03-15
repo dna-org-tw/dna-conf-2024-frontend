@@ -19,7 +19,7 @@ export default async function Banner({ lang }: { lang: Lang }) {
             "ml-[40px] lg:ml-[120px]",
             isZhTw
               ? "w-[146px] h-[80px] sm:w-[370px] sm:h-[209px] md:w-[495px] md:h-[279px]"
-              : "w-[198px] h-[87px] sm:w-[465px] sm:h-[204px] md:w-[620px] md:h-[273px]"
+              : "w-[198px] h-[87px] sm:w-[465px] sm:h-[204px] md:w-[620px] md:h-[273px]",
           )}
         >
           <Image
@@ -36,7 +36,7 @@ export default async function Banner({ lang }: { lang: Lang }) {
         <div
           className={clsx(
             isZhTw ? "hidden md:flex" : "hidden",
-            "mt-12 items-center gap-x-10 lg:mx-[120px]"
+            "mt-12 items-center gap-x-10 lg:mx-[120px]",
           )}
         >
           <div className="flex flex-col  gap-y-2 min-w-[287px]">
@@ -69,14 +69,14 @@ export default async function Banner({ lang }: { lang: Lang }) {
         <div
           className={clsx(
             isZhTw ? "flex md:hidden" : "flex",
-            "flex-col mt-12 items-center gap-x-10 lg:mx-[120px] px-4"
+            "flex-col mt-12 items-center gap-x-10 lg:mx-[120px] px-4",
           )}
         >
           <div className="flex flex-col gap-y-2">
             <h2
               className={clsx(
                 isZhTw ? "" : "flex-col lg:flex-row",
-                "flex gap-x-2 items-center font-bold text-2xl justify-center tracking-[4px]"
+                "flex gap-x-2 items-center font-bold text-2xl justify-center tracking-[4px]",
               )}
             >
               <Image
@@ -86,13 +86,13 @@ export default async function Banner({ lang }: { lang: Lang }) {
                 alt="time icon"
               />
               <span className="text-center">{`${t("conf date short")} ${t(
-                "conf time"
+                "conf time",
               )}`}</span>
             </h2>
             <h2
               className={clsx(
                 isZhTw ? "" : "flex-col lg:flex-row",
-                "flex gap-x-2 items-center font-bold text-2xl justify-center"
+                "flex gap-x-2 items-center font-bold text-2xl justify-center",
               )}
             >
               <Image
@@ -112,7 +112,7 @@ export default async function Banner({ lang }: { lang: Lang }) {
             <h1
               className={clsx(
                 "text-2xl tracking-[4px] text-center",
-                isZhTw ? "mb-3" : "inline mb-0"
+                isZhTw ? "mb-3" : "inline mb-0",
               )}
             >
               {t("conf")}
