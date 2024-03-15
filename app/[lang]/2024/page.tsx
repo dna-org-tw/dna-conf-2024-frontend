@@ -3,6 +3,7 @@ import {useServerTranslation} from "@/i18n";
 import {LangParams} from "@/types/common";
 import Speaker from "../../components/speaker";
 import HeaderTitleWithLine from "@/app/components/HeaderTitleWithLine";
+import Guidelines from "@/app/components/guidelines";
 import Banner from "@/app/components/Banner";
 
 export default async function Home({params: {lang}}: { params: LangParams }) {
@@ -28,7 +29,22 @@ export default async function Home({params: {lang}}: { params: LangParams }) {
         />
       </section>
       <section className="w-full bg-[#D3D3D3] py-20 px-24">
-        <HeaderTitleWithLine title={t("AGENDA")} lineColor="red"/>
+        <HeaderTitleWithLine title={t("AGENDA")} lineColor="red" />
+          <div className="App container">
+              <Guidelines
+                open
+                title={t("TICKET PURCHASE GUIDE")}
+                lang={lang}
+                buttonText={{
+                  expand: t("expand"),
+                  collapse: t("collapse")
+                }}
+                >
+                {Array.from({ length: 7 }, (_, index) => (
+                  t(`notice${index + 1}`)
+                ))}
+              </Guidelines>
+          </div>
       </section>
       <section className="w-full py-20 px-24">
         <HeaderTitleWithLine
