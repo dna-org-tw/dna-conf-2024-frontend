@@ -1,20 +1,11 @@
-import React from "react";
+import React from "react"
 
-type LineColor =
-  | "yellow"
-  | "blue"
-  | "darkBlue"
-  | "cyan"
-  | "pink"
-  | "orange"
-  | "green"
-  | "red"
-  | "brightPink";
+type LineColor = "yellow" | "blue" | "darkBlue" | "cyan" | "pink" | "orange" | "green" | "red" | "brightPink"
 
 type Props = {
-  title: string;
-  lineColor: LineColor;
-};
+  title: string
+  lineColor: LineColor
+}
 
 const lineColors: Record<LineColor, string> = {
   yellow: "border-[#FFD028]",
@@ -26,18 +17,16 @@ const lineColors: Record<LineColor, string> = {
   green: "border-[#00993E]",
   red: "border-[#E4003D]",
   brightPink: "border-[#C54090]",
-};
+}
 
 const HeaderTitleWithLine = ({ title, lineColor }: Props) => {
   return (
-    <div className="flex justify-center items-center max-w-[500px] mx-auto mb-10 gap-x-8">
-      <div className={`border-[2px] flex-1 ${lineColors[lineColor]} `}></div>
-      <h1 className="lg:mx-2 mx-0 lg:whitespace-nowrap text-[32px] flex-2 text-black text-center font-bold">
-        {title}
-      </h1>
-      <div className={`border-[2px] flex-1 ${lineColors[lineColor]} `}></div>
+    <div className="flex justify-center items-center mx-auto mb-10 gap-x-8">
+      <div className={`border-[2px] w-full md:w-[120px] ${lineColors[lineColor]} `}></div>
+      <h1 className="lg:mx-2 mx-0 whitespace-nowrap text-[32px] text-black text-center font-bold">{title}</h1>
+      <div className={`border-[2px] w-full md:w-[120px] ${lineColors[lineColor]} `}></div>
     </div>
-  );
-};
+  )
+}
 
-export default HeaderTitleWithLine;
+export default HeaderTitleWithLine
