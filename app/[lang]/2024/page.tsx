@@ -8,7 +8,6 @@ import Guidelines from "@/app/components/guidelines";
 import Banner from "@/app/components/Banner";
 import Agenda from "@/app/components/Agenda";
 import CountDownTimer from "@/app/components/CountDownTimer";
-import HighLights from "@/app/components/HighLights";
 
 export default async function Home({
   params: { lang },
@@ -40,7 +39,13 @@ export default async function Home({
         />
       </section>
       <Agenda lang={lang} />
-      <HighLights lang={lang} />
+      <section className="w-full px-24">
+        <div className="flex justify-center items-center max-w-[500px] mx-auto">
+          <h1 className="lg:mx-2 mx-0 lg:whitespace-nowrap text-[32px] flex-2 text-black text-center font-bold">
+            {t("ENGAGE AND SHAPE OUR FUTURE ")}
+          </h1>
+        </div>
+      </section>
       <section className="w-full px-24">
         <HeaderTitleWithLine title={t("TICKET INFO")} lineColor="cyan" />
       </section>
