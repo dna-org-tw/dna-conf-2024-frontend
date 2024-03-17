@@ -30,22 +30,21 @@ export default async function Home({params: {lang}}: { params: LangParams }) {
       </section>
       <section className="w-full bg-[#D3D3D3] py-20 px-24">
         <HeaderTitleWithLine title={t("AGENDA")} lineColor="red" />
-          <div className="App container">
-              <Guidelines
-                open
-                title={t("TICKET PURCHASE GUIDE")}
-                lang={lang}
-                buttonText={{
-                  expand: t("expand"),
-                  collapse: t("collapse")
-                }}
-                >
-                {Array.from({ length: 7 }, (_, index) => (
-                  t(`notice${index + 1}`)
-                ))}
-              </Guidelines>
-          </div>
       </section>
+      <div className="flex flex-col">
+        <Guidelines
+          open
+          title={t("TICKET PURCHASE GUIDE")}
+          buttonText={{
+            expand: t("expand"),
+            collapse: t("collapse")
+          }}
+          >
+          {Array.from({ length: 7 }, (_, index) => (
+            t(`notice${index + 1}`)
+          ))}
+        </Guidelines>
+      </div>
       <section className="w-full py-20 px-24">
         <HeaderTitleWithLine
           title={t("TRANSPORTATION INFORMATION")}

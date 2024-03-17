@@ -9,11 +9,6 @@ const config: Config = {
   theme: {
     backgroundSize: {
       "w-100%": "100% auto",
-    },
-    extend: {
-      letterSpacing: {
-        widest: "0.2em"
-      }
     }
   },
   plugins: [],
