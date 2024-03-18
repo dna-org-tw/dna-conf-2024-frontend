@@ -1,11 +1,9 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { Lang } from "@/types/common";
-import { useServerTranslation } from "@/i18n";
 
 export default function CountDownTimer({ lang }: { lang: Lang }) {
   const isZhTw = lang === "zh-TW";
-  // const { t } = await useServerTranslation(lang);
   const [days, setDays] = useState(0);
   const [hours, setHours] = useState(0);
   const [minutes, setMinutes] = useState(0);
@@ -43,7 +41,7 @@ export default function CountDownTimer({ lang }: { lang: Lang }) {
             <div className="flex justify-center text-lg font-bold pb-5">
               大會倒數
             </div>
-            <div className="flex flex-row justify-center w-auto text-3xl font-bold">
+            <div className="flex flex-row justify-evenly w-auto text-3xl font-bold">
               <span>{days} 天 </span>
               <span>{hours} 小時 </span>
               <span>{minutes} 分 </span>
@@ -53,13 +51,26 @@ export default function CountDownTimer({ lang }: { lang: Lang }) {
         </>
       ) : (
         <>
-          <div className="bg-white rounded-xl">
-            <div className="flex justify-center">countdown</div>
-            <div className=" flex flex-row justify-center w-auto 	">
-              <span>{days} days </span>
-              <span>{hours} hrs </span>
-              <span>{minutes} min </span>
-              <span>{seconds} sec </span>
+          <div className="bg-white rounded-xl p-10">
+            <div className="flex justify-center text-xl font-bold mb-3">
+              Event Countdown
+            </div>
+            <div className="flex flex-row justify-evenly w-auto ">
+              <div className='flex flex-col'>
+                <span className='text-3xl font-bold'>{days}</span>
+                <span>DAYS </span>
+              </div>
+              <span className='text-3xl font-bold'>:</span>
+              <div className='flex flex-col'>
+                <span className='text-3xl font-bold'>{hours}</span>
+                <span> HRS </span>
+              </div>
+              <span className='text-3xl font-bold'>:</span>
+
+              <div className='flex flex-col'>
+                <span className='text-3xl font-bold'>{minutes}</span>
+                <span> MINS </span>
+              </div>
             </div>
           </div>
         </>
