@@ -15,6 +15,9 @@ const config: Config = {
       letterSpacing: {
         widest: "0.2em",
       },
+      backgroundImage: {
+        "highlight-text-gradient": "linear-gradient(135deg, #fff 41px, #000 41px)",
+      }
     },
   },
   plugins: [],
