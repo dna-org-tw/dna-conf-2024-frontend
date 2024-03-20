@@ -1,6 +1,7 @@
 import TicketBlock from "./TicketBlock";
 import { useServerTranslation } from "@/i18n";
 import { Lang } from "@/types/common";
+import clsx from "clsx";
 
 const color1 = "#FFD028";
 const color2 = "#F9D2E5";
@@ -69,16 +70,26 @@ export default async function index({ lang }: { lang: Lang }) {
           style={{ background: "url(/images/ticket-vip-bg.svg)" }}
         >
           <div className="h-[60%] flex flex-col items-center justify-center">
-            <h2 className="text-3xl font-bold text-white">
+            <h2 className="text-3xl font-bold text-white uppercase">
               {t("vip ticket.title")}
             </h2>
             <h3 className="text-3xl font-bold">{t("vip ticket.price")}</h3>
           </div>
           <div className="h-[40%] flex flex-col items-center justify-center">
-            <p className="text-[#F9D2E5] font-bold">
+            <p
+              className={clsx(
+                "text-[#F9D2E5] font-bold",
+                isZhTw ? "" : "text-sm",
+              )}
+            >
               {t("vip ticket.availablePeriod")}
             </p>
-            <p className="text-[#F9D2E5] font-bold">
+            <p
+              className={clsx(
+                "text-[#F9D2E5] font-bold",
+                isZhTw ? "" : "text-sm",
+              )}
+            >
               {t("vip ticket.originalPrice")}
             </p>
           </div>
