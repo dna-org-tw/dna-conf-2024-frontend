@@ -23,7 +23,7 @@ export default async function Home({
         <Link href="/zh-TW/2024">zh-TW</Link>
       </div>
       <Banner lang={lang} />
-      <section className="w-full py-12 px-24 bg-[url('/images/countdown-background.png')] bg-contain">
+      <section className="fixed bottom-0 z-99 w-full h-1/4  bg-[url('/images/mobile-countdown-background.png')] bg-cover md:relative md:py-12 md:bg-[url('/images/countdown-background.png')] md:bg-contain">
         <CountDownTimer lang={lang} />
       </section>
       <section className="w-full px-24">

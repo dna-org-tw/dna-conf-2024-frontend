@@ -1,11 +1,9 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { Lang } from "@/types/common";
-import { useServerTranslation } from "@/i18n";
 
 export default function CountDownTimer({ lang }: { lang: Lang }) {
   const isZhTw = lang === "zh-TW";
-  // const { t } = await useServerTranslation(lang);
   const [days, setDays] = useState(0);
   const [hours, setHours] = useState(0);
   const [minutes, setMinutes] = useState(0);
@@ -36,34 +34,52 @@ export default function CountDownTimer({ lang }: { lang: Lang }) {
   }, []);
 
   return (
-    <div className="max-w-lg mx-auto">
-      {isZhTw ? (
-        <>
-          <div className="bg-white rounded-3xl p-5">
-            <div className="flex justify-center text-lg font-bold pb-5">
-              大會倒數
+    <>
+      <div className="relative w-64 left-0 top-0  md:w-1/2 md:mx-auto">
+        <div className="text-white p-5 md:justify-center md:bg-white md:rounded-3xl md:text-black">
+          {isZhTw ? (
+            <>
+              <div className="flex justify-start text-lg font-bold pb-5 md:hidden">
+                距離大會開始時間
+              </div>
+              <div className="hidden md:visible md:flex md:justify-center md:text-2xl md:font-semibold md:pb-5 ">
+                購票倒數
+              </div>
+            </>
+          ) : (
+            <>
+              <div className="flex justify-start text-lg font-bold pb-5 md:hidden">
+                Event Countdown
+              </div>
+              <div className="hidden md:visible md:flex md:justify-center md:text-2xl md:font-semibold md:pb-5 ">
+                Event Countdown
+              </div>
+            </>
+          )}
+          <div className="flex flex-row justify-start w-auto text-3xl font-bold gap-4 md:justify-center">
+            <div className="flex-col md:flex-row">
+              <span>{days}  </span>
+              <span className='font-normal text-stone-50 text-base md:text-black md:hidden'>days </span>
+              <span className='invisible md:visible'>天</span>
             </div>
-            <div className="flex flex-row justify-center w-auto text-3xl font-bold">
-              <span>{days} 天 </span>
-              <span>{hours} 小時 </span>
-              <span>{minutes} 分 </span>
-              <span>{seconds} 秒 </span>
+            <div className="flex-col justify-start">
+              <span>{hours}  </span>
+              <span className='font-normal text-stone-50 text-base md:text-black  md:hidden'>hrs </span>
+              <span className='invisible md:visible'>小時</span>
+            </div>
+            <div className="flex-col justify-start md:flex-row">
+              <span>{minutes}  </span>
+              <span className='font-normal text-stone-50 text-base md:text-black  md:hidden'>min </span>
+              <span className='invisible md:visible'>分</span>
+            </div>
+            <div className="flex-col justify-start ">
+              <span>{seconds} </span>
+              <span className='font-normal text-stone-50 text-base md:text-black md:hidden'>sec </span>
+              <span className='invisible md:visible'>秒</span>
             </div>
           </div>
-        </>
-      ) : (
-        <>
-          <div className="bg-white rounded-xl">
-            <div className="flex justify-center">countdown</div>
-            <div className=" flex flex-row justify-center w-auto 	">
-              <span>{days} days </span>
-              <span>{hours} hrs </span>
-              <span>{minutes} min </span>
-              <span>{seconds} sec </span>
-            </div>
-          </div>
-        </>
-      )}
-    </div>
+        </div>
+      </div>
+    </>
   );
 }
