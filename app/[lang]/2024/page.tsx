@@ -1,3 +1,4 @@
+
 import Link from "next/link";
 import { useServerTranslation } from "@/i18n";
 import { LangParams } from "@/types/common";
@@ -10,12 +11,8 @@ import Agenda from "@/app/components/Agenda";
 import CountDownTimer from "@/app/components/CountDownTimer";
 import HighLights from "@/app/components/HighLights";
 
-export default async function Home({
-  params: { lang },
-}: {
-  params: LangParams;
-}) {
-  const { t } = await useServerTranslation(lang);
+export default async function Home({ params: { lang } }: { params: LangParams }) {
+  const { t } = await useServerTranslation(lang)
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between gap-y-20">
@@ -27,24 +24,23 @@ export default async function Home({
       <section className="w-full py-12 px-24 bg-[url('/images/countdown-background.png')] bg-contain">
         <CountDownTimer lang={lang} />
       </section>
-      <section className="w-full px-24">
-        <HeaderTitleWithLine
-          title={t("KEYNOTE SPEAKER")}
-          lineColor="darkBlue"
-        />
-        <Speaker
-          name="大瀬良 亮"
-          nameEN="OSERA Ryo"
-          title="幹事"
-          imgSrc="/images/osera-ryo.png"
-        />
+      <section className="w-full px-6 sm:px-24">
+        <HeaderTitleWithLine title={t("KEYNOTE SPEAKER")} lineColor="darkBlue" />
+        <Speaker name="大瀬良 亮" nameEN="OSERA Ryo" title="幹事" imgSrc="/images/osera-ryo.png" />
       </section>
       <Agenda lang={lang} />
+      <section className="w-full px-6 sm:px-24">
+        <div className="flex justify-center items-center max-w-[500px] mx-auto">
+          <h1 className="lg:mx-2 mx-0 lg:whitespace-nowrap text-[32px] flex-2 text-black text-center font-bold">
+            {t("ENGAGE AND SHAPE OUR FUTURE ")}
+          </h1>
+        </div>
+      </section>
       <HighLights lang={lang} />
-      <section className="w-full px-24">
+      <section className="w-full px-6 sm:px-24">
         <HeaderTitleWithLine title={t("TICKET INFO")} lineColor="cyan" />
       </section>
-      <section className="w-full px-24">
+      <section className="w-full px-6 sm:px-24">
         <div className="App container">
           <Guidelines
             open
@@ -59,11 +55,8 @@ export default async function Home({
           </Guidelines>
         </div>
       </section>
-      <section className="w-full py-20 px-8 sm:px-24">
-        <HeaderTitleWithLine
-          title={t("TRANSPORTATION INFORMATION")}
-          lineColor="green"
-        />
+      <section className="w-full py-20 px-6 sm:px-24">
+        <HeaderTitleWithLine title={t("TRANSPORTATION INFORMATION")} lineColor="green" />
         <div className="flex flex-col">
           <Transportation
             location={t("TRANSPORTATION_TITLE")}
@@ -72,9 +65,9 @@ export default async function Home({
           />
         </div>
       </section>
-      <section className="w-full px-24">
+      <section className="w-full px-6 sm:px-24">
         <HeaderTitleWithLine title={t("CALL FOR SPONSOR")} lineColor="yellow" />
       </section>
     </main>
-  );
+  )
 }
