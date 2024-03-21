@@ -33,7 +33,7 @@ const MenuContent: React.FC<MenuContentProp> = ({ translatedData, lng }) => {
           {translatedData.BUY_TICKET}
         </Link>
       </Button>
-      <Link href={`/${lng}/2024`}>
+      <Link href={`/${lng === "en-US" ? "zh-TW" : "en-US"}/2024`}>
         <Image
           src="/images/i18n.png"
           alt="i19n"

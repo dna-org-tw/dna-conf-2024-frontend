@@ -34,7 +34,7 @@ export default function Nav() {
     <nav className="w-full h-[60px] lg:h-[94px] flex items-center justify-center lg:justify-between px-24 bg-brand-gray relative z-50">
       <MenuDropdown translatedData={translatedData} lng={lng} />
       <Link
-        href={`/${lng === "en-US" ? "zh-TW" : "en-US"}/2024`}
+        href={`/${lng}/2024`}
         className="h-2/5  flex justify-center items-center"
       >
         <Image
