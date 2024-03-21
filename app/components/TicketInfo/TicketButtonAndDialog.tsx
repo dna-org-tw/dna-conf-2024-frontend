@@ -62,7 +62,7 @@ export default function TicketButtonAndDialog({
         <div
           className={clsx(
             `${color[0]} p-3 text-xl uppercase`,
-            color === ticketColor.red ? "text-white" : "",
+            color[0] === "bg-vip-ticket" ? "text-white" : "",
           )}
         >
           {title}
@@ -77,7 +77,14 @@ export default function TicketButtonAndDialog({
             className={`pt-[100px] pb-[30px] ${color[0]} flex flex-col items-center relative`}
           >
             <h2 className="text-2xl font-bold mb-2">{title}</h2>
-            <h3 className="text-2xl font-bold text-[#E4003D]">{price}</h3>
+            <h3
+              className={clsx(
+                "text-2xl font-bold ",
+                color[0] === "bg-vip-ticket" ? "text-white" : "text-[#E4003D],
+              )}
+            >
+              {price}
+            </h3>
             {(showTrumpet || showSpecialLabel) && (
               <div
                 className={clsx(
