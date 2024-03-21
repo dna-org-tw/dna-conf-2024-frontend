@@ -19,8 +19,8 @@ i18next
   .use(
     resourcesToBackend(
       (language: string, ns: string) =>
-        import(`../public/locales/${language}/${ns}.json`)
-    )
+        import(`../public/locales/${language}/${ns}.json`),
+    ),
   )
   .init({
     ...getOptions(),
@@ -34,7 +34,7 @@ i18next
 export function useClientTranslation(
   lng: string,
   ns: string = "common",
-  options: any = {}
+  options: any = {},
 ) {
   const [cookies, setCookie] = useCookies([cookieName]);
   const ret = useTranslationOrg(ns, options);

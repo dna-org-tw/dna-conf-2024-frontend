@@ -30,12 +30,16 @@ const lineColors: Record<LineColor, string> = {
 
 const HeaderTitleWithLine = ({ title, lineColor }: Props) => {
   return (
-    <div className="flex justify-center items-center max-w-[500px] mx-auto mb-10 gap-x-8">
-      <div className={`border-[2px] flex-1 ${lineColors[lineColor]} `}></div>
-      <h1 className="lg:mx-2 mx-0 lg:whitespace-nowrap text-[32px] flex-2 text-black text-center font-bold">
+    <div className="flex justify-center items-center mx-auto mb-10 gap-x-8">
+      <div
+        className={`border-[2px] w-full md:w-[120px] ${lineColors[lineColor]} `}
+      ></div>
+      <h1 className="lg:mx-2 mx-0 lg:whitespace-nowrap text-2xl lg:text-3xl text-black text-center font-bold">
         {title}
       </h1>
-      <div className={`border-[2px] flex-1 ${lineColors[lineColor]} `}></div>
+      <div
+        className={`border-[2px] w-full md:w-[120px] ${lineColors[lineColor]} `}
+      ></div>
     </div>
   );
 };

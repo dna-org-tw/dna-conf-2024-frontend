@@ -1,6 +1,8 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { Lang } from "@/types/common";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export default function CountDownTimer({ lang }: { lang: Lang }) {
   const isZhTw = lang === "zh-TW";
@@ -34,52 +36,43 @@ export default function CountDownTimer({ lang }: { lang: Lang }) {
   }, []);
 
   return (
-    <>
-      <div className="relative w-64 left-0 top-0  md:w-1/2 md:mx-auto">
-        <div className="text-white p-5 md:justify-center md:bg-white md:rounded-3xl md:text-black">
-          {isZhTw ? (
-            <>
-              <div className="flex justify-start text-lg font-bold pb-5 md:hidden">
-                距離大會開始時間
-              </div>
-              <div className="hidden md:visible md:flex md:justify-center md:text-2xl md:font-semibold md:pb-5 ">
-                購票倒數
-              </div>
-            </>
-          ) : (
-            <>
-              <div className="flex justify-start text-lg font-bold pb-5 md:hidden">
-                Event Countdown
-              </div>
-              <div className="hidden md:visible md:flex md:justify-center md:text-2xl md:font-semibold md:pb-5 ">
-                Event Countdown
-              </div>
-            </>
-          )}
-          <div className="flex flex-row justify-start w-auto text-3xl font-bold gap-4 md:justify-center">
-            <div className="flex-col md:flex-row">
-              <span>{days}  </span>
-              <span className='font-normal text-stone-50 text-base md:text-black md:hidden'>days </span>
-              <span className='invisible md:visible'>天</span>
-            </div>
-            <div className="flex-col justify-start">
-              <span>{hours}  </span>
-              <span className='font-normal text-stone-50 text-base md:text-black  md:hidden'>hrs </span>
-              <span className='invisible md:visible'>小時</span>
-            </div>
-            <div className="flex-col justify-start md:flex-row">
-              <span>{minutes}  </span>
-              <span className='font-normal text-stone-50 text-base md:text-black  md:hidden'>min </span>
-              <span className='invisible md:visible'>分</span>
-            </div>
-            <div className="flex-col justify-start ">
-              <span>{seconds} </span>
-              <span className='font-normal text-stone-50 text-base md:text-black md:hidden'>sec </span>
-              <span className='invisible md:visible'>秒</span>
-            </div>
+    <div className="max-w-lg mx-auto z-50">
+      <div className="p-4 md:bg-white md:rounded-xl md:p-10 text-white md:text-inherit">
+        <div className="text-xl font-bold md:text-center mb-3">
+          {isZhTw ? "距離大會開始時間" : "EVENT COUNTDOWN"}
+        </div>
+        <div className="flex flex-row items-center md:items-start gap-x-4 md:justify-center">
+          <div className="flex flex-col md:items-center">
+            <span className="text-3xl font-bold">{days}</span>
+            <span>DAYS </span>
           </div>
+          <span className="hidden md:inline text-3xl font-bold">:</span>
+          <div className="flex flex-col md:items-center">
+            <span className="text-3xl font-bold">{hours}</span>
+            <span> HRS </span>
+          </div>
+          <span className="hidden md:inline text-3xl font-bold">:</span>
+
+          <div className="flex flex-col md:items-center">
+            <span className="text-3xl font-bold">{minutes}</span>
+            <span> MINS </span>
+          </div>
+
+          <div className="flex flex-col md:hidden">
+            <span className="text-3xl font-bold">{seconds}</span>
+            <span> SECS </span>
+          </div>
+
+          <Button
+            asChild
+            className="rounded-3xl bg-[#E74310] border-white border-2 ml-auto md:hidden"
+          >
+            <Link href="https://dna.kolable.app/projects/c8d45648-a2f6-4675-a8e0-fbbd907c5789">
+              TICKET
+            </Link>
+          </Button>
         </div>
       </div>
-    </>
+    </div>
   );
 }
