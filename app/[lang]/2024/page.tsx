@@ -29,7 +29,7 @@ export default async function Home({
       <section className="fixed bottom-0 z-99 w-full md:h-1/4 bg-[url('/images/mobile-countdown-background.png')] bg-cover md:relative md:py-12 md:bg-[url('/images/countdown-background.png')] md:bg-contain">
         <CountDownTimer lang={lang} />
       </section>
-      <section className="w-full px-6 md:px-24">
+      <section id="speaker" className="w-full px-6 md:px-24">
         <HeaderTitleWithLine
           title={t("KEYNOTE SPEAKER")}
           lineColor="darkBlue"
@@ -43,7 +43,7 @@ export default async function Home({
       </section>
       <Agenda lang={lang} />
       <HighLights lang={lang} />
-      <section className="w-full px-6 md:px-24">
+      <section id="ticket" className="w-full px-6 md:px-24">
         <HeaderTitleWithLine title={t("TICKET INFO")} lineColor="cyan" />
         <div className="flex flex-col items-center">
           <ColorfulButton href="https://dna.kolable.app/projects/c8d45648-a2f6-4675-a8e0-fbbd907c5789">
@@ -64,7 +64,7 @@ export default async function Home({
           {Array.from({ length: 7 }, (_, index) => t(`notice${index + 1}`))}
         </Guidelines>
       </section>
-      <section className="w-full py-20 px-6 md:px-24">
+      <section id="transportation" className="w-full py-20 px-6 md:px-24">
         <HeaderTitleWithLine
           title={t("TRANSPORTATION INFORMATION")}
           lineColor="green"
@@ -77,7 +77,7 @@ export default async function Home({
           />
         </div>
       </section>
-      <section className="w-full px-6 md:px-24">
+      <section id="call-for-sponsor" className="w-full px-6 md:px-24">
         <HeaderTitleWithLine title={t("CALL FOR SPONSOR")} lineColor="yellow" />
         <div className="flex flex-col items-center pt-7 md:pt-20 pb-9 md:pb-36">
           <ColorfulButton href="https://forms.gle/u5XVdrCqjpwitT2m7">
