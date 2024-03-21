@@ -88,6 +88,19 @@ const config = {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "highlight-text-gradient": "linear-gradient(135deg, #fff 41px, #000 41px)",
+      },
+      backgroundColor: {
+        "single-ticket": "#FFD028",
+        "group-ticket": "#F9D2E5",
+        "classic-ticket": "#10B8D9",
+        "vip-ticket": "#E4003D",
+      },
+      borderColor: {
+        "single-ticket": "#FFD028",
+        "group-ticket": "#F9D2E5",
+        "classic-ticket": "#10B8D9",
+        "vip-ticket": "#E4003D",
       },
     },
   },
