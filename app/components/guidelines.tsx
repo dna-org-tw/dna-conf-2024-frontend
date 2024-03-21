@@ -30,7 +30,7 @@ const Guidelines: React.FC<IProps> = ({
   };
 
   return (
-    <div className="container mx-auto mx-2 mx-0 lg:whitespace-nowrap lg:pt-10 lg:px-8">
+    <div className="container lg:whitespace-nowrap lg:pt-10 lg:px-8">
       <h6 className="lg:text-[16px] text-black flex-2 font-bold text-center tracking-widest mb-2">
         {title}
       </h6>
@@ -49,7 +49,7 @@ const Guidelines: React.FC<IProps> = ({
                     dangerouslySetInnerHTML={{
                       __html: notice.replace(
                         "us@dna.org.tw",
-                        "<u>us@dna.org.tw</u>",
+                        "<u>us@dna.org.tw</u>"
                       ),
                     }}
                   />
