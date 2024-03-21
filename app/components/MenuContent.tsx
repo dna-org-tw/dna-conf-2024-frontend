@@ -25,7 +25,10 @@ const MenuContent: React.FC<MenuContentProp> = ({ translatedData, lng }) => {
       <Link href={`/${lng}/2024#call-for-sponsor`}>
         {translatedData.CALL_FOR_SPONSOR}
       </Link>
-      <Button asChild className="bg-cta rounded-lg px-4 py-2 w-fit">
+      <Button
+        asChild
+        className="bg-cta hover:bg-cta/90 rounded-lg px-4 py-2 w-fit"
+      >
         <Link
           href="https://dna.kolable.app/projects/c8d45648-a2f6-4675-a8e0-fbbd907c5789"
           target="_blank"
