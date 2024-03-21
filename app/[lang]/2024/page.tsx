@@ -11,6 +11,7 @@ import CountDownTimer from "@/app/components/CountDownTimer";
 import HighLights from "@/app/components/HighLights";
 import { Button } from "@/components/ui/button";
 import ColorfulButton from "@/app/components/ColorfulButton";
+import TicketInfo from "@/app/components/TicketInfo";
 
 export default async function Home({
   params: { lang },
@@ -45,7 +46,8 @@ export default async function Home({
       <HighLights lang={lang} />
       <section id="ticket" className="w-full px-6 md:px-24">
         <HeaderTitleWithLine title={t("TICKET INFO")} lineColor="cyan" />
-        <div className="flex flex-col items-center">
+        <TicketInfo lang={lang} />
+        <div className="flex flex-col items-center mt-9">
           <ColorfulButton href="https://dna.kolable.app/projects/c8d45648-a2f6-4675-a8e0-fbbd907c5789">
             {t("BUY TICKET")}
           </ColorfulButton>
