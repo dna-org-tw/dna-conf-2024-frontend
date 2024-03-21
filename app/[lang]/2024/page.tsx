@@ -49,7 +49,7 @@ export default async function Home({
           <HeaderTitleWithLine title={t("TICKET INFO")} lineColor="cyan" />
         </div>
         <TicketInfo lang={lang} />
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center mt-9">
           <ColorfulButton href="https://dna.kolable.app/projects/c8d45648-a2f6-4675-a8e0-fbbd907c5789">
             {t("BUY TICKET")}
           </ColorfulButton>
