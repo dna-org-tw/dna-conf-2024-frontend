@@ -19,8 +19,8 @@ export default async function index({ lang }: { lang: Lang }) {
           color={color1}
           title={t("single ticket.title")}
           price={t("single ticket.price")}
-          availablePeriod={t("single ticket.availablePeriod")}
-          originalPrice={t("single ticket.originalPrice")}
+          availablePeriod={t("single ticket.available period")}
+          originalPrice={t("single ticket.original price")}
           content={[t("single ticket.content1")]}
         />
         <TicketBlock
@@ -28,8 +28,8 @@ export default async function index({ lang }: { lang: Lang }) {
           color={color2}
           title={t("two person ticket.title")}
           price={t("two person ticket.price")}
-          availablePeriod={t("two person ticket.availablePeriod")}
-          originalPrice={t("two person ticket.originalPrice")}
+          availablePeriod={t("two person ticket.available period")}
+          originalPrice={t("two person ticket.original price")}
           content={[
             t("two person ticket.content1"),
             t("two person ticket.content2"),
@@ -41,8 +41,8 @@ export default async function index({ lang }: { lang: Lang }) {
           color={color2}
           title={t("five person ticket.title")}
           price={t("five person ticket.price")}
-          availablePeriod={t("five person ticket.availablePeriod")}
-          originalPrice={t("five person ticket.originalPrice")}
+          availablePeriod={t("five person ticket.available period")}
+          originalPrice={t("five person ticket.original price")}
           content={[
             t("five person ticket.content1"),
             t("five person ticket.content2"),
@@ -53,8 +53,8 @@ export default async function index({ lang }: { lang: Lang }) {
           color={color3}
           title={t("single classic ticket.title")}
           price={t("single classic ticket.price")}
-          availablePeriod={t("single classic ticket.availablePeriod")}
-          originalPrice={t("single classic ticket.originalPrice")}
+          availablePeriod={t("single classic ticket.available period")}
+          originalPrice={t("single classic ticket.original price")}
           content={[
             t("single classic ticket.content1"),
             t("single classic ticket.content2"),
@@ -64,7 +64,7 @@ export default async function index({ lang }: { lang: Lang }) {
           label={t("single classic ticket.label")}
         />
       </div>
-      <div className="mt-2 flex mx-4 h-[241px]">
+      <div className="hidden xl:flex mt-2 mx-4 h-[241px]">
         <div
           className="flex-none w-[381px] h-[241px] bg-no-repeat bg-contain pt-[46px] pr-[57px] pb-[25px] pl-[61px]"
           style={{ background: "url(/images/ticket-vip-bg.svg)" }}
@@ -82,7 +82,7 @@ export default async function index({ lang }: { lang: Lang }) {
                 isZhTw ? "" : "text-sm",
               )}
             >
-              {t("vip ticket.availablePeriod")}
+              {t("vip ticket.available period")}
             </p>
             <p
               className={clsx(
@@ -90,7 +90,7 @@ export default async function index({ lang }: { lang: Lang }) {
                 isZhTw ? "" : "text-sm",
               )}
             >
-              {t("vip ticket.originalPrice")}
+              {t("vip ticket.original price")}
             </p>
           </div>
         </div>

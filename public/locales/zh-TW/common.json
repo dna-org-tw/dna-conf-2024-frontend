@@ -34,18 +34,20 @@
   "APPLICATION FORM": "索取贊助書",
   "original price": "原價：",
   "ticket content": "內容：",
+  "available period": "03/15 - 04/30 盲鳥票開賣中！",
+  "click for details": "票券方案詳情請點擊",
   "single ticket": {
     "title": "單人學習趣",
     "price": "TWD 600",
-    "availablePeriod": "03/15-04/30 盲鳥票開賣中！",
-    "originalPrice": "TWD 1,300",
+    "available period": "03/15-04/30 盲鳥票開賣中！",
+    "original price": "TWD 1,300",
     "content1": "2024/08/03 大會\n全天議程票卷×1張\n午餐餐盒兌換卷 ×1張"
   },
   "two person ticket": {
     "title": "雙人跳探戈",
     "price": "TWD 1,200",
-    "availablePeriod": "3/15-04/30 盲鳥票開賣中！",
-    "originalPrice": "TWD 3,000",
+    "available period": "3/15-04/30 盲鳥票開賣中！",
+    "original price": "TWD 3,000",
     "content1": "2024/08/03 大會\n全天議程票卷 ×2張\n午餐餐盒兌換卷 ×2張",
     "content2": "2024/08/03 After Party\n@言文字 入場卷 ×2張",
     "label": "最受歡迎！"
@@ -53,16 +55,16 @@
   "five person ticket": {
     "title": "五人揪共學",
     "price": "TWD 2,700",
-    "availablePeriod": "03/15-04/30 盲鳥票開賣中！",
-    "originalPrice": "TWD 7,500",
+    "available period": "03/15-04/30 盲鳥票開賣中！",
+    "original price": "TWD 7,500",
     "content1": "2024/08/03 大會\n全天議程票卷 ×5張\n午餐餐盒兌換卷 ×5張",
     "content2": "2024/08/03 After Party\n@言文字 入場卷 ×5張"
   },
   "single classic ticket": {
     "price": "TWD 3,700",
     "title": "單人經典全席",
-    "availablePeriod": "03/15-04/30 盲鳥票開賣中！",
-    "originalPrice": "TWD 4,700",
+    "available period": "03/15-04/30 盲鳥票開賣中！",
+    "original price": "TWD 4,700",
     "content1": "2024/08/02 交流餐敘\n入場卷 ×1張",
     "content2": "2024/08/03 大會\n全天議程票卷 ×1張\n全天議程保留座位 ×1席\n午餐餐盒兌換卷 ×1張",
     "content3": "2024/08/03 After Party\n@言文字 入場卷 ×1張",
@@ -72,8 +74,8 @@
   "vip ticket": {
     "title": "尊爵 VIP",
     "price": "TWD 9,900",
-    "availablePeriod": "04/01-07/28 預備開賣中！",
-    "originalPrice": "原價 TWD 14,990",
+    "available period": "04/01-07/28 預備開賣中！",
+    "original price": "原價 TWD 14,990",
     "content1": "2024/08/02 交流餐敘\n入場卷 ×1張",
     "content2": "2024/08/03 大會\n全天議程票卷 ×1張\n全天議程指定座位 ×1席\n午餐餐盒兌換卷 ×1張",
     "content3": "2024/08/03 After Party\n@言文字 入場卷 ×1張",
