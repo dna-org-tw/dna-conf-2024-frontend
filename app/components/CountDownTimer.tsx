@@ -19,7 +19,7 @@ export default function CountDownTimer({ lang }: { lang: Lang }) {
       setDays(d);
 
       const h = Math.floor(
-        (difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
+        (difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
       );
       setHours(h);
 
@@ -52,23 +52,23 @@ export default function CountDownTimer({ lang }: { lang: Lang }) {
       ) : (
         <>
           <div className="bg-white rounded-xl p-10">
-            <div className="flex justify-center text-xl font-bold mb-3">
+            <div className="flex justify-center text-xl font-bold text-center mb-3">
               Event Countdown
             </div>
             <div className="flex flex-row justify-evenly w-auto ">
-              <div className='flex flex-col'>
-                <span className='text-3xl font-bold'>{days}</span>
+              <div className="flex flex-col">
+                <span className="text-3xl font-bold">{days}</span>
                 <span>DAYS </span>
               </div>
-              <span className='text-3xl font-bold'>:</span>
-              <div className='flex flex-col'>
-                <span className='text-3xl font-bold'>{hours}</span>
+              <span className="text-3xl font-bold">:</span>
+              <div className="flex flex-col">
+                <span className="text-3xl font-bold">{hours}</span>
                 <span> HRS </span>
               </div>
-              <span className='text-3xl font-bold'>:</span>
+              <span className="text-3xl font-bold">:</span>
 
-              <div className='flex flex-col'>
-                <span className='text-3xl font-bold'>{minutes}</span>
+              <div className="flex flex-col">
+                <span className="text-3xl font-bold">{minutes}</span>
                 <span> MINS </span>
               </div>
             </div>

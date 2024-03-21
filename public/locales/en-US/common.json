@@ -3,7 +3,7 @@
   "conf": "Taiwan Digital Nomad Conference 2024",
   "KEYNOTE SPEAKER": "KEYNOTE SPEAKER",
   "AGENDA": "AGENDA",
-  "TICKET INFO": "TICKET INFO",
+  "TICKET INFO": "TICKETS",
   "TRANSPORTATION INFORMATION": "TRANSPORTATION INFORMATION",
   "CALL FOR SPONSOR": "CALL FOR SPONSOR",
   "TICKET PURCHASE GUIDE": "TICKET PURCHASE GUIDE",
@@ -29,5 +29,6 @@
   "We connect digital nomad enthusiasts": "<0>Connect with</0> <1>150+</1> digital nomad enthusiasts.",
   "We present non-stop exciting topics": "Presenting an uninterrupted series of <1>11</1> exciting topics.",
   "We have selected booths": "<0>Plus, an additional showcase of</0> <1>6</1> selected booths on-site.",
-  "BUY TICKET": "BUY TICKET"
+  "BUY TICKET": "BUY TICKET",
+  "APPLICATION FORM": "APPLICATION FORM"
 }

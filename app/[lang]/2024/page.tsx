@@ -10,6 +10,7 @@ import Agenda from "@/app/components/Agenda";
 import CountDownTimer from "@/app/components/CountDownTimer";
 import HighLights from "@/app/components/HighLights";
 import { Button } from "@/components/ui/button";
+import ColorfulButton from "@/app/components/ColorfulButton";
 
 export default async function Home({
   params: { lang },
@@ -28,7 +29,7 @@ export default async function Home({
       <section className="w-full py-12 px-24 bg-[url('/images/countdown-background.png')] bg-contain">
         <CountDownTimer lang={lang} />
       </section>
-      <section className="w-full px-6 sm:px-24">
+      <section className="w-full px-6 md:px-24">
         <HeaderTitleWithLine
           title={t("KEYNOTE SPEAKER")}
           lineColor="darkBlue"
@@ -41,34 +42,16 @@ export default async function Home({
         />
       </section>
       <Agenda lang={lang} />
-      <section className="w-full px-6 sm:px-24">
-        <div className="flex justify-center items-center max-w-[500px] mx-auto">
-          <h1 className="lg:mx-2 mx-0 lg:whitespace-nowrap text-[32px] flex-2 text-black text-center font-bold">
-            {t("ENGAGE AND SHAPE OUR FUTURE ")}
-          </h1>
-        </div>
-      </section>
       <HighLights lang={lang} />
-      <section className="w-full px-6 sm:px-24">
+      <section className="w-full px-6 md:px-24">
         <HeaderTitleWithLine title={t("TICKET INFO")} lineColor="cyan" />
         <div className="flex flex-col items-center">
-          <div className="bg-[url('/images/button-bg.png')] bg-contain rounded-[40px] p-3">
-            <Button
-              asChild
-              variant="ghost"
-              className="bg-white rounded-[40px] text-4xl font-bold tracking-wider px-12 py-8"
-            >
-              <Link
-                href="https://dna.kolable.app/projects/c8d45648-a2f6-4675-a8e0-fbbd907c5789"
-                target="_blank"
-              >
-                {t("BUY TICKET")}
-              </Link>
-            </Button>
-          </div>
+          <ColorfulButton href="https://dna.kolable.app/projects/c8d45648-a2f6-4675-a8e0-fbbd907c5789">
+            {t("BUY TICKET")}
+          </ColorfulButton>
         </div>
       </section>
-      <section className="w-full px-6 sm:px-24">
+      <section className="w-full px-6 md:px-24">
         <Guidelines
           open
           title={t("TICKET PURCHASE GUIDE")}
@@ -81,7 +64,7 @@ export default async function Home({
           {Array.from({ length: 7 }, (_, index) => t(`notice${index + 1}`))}
         </Guidelines>
       </section>
-      <section className="w-full py-20 px-6 sm:px-24">
+      <section className="w-full py-20 px-6 md:px-24">
         <HeaderTitleWithLine
           title={t("TRANSPORTATION INFORMATION")}
           lineColor="green"
@@ -94,8 +77,13 @@ export default async function Home({
           />
         </div>
       </section>
-      <section className="w-full px-6 sm:px-24">
+      <section className="w-full px-6 md:px-24">
         <HeaderTitleWithLine title={t("CALL FOR SPONSOR")} lineColor="yellow" />
+        <div className="flex flex-col items-center pt-7 md:pt-20 pb-9 md:pb-36">
+          <ColorfulButton href="https://forms.gle/u5XVdrCqjpwitT2m7">
+            {t("APPLICATION FORM")}
+          </ColorfulButton>
+        </div>
       </section>
     </main>
   );
