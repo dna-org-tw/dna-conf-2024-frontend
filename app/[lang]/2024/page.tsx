@@ -44,8 +44,10 @@ export default async function Home({
       </section>
       <Agenda lang={lang} />
       <HighLights lang={lang} />
-      <section className="w-full px-6 md:px-24">
-        <HeaderTitleWithLine title={t("TICKET INFO")} lineColor="cyan" />
+      <section className="w-full px-6">
+        <div className="md:px-[88px]">
+          <HeaderTitleWithLine title={t("TICKET INFO")} lineColor="cyan" />
+        </div>
         <TicketInfo lang={lang} />
         <div className="flex flex-col items-center">
           <ColorfulButton href="https://dna.kolable.app/projects/c8d45648-a2f6-4675-a8e0-fbbd907c5789">

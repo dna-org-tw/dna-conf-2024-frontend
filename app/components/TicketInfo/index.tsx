@@ -2,21 +2,25 @@ import TicketBlock from "./TicketBlock";
 import { useServerTranslation } from "@/i18n";
 import { Lang } from "@/types/common";
 import clsx from "clsx";
+import TicketInfoMobile from "./TicketInfoMobile";
 
-const color1 = "#FFD028";
-const color2 = "#F9D2E5";
-const color3 = "#10B8D9";
+export const ticketColor = {
+  yellow: "#FFD028",
+  pink: "#F9D2E5",
+  blue: "#10B8D9",
+  red: "#E4003D",
+} as const;
 
-export default async function index({ lang }: { lang: Lang }) {
+export default async function TicketInfo({ lang }: { lang: Lang }) {
   const { t } = await useServerTranslation(lang);
   const isZhTw = lang === "zh-TW";
 
   return (
-    <section className="mt-[140px] flex flex-col">
+    <div className="mt-[140px] flex flex-col">
       <div className="hidden xl:flex">
         <TicketBlock
-          lang={lang}
-          color={color1}
+          t={t}
+          color={ticketColor.yellow}
           title={t("single ticket.title")}
           price={t("single ticket.price")}
           availablePeriod={t("single ticket.available period")}
@@ -24,8 +28,8 @@ export default async function index({ lang }: { lang: Lang }) {
           content={[t("single ticket.content1")]}
         />
         <TicketBlock
-          lang={lang}
-          color={color2}
+          t={t}
+          color={ticketColor.pink}
           title={t("two person ticket.title")}
           price={t("two person ticket.price")}
           availablePeriod={t("two person ticket.available period")}
@@ -37,8 +41,8 @@ export default async function index({ lang }: { lang: Lang }) {
           label={t("two person ticket.label")}
         />
         <TicketBlock
-          lang={lang}
-          color={color2}
+          t={t}
+          color={ticketColor.pink}
           title={t("five person ticket.title")}
           price={t("five person ticket.price")}
           availablePeriod={t("five person ticket.available period")}
@@ -49,8 +53,8 @@ export default async function index({ lang }: { lang: Lang }) {
           ]}
         />
         <TicketBlock
-          lang={lang}
-          color={color3}
+          t={t}
+          color={ticketColor.blue}
           title={t("single classic ticket.title")}
           price={t("single classic ticket.price")}
           availablePeriod={t("single classic ticket.available period")}
@@ -90,12 +94,16 @@ export default async function index({ lang }: { lang: Lang }) {
                 isZhTw ? "" : "text-sm",
               )}
             >
-              {t("vip ticket.original price")}
+              {`${t("original price")} ${t("vip ticket.original price")}`}
             </p>
           </div>
         </div>
-        <div className="flex-1 bg-[#F6F6F6] mt-[20px] rounded-r-2xl border-[5px] border-l-0 border-[#E4003D] flex">
-          <div className="m-4 p-2 border border-[#E4003D] flex-1 flex">
+        <div
+          className={`flex-1 bg-[#F6F6F6] mt-[20px] rounded-r-2xl border-[5px] border-l-0 border-[${ticketColor.red}] flex`}
+        >
+          <div
+            className={`m-4 p-2 border border-[${ticketColor.red}] flex-1 flex`}
+          >
             <div className="flex-none max-w-[60px] mr-2">
               {t("ticket content")}
             </div>
@@ -151,6 +159,7 @@ export default async function index({ lang }: { lang: Lang }) {
           </div>
         </div>
       </div>
-    </section>
+      <TicketInfoMobile lang={lang} />
+    </div>
   );
 }

@@ -79,6 +79,10 @@
     "content5": "Selected Merchandise, including\n- Conference Limited-Edition T-shirt (M/XL)\n- Conference Limited-Edition Canvas Bag\n- Travel Coffee Cup with the association's logo\n- Luggage tag with the association's logo",
     "title": "Noble VIP",
     "available period": "Presale ongoing from 04/01 to 07/28!",
-    "original price": "Original Price: TWD 14,990"
-  }
+    "original price": "TWD 14,990",
+    "label": "SUPER SALE"
+  },
+  "buy ticket": "BUY TICKET",
+  "back for more": "back for more",
+  "looking for partner": "Tempted by the {{ticketType}}!?<br />Looking for others to buy together!<br />Welcome to join the group purchase at<br /><a>台灣數位遊牧者社群<br />Taiwan Digital Nomads Hub</a>!"
 }

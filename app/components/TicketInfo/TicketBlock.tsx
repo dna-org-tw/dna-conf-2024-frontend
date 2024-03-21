@@ -1,8 +1,8 @@
 import { useServerTranslation } from "@/i18n";
-import { Lang } from "@/types/common";
+import { TFunction } from "i18next";
 
 export default async function TicketBlock({
-  lang,
+  t,
   color,
   title,
   price,
@@ -11,7 +11,7 @@ export default async function TicketBlock({
   content,
   label,
 }: {
-  lang: Lang;
+  t: TFunction;
   color: string;
   price: string;
   availablePeriod: string;
@@ -20,7 +20,6 @@ export default async function TicketBlock({
   content: string[];
   label?: string;
 }) {
-  const { t } = await useServerTranslation(lang);
   return (
     <div
       className={`flex-1 mx-1 xl:mx-3 rounded-2xl border-4 border-[${color}] flex flex-col relative`}

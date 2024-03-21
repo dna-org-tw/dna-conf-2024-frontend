@@ -75,11 +75,15 @@
     "title": "尊爵 VIP",
     "price": "TWD 9,900",
     "available period": "04/01-07/28 預備開賣中！",
-    "original price": "原價 TWD 14,990",
+    "original price": "TWD 14,990",
     "content1": "2024/08/02 交流餐敘\n入場卷 ×1張",
     "content2": "2024/08/03 大會\n全天議程票卷 ×1張\n全天議程指定座位 ×1席\n午餐餐盒兌換卷 ×1張",
     "content3": "2024/08/03 After Party\n@言文字 入場卷 ×1張",
     "content4": "2024/08/04 台北一日遊票卷 ×1張",
-    "content5": "精選周邊商品，包含\n大會限定-T-shirt (M/XL)\n大會限定-帆布包\n協會 logo 隨行咖啡杯\n協會 logo 行李吊牌"
-  }
+    "content5": "精選周邊商品，包含\n大會限定-T-shirt (M/XL)\n大會限定-帆布包\n協會 logo 隨行咖啡杯\n協會 logo 行李吊牌",
+    "label": "SUPER SALE"
+  },
+  "buy ticket": "立即購票",
+  "back for more": "返回看更多",
+  "looking for partner": "{{ticketType}}好心動！？想找人一起買！<br />歡迎來<br /><a>台灣數位遊牧者社群 <br />Taiwan Digital Nomads Hub</a><br />揪團購！"
 }
