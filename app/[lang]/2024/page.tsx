@@ -28,7 +28,7 @@ export default async function Home({
       <section className="w-full py-12 px-24 bg-[url('/images/countdown-background.png')] bg-contain">
         <CountDownTimer lang={lang} />
       </section>
-      <section className="w-full px-24">
+      <section className="w-full px-6 sm:px-24">
         <HeaderTitleWithLine
           title={t("KEYNOTE SPEAKER")}
           lineColor="darkBlue"
@@ -41,8 +41,15 @@ export default async function Home({
         />
       </section>
       <Agenda lang={lang} />
+      <section className="w-full px-6 sm:px-24">
+        <div className="flex justify-center items-center max-w-[500px] mx-auto">
+          <h1 className="lg:mx-2 mx-0 lg:whitespace-nowrap text-[32px] flex-2 text-black text-center font-bold">
+            {t("ENGAGE AND SHAPE OUR FUTURE ")}
+          </h1>
+        </div>
+      </section>
       <HighLights lang={lang} />
-      <section className="w-full px-24">
+      <section className="w-full px-6 sm:px-24">
         <HeaderTitleWithLine title={t("TICKET INFO")} lineColor="cyan" />
         <div className="flex flex-col items-center">
           <div className="bg-[url('/images/button-bg.png')] bg-contain rounded-[40px] p-3">
@@ -61,7 +68,7 @@ export default async function Home({
           </div>
         </div>
       </section>
-      <section className="w-full px-24">
+      <section className="w-full px-6 sm:px-24">
         <Guidelines
           open
           title={t("TICKET PURCHASE GUIDE")}
@@ -74,7 +81,7 @@ export default async function Home({
           {Array.from({ length: 7 }, (_, index) => t(`notice${index + 1}`))}
         </Guidelines>
       </section>
-      <section className="w-full py-20 px-8 sm:px-24">
+      <section className="w-full py-20 px-6 sm:px-24">
         <HeaderTitleWithLine
           title={t("TRANSPORTATION INFORMATION")}
           lineColor="green"
@@ -87,7 +94,7 @@ export default async function Home({
           />
         </div>
       </section>
-      <section className="w-full px-24">
+      <section className="w-full px-6 sm:px-24">
         <HeaderTitleWithLine title={t("CALL FOR SPONSOR")} lineColor="yellow" />
       </section>
     </main>
