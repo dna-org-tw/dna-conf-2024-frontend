@@ -1,6 +1,8 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { Lang } from "@/types/common";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export default function CountDownTimer({ lang }: { lang: Lang }) {
   const isZhTw = lang === "zh-TW";
@@ -34,47 +36,43 @@ export default function CountDownTimer({ lang }: { lang: Lang }) {
   }, []);
 
   return (
-    <div className="max-w-lg mx-auto">
-      {isZhTw ? (
-        <>
-          <div className="bg-white rounded-3xl p-5">
-            <div className="flex justify-center text-lg font-bold pb-5">
-              大會倒數
-            </div>
-            <div className="flex flex-row justify-evenly w-auto text-3xl font-bold">
-              <span>{days} 天 </span>
-              <span>{hours} 小時 </span>
-              <span>{minutes} 分 </span>
-              <span>{seconds} 秒 </span>
-            </div>
+    <div className="max-w-lg mx-auto z-50">
+      <div className="p-4 md:bg-white md:rounded-xl md:p-10 text-white md:text-inherit">
+        <div className="text-xl font-bold md:text-center mb-3">
+          {isZhTw ? "距離大會開始時間" : "EVENT COUNTDOWN"}
+        </div>
+        <div className="flex flex-row items-center md:items-start gap-x-4 md:justify-center">
+          <div className="flex flex-col md:items-center">
+            <span className="text-3xl font-bold">{days}</span>
+            <span>DAYS </span>
           </div>
-        </>
-      ) : (
-        <>
-          <div className="bg-white rounded-xl p-10">
-            <div className="flex justify-center text-xl font-bold text-center mb-3">
-              Event Countdown
-            </div>
-            <div className="flex flex-row justify-evenly w-auto ">
-              <div className="flex flex-col">
-                <span className="text-3xl font-bold">{days}</span>
-                <span>DAYS </span>
-              </div>
-              <span className="text-3xl font-bold">:</span>
-              <div className="flex flex-col">
-                <span className="text-3xl font-bold">{hours}</span>
-                <span> HRS </span>
-              </div>
-              <span className="text-3xl font-bold">:</span>
+          <span className="hidden md:inline text-3xl font-bold">:</span>
+          <div className="flex flex-col md:items-center">
+            <span className="text-3xl font-bold">{hours}</span>
+            <span> HRS </span>
+          </div>
+          <span className="hidden md:inline text-3xl font-bold">:</span>
 
-              <div className="flex flex-col">
-                <span className="text-3xl font-bold">{minutes}</span>
-                <span> MINS </span>
-              </div>
-            </div>
+          <div className="flex flex-col md:items-center">
+            <span className="text-3xl font-bold">{minutes}</span>
+            <span> MINS </span>
           </div>
-        </>
-      )}
+
+          <div className="flex flex-col md:hidden">
+            <span className="text-3xl font-bold">{seconds}</span>
+            <span> SECS </span>
+          </div>
+
+          <Button
+            asChild
+            className="rounded-3xl bg-[#E74310] border-white border-2 ml-auto md:hidden"
+          >
+            <Link href="https://dna.kolable.app/projects/c8d45648-a2f6-4675-a8e0-fbbd907c5789">
+              TICKET
+            </Link>
+          </Button>
+        </div>
+      </div>
     </div>
   );
 }

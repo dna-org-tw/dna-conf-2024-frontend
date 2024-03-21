@@ -9,6 +9,7 @@ export default async function Banner({ lang }: { lang: Lang }) {
   const { t } = await useServerTranslation(lang);
   return (
     <section
+      id="event"
       className="w-full bg-right-top bg-no-repeat bg-w-100% lg:py-8"
       style={{ backgroundImage: "url(/images/banner-background.png)" }}
     >
