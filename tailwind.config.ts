@@ -6,7 +6,6 @@ const config: Config = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-
   theme: {
     extend: {
       backgroundSize: {
@@ -17,7 +16,11 @@ const config: Config = {
       },
       backgroundImage: {
         "highlight-text-gradient": "linear-gradient(135deg, #fff 41px, #000 41px)",
-      }
+        'mobile-TBD-zh': "url('/images/mobile-TBD-zh.png')",
+        'mobile-TBD-en': "url('/images/mobile-TBD-en.png')",
+        'desktop-TBD-zh': "url('/images/TBD-zh.png')",
+        'desktop-TBD-en': "url('/images/TBD-en.png')",
+      },
     },
   },
   plugins: [],
