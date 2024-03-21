@@ -25,7 +25,7 @@ export default function TicketButtonAndDialog({
   isGroupTicket = false,
 }: {
   t: TFunction;
-  color: string;
+  color: string[];
   price: string;
   availablePeriod: string;
   originalPrice: string;
@@ -48,7 +48,7 @@ export default function TicketButtonAndDialog({
     <>
       <div
         className={clsx(
-          `cursor-pointer rounded-2xl border-4 border-[${color}] text-center relative`,
+          `cursor-pointer rounded-2xl border-4 ${color[1]} text-center relative`,
           showTrumpet
             ? "before:content-[''] before:absolute before:w-[48px] before:h-[48px] before:top-[-18px] before:left-[-20px] before:bg-[url('/images/ticket-mobile-label-trumpet.svg')]"
             : "",
@@ -61,7 +61,7 @@ export default function TicketButtonAndDialog({
       >
         <div
           className={clsx(
-            `bg-[${color}] p-3 text-xl uppercase`,
+            `${color[0]} p-3 text-xl uppercase`,
             color === ticketColor.red ? "text-white" : "",
           )}
         >
@@ -74,7 +74,7 @@ export default function TicketButtonAndDialog({
       {isOpen && (
         <div className="bg-white h-svh w-svw fixed top-0 left-0 z-10">
           <div
-            className={`pt-[100px] pb-[30px] bg-[${color}] flex flex-col items-center relative`}
+            className={`pt-[100px] pb-[30px] ${color[0]} flex flex-col items-center relative`}
           >
             <h2 className="text-2xl font-bold mb-2">{title}</h2>
             <h3 className="text-2xl font-bold text-[#E4003D]">{price}</h3>

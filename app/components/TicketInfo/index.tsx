@@ -4,11 +4,11 @@ import { Lang } from "@/types/common";
 import clsx from "clsx";
 import TicketInfoMobile from "./TicketInfoMobile";
 
-export const ticketColor = {
-  yellow: "#FFD028",
-  pink: "#F9D2E5",
-  blue: "#10B8D9",
-  red: "#E4003D",
+export const ticketColor: { [key: string]: string[] } = {
+  yellow: ["bg-single-ticket", "border-single-ticket"],
+  pink: ["bg-group-ticket", "border-group-ticket"],
+  blue: ["bg-classic-ticket", "border-classic-ticket"],
+  red: ["bg-vip-ticket", "border-vip-ticket"],
 } as const;
 
 export default async function TicketInfo({ lang }: { lang: Lang }) {
@@ -99,11 +99,9 @@ export default async function TicketInfo({ lang }: { lang: Lang }) {
           </div>
         </div>
         <div
-          className={`flex-1 bg-[#F6F6F6] mt-[20px] rounded-r-2xl border-[5px] border-l-0 border-[${ticketColor.red}] flex`}
+          className={`flex-1 bg-[#F6F6F6] mt-[20px] rounded-r-2xl border-[5px] border-l-0 ${ticketColor.red[1]} flex`}
         >
-          <div
-            className={`m-4 p-2 border border-[${ticketColor.red}] flex-1 flex`}
-          >
+          <div className={`m-4 p-2 border ${ticketColor.red[1]} flex-1 flex`}>
             <div className="flex-none max-w-[60px] mr-2">
               {t("ticket content")}
             </div>

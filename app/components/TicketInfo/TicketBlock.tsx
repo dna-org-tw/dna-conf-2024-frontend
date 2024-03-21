@@ -12,7 +12,7 @@ export default async function TicketBlock({
   label,
 }: {
   t: TFunction;
-  color: string;
+  color: string[];
   price: string;
   availablePeriod: string;
   originalPrice: string;
@@ -22,7 +22,7 @@ export default async function TicketBlock({
 }) {
   return (
     <div
-      className={`flex-1 mx-1 xl:mx-3 rounded-2xl border-4 border-[${color}] flex flex-col relative`}
+      className={`flex-1 mx-1 xl:mx-3 rounded-2xl border-4 ${color[1]} flex flex-col relative`}
     >
       {label && (
         <div
@@ -34,7 +34,7 @@ export default async function TicketBlock({
       )}
 
       <div
-        className={`flex justify-center bg-[${color}] text-center flex-col py-2 min-h-[150px]`}
+        className={`flex justify-center ${color[0]} text-center flex-col py-2 min-h-[150px]`}
       >
         <h2 className="text-4xl font-bold mb-2">{title}</h2>
         <h3 className="text-4xl font-bold text-[#E4003D] uppercase">{price}</h3>
