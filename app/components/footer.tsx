@@ -22,7 +22,7 @@ function Footer() {
             </div>
             <div className="grid grid-flow-col justify-between gap-x-2">
               <Link
-                href="https://www.facebook.com/profile.php?id=61552393077480"
+                href="https://www.facebook.com/profile.php?id=61552393077480&locale=zh_TW"
                 target="_blank"
               >
                 <Image

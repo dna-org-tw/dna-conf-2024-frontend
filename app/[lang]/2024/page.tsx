@@ -9,6 +9,7 @@ import Banner from "@/app/components/Banner";
 import Agenda from "@/app/components/Agenda";
 import CountDownTimer from "@/app/components/CountDownTimer";
 import HighLights from "@/app/components/HighLights";
+import { Button } from "@/components/ui/button";
 
 export default async function Home({
   params: { lang },
@@ -19,10 +20,10 @@ export default async function Home({
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between gap-y-20">
-      <div className="flex justify-center gap-4 fixed top-0 left-0 bg-black/30 text-white p-8 m-4 z-10">
+      {/* <div className="flex justify-center gap-4 fixed top-0 left-0 bg-black/30 text-white p-8 m-4 z-10">
         <Link href="/en-US/2024">en-US</Link>
         <Link href="/zh-TW/2024">zh-TW</Link>
-      </div>
+      </div> */}
       <Banner lang={lang} />
       <section className="w-full py-12 px-24 bg-[url('/images/countdown-background.png')] bg-contain">
         <CountDownTimer lang={lang} />
@@ -43,21 +44,35 @@ export default async function Home({
       <HighLights lang={lang} />
       <section className="w-full px-24">
         <HeaderTitleWithLine title={t("TICKET INFO")} lineColor="cyan" />
+        <div className="flex flex-col items-center">
+          <div className="bg-[url('/images/button-bg.png')] bg-contain rounded-[40px] p-3">
+            <Button
+              asChild
+              variant="ghost"
+              className="bg-white rounded-[40px] text-4xl font-bold tracking-wider px-12 py-8"
+            >
+              <Link
+                href="https://dna.kolable.app/projects/c8d45648-a2f6-4675-a8e0-fbbd907c5789"
+                target="_blank"
+              >
+                {t("BUY TICKET")}
+              </Link>
+            </Button>
+          </div>
+        </div>
       </section>
       <section className="w-full px-24">
-        <div className="App container">
-          <Guidelines
-            open
-            title={t("TICKET PURCHASE GUIDE")}
-            lang={lang}
-            buttonText={{
-              expand: t("expand"),
-              collapse: t("collapse"),
-            }}
-          >
-            {Array.from({ length: 7 }, (_, index) => t(`notice${index + 1}`))}
-          </Guidelines>
-        </div>
+        <Guidelines
+          open
+          title={t("TICKET PURCHASE GUIDE")}
+          lang={lang}
+          buttonText={{
+            expand: t("expand"),
+            collapse: t("collapse"),
+          }}
+        >
+          {Array.from({ length: 7 }, (_, index) => t(`notice${index + 1}`))}
+        </Guidelines>
       </section>
       <section className="w-full py-20 px-8 sm:px-24">
         <HeaderTitleWithLine
