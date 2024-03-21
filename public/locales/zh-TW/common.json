@@ -19,10 +19,15 @@
   "conf date": "Aug. 03, 2024",
   "conf date short": "Aug.03",
   "conf time": "8:30-17:30",
+  "conf day": "sat",
   "conf location": "張榮發國際會議中心",
   "conf description": "是台灣數位遊牧者協會主辦的首屆年度活動，提供國內外數位遊牧愛好者一個高品質交流與學習的環境。邀請您一同參與這場充滿活力與創意的盛會，與我們一起以最自在的方式尋找族人、創造新機會！",
   "TRANSPORTATION_TITLE": "張榮發基金會國際會議中心",
   "TRANSPORTATION_ADDRESS": "100台北市中正區中山南路11號",
   "TRANSPORTATION_DESCRIPTION": "張榮發基金會國際會議中心位於路網綿密、交通便利的中山南路上，正對凱達格蘭大道，緊鄰台大醫院及自由廣場(中正紀念堂)，距離台大醫院捷運站步行約5分鐘，至台北車站車程為5分鐘，同時備有地下停車場，可供中小型汽車停放。",
-  "ENGAGE AND SHAPE OUR FUTURE": "只有參與，才能形塑我們想要的未來 "
+  "ENGAGE AND SHAPE OUR FUTURE": "只有參與，才能形塑我們想要的未來 ",
+  "2024 is our 1st Digital Nomad Conference": "2024 是我們第<1>1</1>屆數位游牧者大會",
+  "We connect digital nomad enthusiasts": "<0>我們連結</0><1>150+</1>位數位遊牧愛好者",
+  "We present non-stop exciting topics": "呈現不間斷的<1>11</1>場精采講題",
+  "We have selected booths": "<0>現場加碼</0><1>6</1>家精選展位"
 }
