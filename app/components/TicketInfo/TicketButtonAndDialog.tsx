@@ -55,14 +55,14 @@ export default function TicketButtonAndDialog({
           showSpecialLabel
             ? "before:content-[''] before:absolute before:w-[56px] before:h-[56px] before:top-[-18px] before:left-[-24px] before:bg-[url('/images/ticket-mobile-label-special.svg')]"
             : "",
-          className
+          className,
         )}
         onClick={handleToggle}
       >
         <div
           className={clsx(
             `${color[0]} p-3 text-xl uppercase`,
-            color[0] === "bg-vip-ticket" ? "text-white" : ""
+            color[0] === "bg-vip-ticket" ? "text-white" : "",
           )}
         >
           {title}
@@ -72,7 +72,7 @@ export default function TicketButtonAndDialog({
         </div>
       </div>
       {isOpen && (
-        <div className="bg-white h-svh w-svw fixed top-0 left-0 z-10">
+        <div className="bg-white h-lvh w-lvw fixed top-0 left-0 z-10">
           <div
             className={`pt-[100px] pb-[30px] ${color[0]} flex flex-col items-center relative`}
           >
@@ -80,7 +80,7 @@ export default function TicketButtonAndDialog({
             <h3
               className={clsx(
                 "text-2xl font-bold ",
-                color[0] === "bg-vip-ticket" ? "text-white" : "text-[#E4003D]"
+                color[0] === "bg-vip-ticket" ? "text-white" : "text-[#E4003D]",
               )}
             >
               {price}
@@ -91,14 +91,14 @@ export default function TicketButtonAndDialog({
                   "w-[201px] h-[38px] absolute bottom-[-20px] px-[10px] uppercase text-white text-xl flex items-center justify-center font-bold",
                   showSpecialLabel
                     ? "bg-[url('/images/ticket-mobile-label-yellow.svg')]"
-                    : "bg-[url('/images/ticket-mobile-label-red.svg')]"
+                    : "bg-[url('/images/ticket-mobile-label-red.svg')]",
                 )}
               >
                 {label}
               </div>
             )}
           </div>
-          <div className="overflow-auto h-[calc(100%-202px)] pb-[130px]">
+          <div className="overflow-auto h-[calc(100%-202px)] pb-[200px]">
             <div className="mx-auto max-w-[500px] px-2 pt-[38px]">
               <p className="font-bold mb-1 text-center">{availablePeriod}</p>
               <p className="font-bold uppercase text-center">{`${t("original price")} ${originalPrice}`}</p>

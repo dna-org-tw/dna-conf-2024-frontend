@@ -36,7 +36,7 @@ export default function CountDownTimer({ lang }: { lang: Lang }) {
   }, []);
 
   return (
-    <div className="max-w-lg mx-auto z-50">
+    <div className="max-w-lg mx-auto">
       <div className="p-4 md:bg-white md:rounded-xl md:p-10 text-white md:text-inherit">
         <div className="text-xl font-bold md:text-center mb-3">
           {isZhTw ? "距離大會開始時間" : "EVENT COUNTDOWN"}
