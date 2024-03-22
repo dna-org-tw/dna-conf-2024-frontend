@@ -98,7 +98,7 @@ export default function TicketButtonAndDialog({
               </div>
             )}
           </div>
-          <div className="overflow-auto h-[calc(100%-202px)] pb-[130px]">
+          <div className="overflow-auto h-[calc(100%-202px)] pb-[200px]">
             <div className="mx-auto max-w-[500px] px-2 pt-[38px]">
               <p className="font-bold mb-1 text-center">{availablePeriod}</p>
               <p className="font-bold uppercase text-center">{`${t("original price")} ${originalPrice}`}</p>
