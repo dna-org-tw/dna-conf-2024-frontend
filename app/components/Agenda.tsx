@@ -1,6 +1,6 @@
-import { useServerTranslation } from "@/i18n"
-import { Lang } from "@/types/common"
-import HeaderTitleWithLine from "./HeaderTitleWithLine"
+import { useServerTranslation } from "@/i18n";
+import { Lang } from "@/types/common";
+import HeaderTitleWithLine from "./HeaderTitleWithLine";
 
 export default async function Agenda({ lang }: { lang: Lang }) {
   const { t } = await useServerTranslation(lang)
@@ -14,5 +14,5 @@ export default async function Agenda({ lang }: { lang: Lang }) {
     >
       <HeaderTitleWithLine title={t("AGENDA")} lineColor="red" />
     </section>
-  )
+  );
 }

@@ -9,17 +9,18 @@ export default async function Banner({ lang }: { lang: Lang }) {
   const { t } = await useServerTranslation(lang);
   return (
     <section
+      id="event"
       className="w-full bg-right-top bg-no-repeat bg-w-100% lg:py-8"
       style={{ backgroundImage: "url(/images/banner-background.png)" }}
     >
-      <div className="container mx-auto pt-28 sm:pt-36">
+      <div className="container md:container pt-36 md:pt-28">
         <div
           className={clsx(
             "relative",
             "mx-auto lg:ml-[120px]",
             isZhTw
               ? "w-[260px] h-[142px] sm:w-[370px] sm:h-[209px] md:w-[495px] md:h-[279px]"
-              : "w-[288px] h-[126px] sm:w-[465px] sm:h-[204px] md:w-[620px] md:h-[273px]",
+              : "w-[288px] h-[126px] sm:w-[465px] sm:h-[204px] md:w-[620px] md:h-[273px]"
           )}
         >
           <Image
@@ -37,7 +38,7 @@ export default async function Banner({ lang }: { lang: Lang }) {
         <div
           className={clsx(
             isZhTw ? "hidden md:flex" : "hidden",
-            "mt-12 items-center gap-x-10 lg:mx-[120px]",
+            "mt-12 items-center gap-x-10 lg:mx-[120px]"
           )}
         >
           <div className="flex flex-col  gap-y-2 min-w-[287px]">
@@ -70,13 +71,13 @@ export default async function Banner({ lang }: { lang: Lang }) {
         <div
           className={clsx(
             isZhTw ? "hidden" : "hidden md:flex",
-            "flex-col mt-12 items-center gap-x-10 lg:mx-[120px] px-4",
+            "flex-col mt-12 items-center gap-x-10 lg:mx-[120px] px-4"
           )}
         >
           <div className="flex flex-col gap-y-2">
             <h2
               className={clsx(
-                "flex flex-row gap-x-2 font-bold text-2xl justify-center tracking-[4px] text-center",
+                "flex flex-row gap-x-2 font-bold text-2xl justify-center tracking-[4px] text-center"
               )}
             >
               <Image
@@ -89,7 +90,7 @@ export default async function Banner({ lang }: { lang: Lang }) {
             </h2>
             <h2
               className={clsx(
-                "flex flex-row gap-x-2 font-bold text-2xl justify-center text-center",
+                "flex flex-row gap-x-2 font-bold text-2xl justify-center text-center"
               )}
             >
               <Image
@@ -109,7 +110,7 @@ export default async function Banner({ lang }: { lang: Lang }) {
             <h1
               className={clsx(
                 "text-2xl tracking-[4px] text-center font-bold",
-                isZhTw ? "mb-3" : "inline mb-0",
+                isZhTw ? "mb-3" : "inline mb-0"
               )}
             >
               {t("conf")}
@@ -135,7 +136,7 @@ export default async function Banner({ lang }: { lang: Lang }) {
           <h2
             className={clsx(
               isZhTw ? "tracking-[4px]" : "",
-              "mx-auto flex justify-center mt-4 font-bold text-lg text-center max-w-[360px]",
+              "mx-auto flex justify-center mt-4 font-bold text-lg text-center max-w-[360px]"
             )}
           >
             {t("conf location")}
@@ -144,11 +145,11 @@ export default async function Banner({ lang }: { lang: Lang }) {
             className="mx-auto flex w-[173px] h-[8px] bg-no-repeat bg-center bg-contain my-12"
             style={{ backgroundImage: "url(/images/divider-horizontal.svg)" }}
           />
-          <div className="text-[#5C5C5C] px-4 text-justify	">
+          <div className="text-[#5C5C5C]">
             <h1
               className={clsx(
                 isZhTw ? "text-[#F4B013]" : "",
-                "text-xl tracking-[2px] font-bold inline mb-0",
+                "lg:text-xl lg:tracking-[2px] font-bold inline mb-0"
               )}
             >
               {t("conf")}
