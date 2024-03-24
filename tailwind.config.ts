@@ -30,6 +30,10 @@ const config = {
       backgroundImage: {
         "highlight-text-gradient":
           "linear-gradient(135deg, #fff 41px, #000 41px)",
+        "mobile-TBD-zh": "url('/images/mobile-TBD-zh.png')",
+        "mobile-TBD-en": "url('/images/mobile-TBD-en.png')",
+        "desktop-TBD-zh": "url('/images/TBD-zh.png')",
+        "desktop-TBD-en": "url('/images/TBD-en.png')",
       },
       colors: {
         border: "hsl(var(--border))",
@@ -88,7 +92,8 @@ const config = {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        "highlight-text-gradient": "linear-gradient(135deg, #fff 41px, #000 41px)",
+        "highlight-text-gradient":
+          "linear-gradient(135deg, #fff 41px, #000 41px)",
       },
       backgroundColor: {
         "single-ticket": "#FFD028",
