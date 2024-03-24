@@ -80,7 +80,7 @@ export default function RootLayout({
               src="/images/footer-bg.png"
               alt=""
               fill
-              className="absolute w-screen -z-10 object-contain object-right-bottom"
+              className="hidden lg:block absolute w-screen -z-10 object-contain object-right-bottom"
             />
           </div>
         </body>
