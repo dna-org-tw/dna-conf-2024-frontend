@@ -22,10 +22,6 @@ export default async function Home({
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between gap-y-20">
-      {/* <div className="flex justify-center gap-4 fixed top-0 left-0 bg-black/30 text-white p-8 m-4 z-10">
-        <Link href="/en-US/2024">en-US</Link>
-        <Link href="/zh-TW/2024">zh-TW</Link>
-      </div> */}
       <Banner lang={lang} />
       <section className="fixed bottom-0 z-50 w-full md:h-1/4 bg-[url('/images/mobile-countdown-background.png')] bg-cover md:relative md:py-12 md:bg-[url('/images/countdown-background.png')] md:bg-contain">
         <CountDownTimer lang={lang} />

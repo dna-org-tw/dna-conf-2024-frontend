@@ -65,7 +65,7 @@ export default function CountDownTimer({ lang }: { lang: Lang }) {
 
           <Button
             asChild
-            className="rounded-3xl bg-[#E74310] border-white border-2 ml-auto md:hidden"
+            className="rounded-3xl bg-[#E74310] hover:bg-[#E74310] border-white border-2 ml-auto md:hidden"
           >
             <Link href="https://dna.kolable.app/projects/c8d45648-a2f6-4675-a8e0-fbbd907c5789">
               TICKET
