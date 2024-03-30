@@ -16,12 +16,7 @@ interface IProps {
   buttonText: buttonText;
 }
 
-const Guidelines: React.FC<IProps> = ({
-  open,
-  children,
-  title,
-  buttonText,
-}) => {
+const Guidelines: React.FC<IProps> = ({ open, children, title }) => {
   const [isOpen, setIsOpen] = useState(open);
   const [showButton, setShowButton] = useState(false);
 
