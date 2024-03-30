@@ -10,8 +10,8 @@ const initI18next = async (lng: string, ns: string) => {
     .use(
       resourcesToBackend(
         (language: string, namespace: string) =>
-          import(`../public/locales/${language}/${namespace}.json`)
-      )
+          import(`../public/locales/${language}/${namespace}.json`),
+      ),
     )
     .init(getOptions(lng, ns));
   return i18nInstance;
@@ -20,14 +20,14 @@ const initI18next = async (lng: string, ns: string) => {
 export async function useServerTranslation(
   lng: string,
   ns: string = "common",
-  options = { keyPrefix: "" }
+  options = { keyPrefix: "" },
 ) {
   const i18nextInstance = await initI18next(lng, ns);
   return {
     t: i18nextInstance.getFixedT(
       lng,
       Array.isArray(ns) ? ns[0] : ns,
-      options.keyPrefix
+      options.keyPrefix,
     ),
     i18n: i18nextInstance,
   };
