@@ -13,7 +13,6 @@ interface IProps {
   open?: boolean;
   title: string;
   children: React.ReactNode;
-  buttonText: buttonText;
 }
 
 const Guidelines: React.FC<IProps> = ({ open, children, title }) => {
