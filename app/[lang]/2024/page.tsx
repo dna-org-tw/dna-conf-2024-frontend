@@ -48,11 +48,11 @@ export default async function Home({
             {t("BUY TICKET")}
           </ColorfulButton>
         </div>
-      </section>
-      <section className="w-full px-6 md:px-24">
-        <Guidelines open title={t("TICKET PURCHASE GUIDE")}>
-          {Array.from({ length: 7 }, (_, index) => t(`notice${index + 1}`))}
-        </Guidelines>
+        <div className="flex flex-col mt-6">
+          <Guidelines open title={t("TICKET PURCHASE GUIDE")}>
+            {Array.from({ length: 7 }, (_, index) => t(`notice${index + 1}`))}
+          </Guidelines>
+        </div>
       </section>
       <section id="transportation" className="w-full py-20 px-6 md:px-24">
         <HeaderTitleWithLine

@@ -4,11 +4,6 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import clsx from "clsx";
 
-interface buttonText {
-  expand: string;
-  collapse: string;
-}
-
 interface IProps {
   open?: boolean;
   title: string;
@@ -35,19 +30,19 @@ const Guidelines: React.FC<IProps> = ({ open, children, title }) => {
   }
 
   return (
-    <div className="container mx-auto mx-2 mx-0 lg:whitespace-nowrap lg:pt-10 lg:pb-20 lg:px-8">
+    <div className="container p-2 lg:whitespace-nowrap lg:pt-10 lg:pb-20 lg:px-8">
       <div className="relative lg:whitespace-normal lg:pl-4 xl:pl-10">
         <div
           className={clsx("absolute left-0 top-0 w-full h-full", {
             "bg-[linear-gradient(to_bottom,transparent,white)]": !isOpen,
           })}
         ></div>
-        <h6 className="mt-4 lg:text-[16px] text-black flex-2 font-bold text-center tracking-widest mb-2">
+        <h6 className="text-black flex-2 font-bold text-center tracking-widest mt-4">
           {title}
         </h6>
         <ol
           className={clsx(
-            "list-decimal tracking-widest mt-4 ml-8 mb-10 mr-8 pl-6 lg:ml-6 xl:ml-20 overflow-hidden",
+            "list-decimal mt-6 pl-5 p-auto lg:ml-6 xl:ml-20 overflow-hidden",
             { "h-[140px]": !isOpen, "h-auto": isOpen }
           )}
         >
