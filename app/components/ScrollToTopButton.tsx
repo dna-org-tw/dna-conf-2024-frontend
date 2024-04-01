@@ -81,21 +81,3 @@ const ScrollToTopButton = ({ threshold = 1741, throttleTime = 100 }) => {
 };
 
 export default ScrollToTopButton;
-
-/* 
-  without useCallBack Ver. 
-*/
-
-// const toggleVisibility = throttle(() => {
-//   if (windowSize.width > 768) {
-//     threshold = 1741;
-//   }
-//   if (windowSize.width <= 768) {
-//     threshold = 1413;
-//   }
-
-//   const shouldBeVisible = window.scrollY > threshold;
-//   if (isVisible !== shouldBeVisible) {
-//     setIsVisible(shouldBeVisible);
-//   }
-// }, throttleTime);
