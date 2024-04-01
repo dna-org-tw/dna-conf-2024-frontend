@@ -6,6 +6,7 @@ import MenuDropdown from "./MenuDropdown";
 import MenuContent from "./MenuContent";
 import { useContext } from "react";
 import { i18nTranslateContext } from "@/context/I18nTranslateProvider";
+import { useClientTranslation } from "@/i18n/client";
 
 export interface TranslationData {
   EVENT: string;
@@ -19,6 +20,9 @@ export interface TranslationData {
 
 export default function Nav() {
   const { translate, lng } = useContext(i18nTranslateContext);
+
+  // advise to use useClientTranslation hook to get the translation function
+  // const { t } = useClientTranslation(lng);
 
   const translatedData: TranslationData = {
     EVENT: translate?.("EVENT") || "",
