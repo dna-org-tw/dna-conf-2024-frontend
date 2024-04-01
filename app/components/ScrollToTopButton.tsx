@@ -24,21 +24,18 @@ const ScrollToTopButton = ({ threshold = 1741, throttleTime = 100 }) => {
   });
 
   // use throttle to control the frequency of the scroll event
-  const toggleVisibility = useCallback(
-    throttle(() => {
-      if (windowSize.width > 768) {
-        threshold = 1741;
-      }
-      if (windowSize.width <= 768) {
-        threshold = 1413;
-      }
-      const shouldBeVisible = window.scrollY > threshold;
-      if (isVisible !== shouldBeVisible) {
-        setIsVisible(shouldBeVisible);
-      }
-    }, throttleTime),
-    [threshold, throttleTime]
-  );
+  const toggleVisibility = throttle(() => {
+    if (windowSize.width > 768) {
+      threshold = 1741;
+    }
+    if (windowSize.width <= 768) {
+      threshold = 1413;
+    }
+    const shouldBeVisible = window.scrollY > threshold;
+    if (isVisible !== shouldBeVisible) {
+      setIsVisible(shouldBeVisible);
+    }
+  }, throttleTime);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
