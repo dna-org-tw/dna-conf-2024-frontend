@@ -10,7 +10,7 @@ const Transportation = (props: ITransportProps) => {
   const { location = "", address = "", detail = ""} = props;
     return (
         <div className="min-w-full min-h-0 md:px-20 py-10 self-center">
-            <h3 className="font-bold md:text-2xl mb-5">
+            <h3 className="font-bold md:text-2xl mb-1">
                 {location}
             </h3>
             <h4 className="mb-5">
