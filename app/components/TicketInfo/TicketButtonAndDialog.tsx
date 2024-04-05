@@ -1,10 +1,9 @@
 import React from "react";
 import { TFunction } from "i18next";
 import clsx from "clsx";
-import { ticketColor } from "./index";
 import { Trans } from "react-i18next/TransWithoutContext";
+import { DNA_FB_LINK } from "./index";
 
-const DNA_FB_LINK = "https://www.facebook.com/groups/dna.org.tw";
 const PURCHASE_TICKET_LINK =
   "https://dna.kolable.app/projects/c8d45648-a2f6-4675-a8e0-fbbd907c5789";
 
