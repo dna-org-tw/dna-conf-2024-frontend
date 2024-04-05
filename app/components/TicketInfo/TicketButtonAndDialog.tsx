@@ -9,6 +9,7 @@ const PURCHASE_TICKET_LINK =
 
 export default function TicketButtonAndDialog({
   t,
+  disabled = false,
   color,
   title,
   price,
@@ -24,6 +25,7 @@ export default function TicketButtonAndDialog({
   isGroupTicket = false,
 }: {
   t: TFunction;
+  disabled?: boolean;
   color: string[];
   price: string;
   availablePeriod: string;
@@ -43,11 +45,18 @@ export default function TicketButtonAndDialog({
     return false;
   };
 
+  const handleButtonClick = () => {
+    if (disabled) {
+      return;
+    }
+    handleToggle();
+  };
+
   return (
     <>
       <div
         className={clsx(
-          `cursor-pointer rounded-2xl border-4 ${color[1]} text-center relative`,
+          `rounded-2xl border-4 ${color[1]} text-center relative`,
           showTrumpet
             ? "before:content-[''] before:absolute before:w-[48px] before:h-[48px] before:top-[-18px] before:left-[-20px] before:bg-[url('/images/ticket-mobile-label-trumpet.svg')]"
             : "",
@@ -55,8 +64,9 @@ export default function TicketButtonAndDialog({
             ? "before:content-[''] before:absolute before:w-[56px] before:h-[56px] before:top-[-18px] before:left-[-24px] before:bg-[url('/images/ticket-mobile-label-special.svg')]"
             : "",
           className,
+          disabled ? "cursor-default" : "cursor-pointer",
         )}
-        onClick={handleToggle}
+        onClick={handleButtonClick}
       >
         <div
           className={clsx(
