@@ -19,7 +19,7 @@ export default async function TicketInfo({ lang }: { lang: Lang }) {
   const isZhTw = lang === "zh-TW";
 
   return (
-    <div className="mt-[140px] flex flex-col">
+    <div className="mt-[40px] xl:mt-[140px]  flex flex-col">
       <div className="hidden xl:block">
         <div className="flex">
           <TicketBlock
