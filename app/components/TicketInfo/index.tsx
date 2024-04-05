@@ -14,6 +14,15 @@ export const ticketColor: { [key: string]: string[] } = {
   red: ["bg-vip-ticket", "border-vip-ticket"],
 } as const;
 
+export const ticketType = {
+  single: "single",
+  twoPerson: "twoPerson",
+  fivePerson: "fivePerson",
+  singleClassic: "singleClassic",
+  vip: "vip",
+} as const;
+export type TicketType = (typeof ticketType)[keyof typeof ticketType];
+
 export default async function TicketInfo({ lang }: { lang: Lang }) {
   const { t } = await useServerTranslation(lang);
   const isZhTw = lang === "zh-TW";
@@ -23,6 +32,7 @@ export default async function TicketInfo({ lang }: { lang: Lang }) {
       <div className="hidden xl:block">
         <div className="flex">
           <TicketBlock
+            type={ticketType.single}
             t={t}
             color={ticketColor.yellow}
             title={t("single ticket.title")}
@@ -32,6 +42,7 @@ export default async function TicketInfo({ lang }: { lang: Lang }) {
             content={[t("single ticket.content1")]}
           />
           <TicketBlock
+            type={ticketType.twoPerson}
             t={t}
             color={ticketColor.pink}
             title={t("two person ticket.title")}
@@ -45,6 +56,7 @@ export default async function TicketInfo({ lang }: { lang: Lang }) {
             label={t("two person ticket.label")}
           />
           <TicketBlock
+            type={ticketType.fivePerson}
             t={t}
             color={ticketColor.pink}
             title={t("five person ticket.title")}
@@ -57,6 +69,7 @@ export default async function TicketInfo({ lang }: { lang: Lang }) {
             ]}
           />
           <TicketBlock
+            type={ticketType.singleClassic}
             t={t}
             color={ticketColor.blue}
             title={t("single classic ticket.title")}
@@ -81,7 +94,8 @@ export default async function TicketInfo({ lang }: { lang: Lang }) {
               <h2 className="text-3xl font-bold text-white uppercase">
                 {t("vip ticket.title")}
               </h2>
-              <h3 className="text-3xl font-bold">{t("vip ticket.price")}</h3>
+              {/* <h3 className="text-3xl font-bold">{t("vip ticket.price")}</h3> */}
+              {/* TODO: 暫時移除價格，等待公布 */}
             </div>
             <div className="h-[40%] flex flex-col items-center justify-center">
               <p
@@ -90,16 +104,17 @@ export default async function TicketInfo({ lang }: { lang: Lang }) {
                   isZhTw ? "" : "text-sm",
                 )}
               >
-                {t("vip ticket.available period")}
+                {t("coming soon")}
               </p>
-              <p
+              {/* <p
                 className={clsx(
                   "text-[#F9D2E5] font-bold",
                   isZhTw ? "" : "text-sm",
                 )}
               >
                 {`${t("original price")} ${t("vip ticket.original price")}`}
-              </p>
+              </p> */}
+              {/* TODO: 暫時移除原價，等待公布 */}
             </div>
           </div>
           <div

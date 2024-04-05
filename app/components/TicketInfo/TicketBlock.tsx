@@ -1,7 +1,8 @@
-import { useServerTranslation } from "@/i18n";
 import { TFunction } from "i18next";
+import { TicketType, ticketType } from "./index";
 
 export default async function TicketBlock({
+  type,
   t,
   color,
   title,
@@ -11,6 +12,7 @@ export default async function TicketBlock({
   content,
   label,
 }: {
+  type: TicketType;
   t: TFunction;
   color: string[];
   price: string;
@@ -37,11 +39,21 @@ export default async function TicketBlock({
         className={`flex justify-center ${color[0]} text-center flex-col py-2 min-h-[150px]`}
       >
         <h2 className="text-4xl font-bold mb-2">{title}</h2>
-        <h3 className="text-4xl font-bold text-[#E4003D] uppercase">{price}</h3>
+        {type !== ticketType.singleClassic && (
+          <h3 className="text-4xl font-bold text-[#E4003D] uppercase">
+            {price}
+          </h3>
+        )}
       </div>
       <div className="p-4 bg-[#F6F6F6] rounded-b-xl flex-1">
-        <p className="font-bold">{availablePeriod}</p>
-        <p className="font-bold uppercase">{`${t("original price")} ${originalPrice}`}</p>
+        {type !== ticketType.singleClassic ? (
+          <>
+            <p className="font-bold">{availablePeriod}</p>
+            <p className="font-bold uppercase">{`${t("original price")} ${originalPrice}`}</p>
+          </>
+        ) : (
+          <p className="font-bold">{t("coming soon")}</p>
+        )}
         <p className="mt-4">{t("ticket content")}</p>
         <ul className="list-disc ml-6">
           {content.map((item) => (
