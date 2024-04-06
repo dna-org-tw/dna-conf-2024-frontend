@@ -10,11 +10,12 @@ export default async function Agenda({ lang }: { lang: Lang }) {
   const desktopClass = isZhTw ? "bg-desktop-TBD-zh" : "bg-desktop-TBD-en";
 
   return (
-    <section
-      className={`relative w-full py-10 px-6 h-[270px] sm:h-[320px] md:h-[370px] lg:h-[420px] max-h-[420px] bg-contain bg-no-repeat bg-bottom bg-[#F6F6F6] ${mobileClass} md:${desktopClass}`}
-    >
-      <HeaderTitleWithLine title={t("AGENDA")} lineColor="red" />
-      <ScrollToTopButton />
-    </section>
-  );
+		<section
+			id="agenda"
+			className={`relative w-full py-10 px-6 h-[270px] sm:h-[320px] md:h-[370px] lg:h-[420px] max-h-[420px] bg-contain bg-no-repeat bg-bottom bg-[#F6F6F6] ${mobileClass} md:${desktopClass}`}
+		>
+			<HeaderTitleWithLine title={t('AGENDA')} lineColor="red" />
+			<ScrollToTopButton />
+		</section>
+	);
 }

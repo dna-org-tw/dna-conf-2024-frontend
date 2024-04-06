@@ -68,24 +68,23 @@ export default function RootLayout({
   params: LangParams;
 }>) {
   return (
-    <html lang={params.lang}>
-      <I18nTranslateProvider lng={params.lang}>
-        <body>
-          <div className="relative">
-            <Nav />
-            {children}
-            <Footer />
+		<html lang={params.lang}>
+			<I18nTranslateProvider lng={params.lang}>
+				<body>
+					<div className="relative">
+						{children}
+						<Footer />
 
-            <Image
-              src="/images/footer-bg.png"
-              alt=""
-              fill
-              className="hidden lg:block absolute w-screen -z-10 object-contain object-right-bottom"
-            />
-          </div>
-        </body>
-        <GoogleAnalytics gaId="G-04W60ZKKVP" />
-      </I18nTranslateProvider>
-    </html>
-  );
+						<Image
+							src="/images/footer-bg.png"
+							alt=""
+							fill
+							className="hidden lg:block absolute w-screen -z-10 object-contain object-right-bottom"
+						/>
+					</div>
+				</body>
+				<GoogleAnalytics gaId="G-04W60ZKKVP" />
+			</I18nTranslateProvider>
+		</html>
+	);
 }
