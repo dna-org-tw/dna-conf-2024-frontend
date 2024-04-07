@@ -12,7 +12,6 @@ import HighLights from "@/app/components/HighLights";
 import { Button } from "@/components/ui/button";
 import ColorfulButton from "@/app/components/ColorfulButton";
 import TicketInfo from "@/app/components/TicketInfo";
-import ScrollToTopButton from "@/app/components/ScrollToTopButton";
 
 export default async function Home({
   params: { lang },
@@ -40,7 +39,6 @@ export default async function Home({
         />
       </section>
       <Agenda lang={lang} />
-      <ScrollToTopButton />
       <HighLights lang={lang} />
       <section id="ticket" className="w-full px-6 md:px-24">
         <HeaderTitleWithLine title={t("TICKET INFO")} lineColor="cyan" />
