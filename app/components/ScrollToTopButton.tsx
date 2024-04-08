@@ -31,7 +31,7 @@ const ScrollToTopButton = ({ threshold = 1741, throttleTime = 100 }) => {
     if (windowSize.width <= 768) {
       threshold = 1413;
     }
-
+    
     const shouldBeVisible = window.scrollY > threshold;
     if (isVisible !== shouldBeVisible) {
       setIsVisible(shouldBeVisible);
@@ -49,6 +49,7 @@ const ScrollToTopButton = ({ threshold = 1741, throttleTime = 100 }) => {
 
       window.addEventListener("resize", handleResize);
       handleResize();
+      
       return () => window.removeEventListener("resize", handleResize);
     }
   }, [throttleTime]);
@@ -81,35 +82,3 @@ const ScrollToTopButton = ({ threshold = 1741, throttleTime = 100 }) => {
 };
 
 export default ScrollToTopButton;
-
-/* 
-  useCallback Ver. 
-*/
-
-// const toggleVisibility = useCallback(
-//   throttle(() => {
-//   const shouldBeVisible = window.scrollY > threshold;
-//   if (isVisible !== shouldBeVisible) {
-//     setIsVisible(shouldBeVisible);
-//   }
-// }, throttleTime);,
-//   [threshold, throttleTime]
-// );
-
-// useEffect(() => {
-//   if (typeof window !== "undefined") {
-//     const handleResize = useCallback(
-//       throttle(() => {
-//         setWindowSize({
-//           width: window.innerWidth,
-//           height: window.innerHeight,
-//         });
-//       }, throttleTime),
-//       []
-//     );
-
-//     window.addEventListener("resize", handleResize);
-//     handleResize();
-//     return () => window.removeEventListener("resize", handleResize);
-//   }
-// }, [throttleTime]);

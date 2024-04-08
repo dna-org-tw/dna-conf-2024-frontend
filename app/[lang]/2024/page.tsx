@@ -11,6 +11,7 @@ import CountDownTimer from "@/app/components/CountDownTimer";
 import HighLights from "@/app/components/HighLights";
 import ColorfulButton from "@/app/components/ColorfulButton";
 import TicketInfo from "@/app/components/TicketInfo";
+import ScrollToTopButton from "@/app/components/ScrollToTopButton";
 import Image from "next/image";
 
 export default async function Home({
@@ -39,6 +40,7 @@ export default async function Home({
         />
       </section>
       <Agenda lang={lang} />
+      <ScrollToTopButton />
       <HighLights lang={lang} />
       <section id="ticket" className="w-full px-6 md:px-24">
         <HeaderTitleWithLine title={t("TICKET INFO")} lineColor="cyan" />
