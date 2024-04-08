@@ -4,7 +4,7 @@ import Image from "next/image";
 
 function Footer() {
   return (
-    <footer className="bg-[#0B2F40] lg:bg-inherit pb-16">
+    <footer className="bg-[#0B2F40] lg:bg-inherit pb-24 md:pb-16">
       <div className="container mx-auto pt-10 pb-20 px-8">
         <div className="lg:w-full mx-auto lg:max-w-full grid grid-flow-row lg:grid-flow-col lg:grid-cols-3 gap-y-4 gap-x-10">
           <section className="flex justify-center">
