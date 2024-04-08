@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import throttle from "lodash/throttle";
 
 const _scrollToTop = () => {
@@ -31,6 +31,7 @@ const ScrollToTopButton = ({ threshold = 1741, throttleTime = 100 }) => {
     if (windowSize.width <= 768) {
       threshold = 1413;
     }
+    
     const shouldBeVisible = window.scrollY > threshold;
     if (isVisible !== shouldBeVisible) {
       setIsVisible(shouldBeVisible);
@@ -48,7 +49,7 @@ const ScrollToTopButton = ({ threshold = 1741, throttleTime = 100 }) => {
 
       window.addEventListener("resize", handleResize);
       handleResize();
-
+      
       return () => window.removeEventListener("resize", handleResize);
     }
   }, [throttleTime]);
