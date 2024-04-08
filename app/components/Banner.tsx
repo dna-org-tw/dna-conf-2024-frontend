@@ -41,7 +41,7 @@ export default async function Banner({ lang }: { lang: Lang }) {
             "mt-12 items-center gap-x-10 lg:mx-[120px]"
           )}
         >
-          <div className="flex flex-col  gap-y-2 min-w-[287px]">
+          <div className="flex flex-col  gap-y-2 shrink-0">
             <h2 className="text-4xl tracking-[4px] font-bold">
               {t("conf date")}
             </h2>
@@ -129,7 +129,7 @@ export default async function Banner({ lang }: { lang: Lang }) {
             <h2 className="text-[#C8C8C8] text-lg uppercase rotate-90 ml-[-12px]">
               {t("conf day")}
             </h2>
-            <h2 className="ml-3 w-[45px] font-bold text-[16px] leading-none mt-[4px]">
+            <h2 className="ml-3 w-[45px] font-bold text-base leading-none mt-[4px]">
               {t("conf time")}
             </h2>
           </div>
@@ -146,12 +146,7 @@ export default async function Banner({ lang }: { lang: Lang }) {
             style={{ backgroundImage: "url(/images/divider-horizontal.svg)" }}
           />
           <div className="text-[#5C5C5C]">
-            <h1
-              className={clsx(
-                isZhTw ? "text-[#F4B013]" : "",
-                "lg:text-xl lg:tracking-[2px] font-bold inline mb-0"
-              )}
-            >
+            <h1 className="text-[#1E1F1C] lg:text-xl lg:tracking-[2px] font-bold inline mb-0">
               {t("conf")}
             </h1>
             <p className="inline">{` ${t("conf description")}`}</p>

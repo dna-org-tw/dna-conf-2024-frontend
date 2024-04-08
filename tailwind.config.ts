@@ -21,6 +21,9 @@ const config = {
       },
     },
     extend: {
+      fontSize: {
+        "2xl": "1.4rem",
+      },
       backgroundSize: {
         "w-100%": "100% auto",
       },
@@ -30,10 +33,6 @@ const config = {
       backgroundImage: {
         "highlight-text-gradient":
           "linear-gradient(135deg, #fff 41px, #000 41px)",
-        "mobile-TBD-zh": "url('/images/mobile-TBD-zh.png')",
-        "mobile-TBD-en": "url('/images/mobile-TBD-en.png')",
-        "desktop-TBD-zh": "url('/images/TBD-zh.png')",
-        "desktop-TBD-en": "url('/images/TBD-en.png')",
       },
       colors: {
         border: "hsl(var(--border))",

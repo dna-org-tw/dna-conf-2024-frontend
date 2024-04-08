@@ -13,7 +13,7 @@ export default async function HighLights({ lang }: { lang: Lang }) {
   return (
     <section className="w-full px-3 md:px-24 bg-no-repeat bg-contain bg-center bg-[url(/images/highlights-background.svg)] lg:bg-none">
       <div className="flex flex-col items-center mx-auto">
-        <h2 className="text-2xl lg:text-3xl text-center font-bold tracking-[10%] mb-[70px]">
+        <h2 className="text-2xl lg:text-3xl lg:text-center font-bold tracking-[10%] mb-6 lg:mb-[70px] whitespace-pre-wrap lg:whitespace-normal leading-loose lg:leading-normal">
           {t("ENGAGE AND SHAPE OUR FUTURE")}
         </h2>
         <div className="hidden lg:block">
@@ -21,20 +21,20 @@ export default async function HighLights({ lang }: { lang: Lang }) {
             className={clsx(
               "mb-14 text-xl tracking-[2px] flex items-center relative",
               prefixStyle,
-              "before:bg-[#FFD028]"
+              "before:bg-[#FFD028]",
             )}
           >
             <Trans i18nKey="2024 is our 1st Digital Nomad Conference" t={t}>
               2024 是我們第
               <span className={clsx(numberStyle, "text-[#10B8D9]")}>1</span>
-              屆數位游牧者大會
+              屆數位遊牧者大會
             </Trans>
           </p>
           <p
             className={clsx(
               "mb-14 text-xl tracking-[2px] flex items-center relative",
               prefixStyle,
-              "before:bg-[#004E9D]"
+              "before:bg-[#004E9D]",
             )}
           >
             <Trans i18nKey="We connect digital nomad enthusiasts" t={t}>
@@ -49,7 +49,7 @@ export default async function HighLights({ lang }: { lang: Lang }) {
             className={clsx(
               "mb-14 text-xl tracking-[2px] flex items-center relative",
               prefixStyle,
-              "before:bg-[#F9D2E5]"
+              "before:bg-[#F9D2E5]",
             )}
           >
             <Trans i18nKey="We present non-stop exciting topics" t={t}>
@@ -62,7 +62,7 @@ export default async function HighLights({ lang }: { lang: Lang }) {
             className={clsx(
               "mb-14 text-xl tracking-[2px] flex items-center relative",
               prefixStyle,
-              "before:bg-[#00993E]"
+              "before:bg-[#00993E]",
             )}
           >
             <Trans i18nKey="We have selected booths" t={t}>
