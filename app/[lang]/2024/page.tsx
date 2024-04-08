@@ -9,9 +9,9 @@ import Banner from "@/app/components/Banner";
 import Agenda from "@/app/components/Agenda";
 import CountDownTimer from "@/app/components/CountDownTimer";
 import HighLights from "@/app/components/HighLights";
-import { Button } from "@/components/ui/button";
 import ColorfulButton from "@/app/components/ColorfulButton";
 import TicketInfo from "@/app/components/TicketInfo";
+import Image from "next/image";
 
 export default async function Home({
   params: { lang },
@@ -43,10 +43,39 @@ export default async function Home({
       <section id="ticket" className="w-full px-6 md:px-24">
         <HeaderTitleWithLine title={t("TICKET INFO")} lineColor="cyan" />
         <TicketInfo lang={lang} />
-        <div className="flex flex-col items-center mt-9">
+        <div className="flex flex-row justify-center items-end mt-9 gap-8">
+          <Image
+            className="hidden md:block"
+            src="/images/knight.jpg"
+            alt="Knight"
+            width={118}
+            height={171}
+          />
+          <Image
+            className="hidden md:block"
+            src="/images/rogue.jpg"
+            alt="Rogue"
+            width={124}
+            height={100}
+          />
           <ColorfulButton href="https://dna.kolable.app/projects/c8d45648-a2f6-4675-a8e0-fbbd907c5789">
             {t("BUY TICKET")}
           </ColorfulButton>
+
+          <Image
+            className="hidden md:block"
+            src="/images/wizard.jpg"
+            alt="Wizard"
+            width={107}
+            height={128}
+          />
+          <Image
+            className="hidden md:block"
+            src="/images/bard.jpg"
+            alt="bard"
+            width={69}
+            height={113}
+          />
         </div>
         <div className="flex flex-col mt-6">
           <Guidelines open title={t("TICKET PURCHASE GUIDE")}>
