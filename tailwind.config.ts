@@ -21,6 +21,9 @@ const config = {
       },
     },
     extend: {
+      fontSize: {
+        "2xl": "1.4rem",
+      },
       backgroundSize: {
         "w-100%": "100% auto",
       },

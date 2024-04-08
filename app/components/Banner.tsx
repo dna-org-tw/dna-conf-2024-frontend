@@ -20,7 +20,7 @@ export default async function Banner({ lang }: { lang: Lang }) {
             "mx-auto lg:ml-[120px]",
             isZhTw
               ? "w-[260px] h-[142px] sm:w-[370px] sm:h-[209px] md:w-[495px] md:h-[279px]"
-              : "w-[288px] h-[126px] sm:w-[465px] sm:h-[204px] md:w-[620px] md:h-[273px]",
+              : "w-[288px] h-[126px] sm:w-[465px] sm:h-[204px] md:w-[620px] md:h-[273px]"
           )}
         >
           <Image
@@ -38,7 +38,7 @@ export default async function Banner({ lang }: { lang: Lang }) {
         <div
           className={clsx(
             isZhTw ? "hidden md:flex" : "hidden",
-            "mt-12 items-center gap-x-10 lg:mx-[120px]",
+            "mt-12 items-center gap-x-10 lg:mx-[120px]"
           )}
         >
           <div className="flex flex-col  gap-y-2 shrink-0">
@@ -71,13 +71,13 @@ export default async function Banner({ lang }: { lang: Lang }) {
         <div
           className={clsx(
             isZhTw ? "hidden" : "hidden md:flex",
-            "flex-col mt-12 items-center gap-x-10 lg:mx-[120px] px-4",
+            "flex-col mt-12 items-center gap-x-10 lg:mx-[120px] px-4"
           )}
         >
           <div className="flex flex-col gap-y-2">
             <h2
               className={clsx(
-                "flex flex-row gap-x-2 font-bold text-2xl justify-center tracking-[4px] text-center",
+                "flex flex-row gap-x-2 font-bold text-2xl justify-center tracking-[4px] text-center"
               )}
             >
               <Image
@@ -90,7 +90,7 @@ export default async function Banner({ lang }: { lang: Lang }) {
             </h2>
             <h2
               className={clsx(
-                "flex flex-row gap-x-2 font-bold text-2xl justify-center text-center",
+                "flex flex-row gap-x-2 font-bold text-2xl justify-center text-center"
               )}
             >
               <Image
@@ -110,7 +110,7 @@ export default async function Banner({ lang }: { lang: Lang }) {
             <h1
               className={clsx(
                 "text-2xl tracking-[4px] text-center font-bold",
-                isZhTw ? "mb-3" : "inline mb-0",
+                isZhTw ? "mb-3" : "inline mb-0"
               )}
             >
               {t("conf")}
@@ -129,14 +129,14 @@ export default async function Banner({ lang }: { lang: Lang }) {
             <h2 className="text-[#C8C8C8] text-lg uppercase rotate-90 ml-[-12px]">
               {t("conf day")}
             </h2>
-            <h2 className="ml-3 w-[45px] font-bold text-[16px] leading-none mt-[4px]">
+            <h2 className="ml-3 w-[45px] font-bold text-base leading-none mt-[4px]">
               {t("conf time")}
             </h2>
           </div>
           <h2
             className={clsx(
               isZhTw ? "tracking-[4px]" : "",
-              "mx-auto flex justify-center mt-4 font-bold text-lg text-center max-w-[360px]",
+              "mx-auto flex justify-center mt-4 font-bold text-lg text-center max-w-[360px]"
             )}
           >
             {t("conf location")}
