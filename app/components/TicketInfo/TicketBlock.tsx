@@ -1,7 +1,8 @@
-import { useServerTranslation } from "@/i18n";
 import { TFunction } from "i18next";
+import { TicketType, ticketType } from "./index";
 
 export default async function TicketBlock({
+  type,
   t,
   color,
   title,
@@ -11,6 +12,7 @@ export default async function TicketBlock({
   content,
   label,
 }: {
+  type: TicketType;
   t: TFunction;
   color: string[];
   price: string;

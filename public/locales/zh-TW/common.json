@@ -36,20 +36,20 @@
   "BUY TICKET": "購票去 GO GO GO",
   "APPLICATION FORM": "索取贊助書",
   "original price": "原價：",
-  "ticket content": "內容：",
+  "ticket content": "內容",
   "available period": "03/15 - 04/30 盲鳥票開賣中！",
   "click for details": "票券方案詳情請點擊",
   "single ticket": {
     "title": "單人學習趣",
     "price": "TWD 600",
-    "available period": "03/15-04/30 盲鳥票開賣中！",
+    "available period": "盲鳥優惠至 4/30 止",
     "original price": "TWD 1,300",
     "content1": "2024/08/03 大會\n全天議程票券×1張\n午餐餐盒兌換券 ×1張"
   },
   "two person ticket": {
     "title": "雙人跳探戈",
     "price": "TWD 1,200",
-    "available period": "3/15-04/30 盲鳥票開賣中！",
+    "available period": "盲鳥優惠至 4/30 止",
     "original price": "TWD 3,000",
     "content1": "2024/08/03 大會\n全天議程票券 ×2張\n午餐餐盒兌換券 ×2張",
     "content2": "2024/08/03 After Party\n@言文字 入場券 ×2張",
@@ -58,36 +58,38 @@
   "five person ticket": {
     "title": "五人揪共學",
     "price": "TWD 2,700",
-    "available period": "03/15-04/30 盲鳥票開賣中！",
+    "available period": "盲鳥優惠至 4/30 止",
     "original price": "TWD 7,500",
     "content1": "2024/08/03 大會\n全天議程票券 ×5張\n午餐餐盒兌換券 ×5張",
     "content2": "2024/08/03 After Party\n@言文字 入場券 ×5張"
   },
   "single classic ticket": {
-    "price": "TWD 3,700",
+    "price": "TWD 4,700",
     "title": "單人經典全席",
-    "available period": "03/15-04/30 盲鳥票開賣中！",
-    "original price": "TWD 4,700",
+    "available period": "盲鳥優惠至 4/30 止",
+    "original price": "TWD 5,700",
     "content1": "2024/08/02 交流餐敘\n入場券 ×1張",
     "content2": "2024/08/03 大會\n全天議程票券 ×1張\n全天議程保留座位 ×1席\n午餐餐盒兌換券 ×1張",
     "content3": "2024/08/03 After Party\n@言文字 入場券 ×1張",
-    "content4": "2024/08/04 台北一日遊\n票券 ×1張",
+    "content4": "2024/07/27-07/28 花蓮二日遊\n票券 ×1張",
     "label": "最最超值！"
   },
   "vip ticket": {
     "title": "尊爵 VIP",
     "price": "TWD 9,900",
-    "available period": "04/01-07/28 預備開賣中！",
+    "available period": "銷售至 7/20 止",
     "original price": "TWD 14,990",
     "content1": "2024/08/02 交流餐敘\n入場券 ×1張",
     "content2": "2024/08/03 大會\n全天議程票券 ×1張\n全天議程指定座位 ×1席\n午餐餐盒兌換券 ×1張",
     "content3": "2024/08/03 After Party\n@言文字 入場券 ×1張",
-    "content4": "2024/08/04 台北一日遊票券 ×1張",
+    "content4": "2024/07/27-07/28 花蓮二日遊\n票券 ×1張",
     "content5": "精選周邊商品，包含\n大會限定-T-shirt (M/XL)\n大會限定-帆布包\n協會 logo 隨行咖啡杯\n協會 logo 行李吊牌",
-    "label": "SUPER SALE"
+    "label": "SPECIAL SALE"
   },
   "buy ticket": "立即購票",
   "back for more": "返回看更多",
   "looking for partner": "{{ticketType}}好心動！？想找人一起買！<br />歡迎來<br /><a>台灣數位遊牧者社群 <br />Taiwan Digital Nomads Hub</a><br />揪團購！",
+  "group tickets": "雙人票、五人票",
+  "coming soon": "即將推出",
   "coming soon stay tuned": "即將推出\n敬請期待"
 }
