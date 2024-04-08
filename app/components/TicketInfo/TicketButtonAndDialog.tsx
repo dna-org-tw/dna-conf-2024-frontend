@@ -2,11 +2,8 @@ import React from "react";
 import { TFunction } from "i18next";
 import clsx from "clsx";
 import { Trans } from "react-i18next/TransWithoutContext";
-import { DNA_FB_LINK } from "./index";
+import { DNA_FB_LINK, PURCHASE_TICKET_LINK } from "./index";
 import Image from "next/image";
-
-const PURCHASE_TICKET_LINK =
-  "https://dna.kolable.app/projects/c8d45648-a2f6-4675-a8e0-fbbd907c5789";
 
 export default function TicketButtonAndDialog({
   t,

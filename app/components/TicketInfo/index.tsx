@@ -5,7 +5,8 @@ import clsx from "clsx";
 import TicketInfoMobile from "./TicketInfoMobile";
 import { Trans } from "react-i18next/TransWithoutContext";
 
-export const DNA_FB_LINK = "https://www.facebook.com/groups/dna.org.tw";
+export const DNA_FB_LINK = "https://psee.io/5qfm8k";
+export const PURCHASE_TICKET_LINK = "https://psee.io/5qfa4a";
 
 export const ticketColor: { [key: string]: string[] } = {
   yellow: ["bg-single-ticket", "border-single-ticket"],
@@ -77,10 +78,10 @@ export default async function TicketInfo({ lang }: { lang: Lang }) {
             availablePeriod={t("single classic ticket.available period")}
             originalPrice={t("single classic ticket.original price")}
             content={[
+              t("single classic ticket.content4"),
               t("single classic ticket.content1"),
               t("single classic ticket.content2"),
               t("single classic ticket.content3"),
-              t("single classic ticket.content4"),
             ]}
             label={t("single classic ticket.label")}
           />
@@ -94,8 +95,7 @@ export default async function TicketInfo({ lang }: { lang: Lang }) {
               <h2 className="text-3xl font-bold text-white uppercase">
                 {t("vip ticket.title")}
               </h2>
-              {/* <h3 className="text-3xl font-bold">{t("vip ticket.price")}</h3> */}
-              {/* TODO: 暫時移除價格，等待公布 */}
+              <h3 className="text-3xl font-bold">{t("vip ticket.price")}</h3>
             </div>
             <div className="h-[40%] flex flex-col items-center justify-center">
               <p
@@ -104,17 +104,16 @@ export default async function TicketInfo({ lang }: { lang: Lang }) {
                   isZhTw ? "" : "text-sm",
                 )}
               >
-                {t("coming soon")}
+                {t("vip ticket.available period")}
               </p>
-              {/* <p
+              <p
                 className={clsx(
                   "text-[#F9D2E5] font-bold",
                   isZhTw ? "" : "text-sm",
                 )}
               >
                 {`${t("original price")} ${t("vip ticket.original price")}`}
-              </p> */}
-              {/* TODO: 暫時移除原價，等待公布 */}
+              </p>
             </div>
           </div>
           <div
@@ -129,18 +128,18 @@ export default async function TicketInfo({ lang }: { lang: Lang }) {
                   <>
                     <ul className="list-disc ml-6 mr-6">
                       <li className="whitespace-pre-wrap mb-2">
-                        {t("vip ticket.content1")}
+                        {t("vip ticket.content4")}
                       </li>
                       <li className="whitespace-pre-wrap mb-2">
-                        {t("vip ticket.content2")}
+                        {t("vip ticket.content1")}
                       </li>
                     </ul>
                     <ul className="list-disc ml-6 mr-6">
                       <li className="whitespace-pre-wrap mb-2">
-                        {t("vip ticket.content3")}
+                        {t("vip ticket.content2")}
                       </li>
                       <li className="whitespace-pre-wrap mb-2">
-                        {t("vip ticket.content4")}
+                        {t("vip ticket.content3")}
                       </li>
                     </ul>
                     <ul className="list-disc ml-6 mr-6">
@@ -153,18 +152,18 @@ export default async function TicketInfo({ lang }: { lang: Lang }) {
                   <>
                     <ul className="list-disc ml-6 mr-6">
                       <li className="whitespace-pre-wrap mb-2">
+                        {t("vip ticket.content4")}
+                      </li>
+                      <li className="whitespace-pre-wrap mb-2">
                         {t("vip ticket.content1")}
                       </li>
                       <li className="whitespace-pre-wrap mb-2">
                         {t("vip ticket.content2")}
                       </li>
-                      <li className="whitespace-pre-wrap mb-2">
-                        {t("vip ticket.content3")}
-                      </li>
                     </ul>
                     <ul className="list-disc ml-6 mr-6">
                       <li className="whitespace-pre-wrap mb-2">
-                        {t("vip ticket.content4")}
+                        {t("vip ticket.content3")}
                       </li>
                       <li className="whitespace-pre-wrap mb-2">
                         {t("vip ticket.content5")}
