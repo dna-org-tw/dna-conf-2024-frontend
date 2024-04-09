@@ -20,7 +20,6 @@ export default async function Home({
 	params: LangParams;
 }) {
 	const { t } = await useServerTranslation(lang);
-
 	return (
 		<>
 			<Nav lang={lang} />

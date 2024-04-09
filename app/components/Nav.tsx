@@ -10,7 +10,6 @@ import { Lang } from "@/types/common";
 
 export default function Nav({ lang }: { lang: Lang }) {
 	const { t } = useClientTranslation(lang);
-
 	return (
 		<nav className="fixed w-full h-[60px] lg:h-[94px] flex items-center justify-between px-8 lg:px-12 bg-brand-gray z-[100]">
 			<Link href={`/${lang}/2024`} className="h-2/5 flex  items-center">
