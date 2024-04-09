@@ -30,7 +30,7 @@ const Guidelines: React.FC<IProps> = ({ open, children, title }) => {
   }
 
   return (
-    <div className="container p-2 lg:whitespace-nowrap lg:pt-10 lg:pb-20 lg:px-8">
+    <div className="container p-2 lg:whitespace-nowrap lg:pt-10 lg:px-8">
       <div className="relative lg:whitespace-normal lg:pl-4 xl:pl-10">
         <div
           className={clsx("absolute left-0 top-0 w-full h-full", {

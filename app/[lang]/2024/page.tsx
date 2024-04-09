@@ -10,6 +10,8 @@ import CountDownTimer from "@/app/components/CountDownTimer";
 import HighLights from "@/app/components/HighLights";
 import ColorfulButton from "@/app/components/ColorfulButton";
 import TicketInfo from "@/app/components/TicketInfo";
+import ScrollToTopButton from "@/app/components/ScrollToTopButton";
+import Image from "next/image";
 import Nav from "@/app/components/Nav";
 
 export default async function Home({
@@ -22,12 +24,16 @@ export default async function Home({
 	return (
 		<>
 			<Nav lang={lang} />
-			<main className="flex min-h-screen flex-col items-center justify-between gap-y-20">
+			<main className="flex min-h-screen flex-col items-center justify-between">
+				<ScrollToTopButton />
 				<Banner lang={lang} />
-				<section className="fixed bottom-0 z-50 w-full md:h-1/4 bg-[url('/images/mobile-countdown-background.png')] bg-cover md:relative md:py-12 md:bg-[url('/images/countdown-background.png')] md:bg-contain">
+				<section className="fixed bottom-0 z-10 w-full md:h-1/4 bg-[url('/images/mobile-countdown-background.png')] bg-cover md:relative md:py-12 md:bg-[url('/images/countdown-background.png')] md:bg-contain">
 					<CountDownTimer lang={lang} />
 				</section>
-				<section id="speaker" className="w-full px-6 md:px-24">
+				<section
+					id="speaker"
+					className="w-full pt-6 md:pt-20 pb-16 md:pb-6 px-6 md:px-24"
+				>
 					<HeaderTitleWithLine
 						title={t("KEYNOTE SPEAKER")}
 						lineColor="darkBlue"
@@ -41,13 +47,45 @@ export default async function Home({
 				</section>
 				<Agenda lang={lang} />
 				<HighLights lang={lang} />
-				<section id="ticket" className="w-full px-6 md:px-24">
+				<section
+					id="ticket"
+					className="w-full px-6 md:px-24 pt-16 md:pt-20 pb-16 md:pb-6"
+				>
 					<HeaderTitleWithLine title={t("TICKET INFO")} lineColor="cyan" />
 					<TicketInfo lang={lang} />
-					<div className="flex flex-col items-center mt-9">
-						<ColorfulButton href="https://dna.kolable.app/projects/c8d45648-a2f6-4675-a8e0-fbbd907c5789">
+					<div className="flex flex-row justify-center items-end mt-9 gap-8">
+						<Image
+							className="hidden lg:block"
+							src="/images/knight.jpg"
+							alt="Knight"
+							width={118}
+							height={171}
+						/>
+						<Image
+							className="hidden lg:block"
+							src="/images/rogue.jpg"
+							alt="Rogue"
+							width={124}
+							height={100}
+						/>
+						<ColorfulButton href="https://psee.io/5qfa4a">
 							{t("BUY TICKET")}
 						</ColorfulButton>
+
+						<Image
+							className="hidden lg:block"
+							src="/images/wizard.jpg"
+							alt="Wizard"
+							width={107}
+							height={128}
+						/>
+						<Image
+							className="hidden lg:block"
+							src="/images/bard.jpg"
+							alt="bard"
+							width={69}
+							height={113}
+						/>
 					</div>
 					<div className="flex flex-col mt-6">
 						<Guidelines open title={t("TICKET PURCHASE GUIDE")}>
@@ -55,7 +93,10 @@ export default async function Home({
 						</Guidelines>
 					</div>
 				</section>
-				<section id="transportation" className="w-full py-20 px-6 md:px-24">
+				<section
+					id="transportation"
+					className="w-full px-6 md:px-24 pt-16 md:pt-20 pb-16 md:pb-6"
+				>
 					<HeaderTitleWithLine
 						title={t("TRANSPORTATION INFORMATION")}
 						lineColor="green"
@@ -68,7 +109,10 @@ export default async function Home({
 						/>
 					</div>
 				</section>
-				<section id="call-for-sponsor" className="w-full px-6 md:px-24">
+				<section
+					id="call-for-sponsor"
+					className="w-full px-6 md:px-24 pt-16 md:pt-20 pb-16 md:pb-6"
+				>
 					<HeaderTitleWithLine
 						title={t("CALL FOR SPONSOR")}
 						lineColor="yellow"

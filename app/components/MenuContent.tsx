@@ -1,7 +1,7 @@
-'use client';
-import Link from 'next/link';
-import useScrollTo from '@/hooks/useScrollTo';
-import { TFunction } from 'i18next';
+"use client";
+import Link from "next/link";
+import useScrollTo from "@/hooks/useScrollTo";
+import { TFunction } from "i18next";
 
 interface MenuContentProp {
 	t: TFunction;
@@ -14,22 +14,22 @@ const MenuContent: React.FC<MenuContentProp> = ({ t, lang }) => {
 	return (
 		<>
 			<Link className="hover:text-cta" href={`/${lang}/2024#event`}>
-				{t('EVENT')}
+				{t("EVENT")}
 			</Link>
 			<Link className="hover:text-cta" href={`/${lang}/2024#speaker`}>
-				{t('SPEAKER')}
+				{t("SPEAKER")}
 			</Link>
 			<Link className="hover:text-cta" href={`/${lang}/2024#agenda`}>
-				{t('AGENDA')}
+				{t("AGENDA")}
 			</Link>
 			<Link className="hover:text-cta" href={`/${lang}/2024#ticket`}>
-				{t('TICKETS')}
+				{t("TICKETS")}
 			</Link>
 			<Link className="hover:text-cta" href={`/${lang}/2024#transportation`}>
-				{t('TRANSPORTATION')}
+				{t("TRANSPORTATION")}
 			</Link>
 			<Link className="hover:text-cta" href={`/${lang}/2024#call-for-sponsor`}>
-				{t('CALL FOR SPONSOR')}
+				{t("CALL FOR SPONSOR")}
 			</Link>
 		</>
 	);

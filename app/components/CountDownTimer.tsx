@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Lang } from "@/types/common";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import clsx from "clsx";
 
 export default function CountDownTimer({ lang }: { lang: Lang }) {
   const isZhTw = lang === "zh-TW";
@@ -44,31 +45,31 @@ export default function CountDownTimer({ lang }: { lang: Lang }) {
         <div className="flex flex-row items-center md:items-start gap-x-4 md:justify-center">
           <div className="flex flex-col md:items-center">
             <span className="text-3xl font-bold">{days}</span>
-            <span>DAYS </span>
+            <span> {isZhTw ? "天" : "DAYS"} </span>
           </div>
           <span className="hidden md:inline text-3xl font-bold">:</span>
           <div className="flex flex-col md:items-center">
             <span className="text-3xl font-bold">{hours}</span>
-            <span> HRS </span>
+            <span> {isZhTw ? "時" : "HRS"} </span>
           </div>
           <span className="hidden md:inline text-3xl font-bold">:</span>
 
           <div className="flex flex-col md:items-center">
             <span className="text-3xl font-bold">{minutes}</span>
-            <span> MINS </span>
+            <span> {isZhTw ? "分" : "MINS"} </span>
           </div>
 
           <div className="flex flex-col md:hidden">
             <span className="text-3xl font-bold">{seconds}</span>
-            <span> SECS </span>
+            <span> {isZhTw ? "秒" : "SECS"} </span>
           </div>
 
           <Button
             asChild
             className="rounded-3xl bg-[#E74310] hover:bg-[#E74310] border-white border-2 ml-auto md:hidden"
           >
-            <Link href="https://dna.kolable.app/projects/c8d45648-a2f6-4675-a8e0-fbbd907c5789">
-              TICKET
+            <Link href="https://psee.io/5qfa4a" target="_blank">
+              {isZhTw ? "線上購票" : "TICKET"}
             </Link>
           </Button>
         </div>
