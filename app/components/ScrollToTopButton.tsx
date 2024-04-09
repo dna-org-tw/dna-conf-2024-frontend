@@ -68,7 +68,7 @@ const ScrollToTopButton = ({ threshold = 1741, throttleTime = 100 }) => {
   return isVisible ? (
     <button
       onClick={_scrollToTop}
-      className="fixed z-[999] bottom-36 md:bottom-4 right-4 md:right-6"
+      className="fixed z-10 bottom-36 md:bottom-4 right-4 md:right-6"
     >
       <Image
         src="/images/icon_scrollToTop.svg"

@@ -79,7 +79,7 @@ export default function TicketButtonAndDialog({
         </div>
       </div>
       {isOpen && (
-        <div className="bg-[#757575cc] h-lvh w-lvw fixed top-0 left-0 z-10 flex items-start justify-center">
+        <div className="bg-[#757575cc] h-lvh w-lvw fixed top-0 left-0 z-20 flex items-start justify-center">
           <div className="bg-white max-h-[calc(100%-200px)] w-[85%] mt-[100px] lg:mt-[120px] rounded-lg flex flex-col">
             <div
               className={`pt-[30px] pb-[30px] ${color[0]} flex flex-col items-center relative rounded-t-lg flex-shrink-0`}
