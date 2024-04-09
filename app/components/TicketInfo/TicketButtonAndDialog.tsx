@@ -79,10 +79,10 @@ export default function TicketButtonAndDialog({
         </div>
       </div>
       {isOpen && (
-        <div className="bg-[#757575cc] h-lvh w-lvw fixed top-0 left-0 z-10 flex items-center justify-center">
-          <div className="bg-white h-[calc(100%-160px)] w-[85%] mt-[40px] lg:mt-[120px] rounded-lg">
+        <div className="bg-[#757575cc] h-lvh w-lvw fixed top-0 left-0 z-20 flex items-start justify-center">
+          <div className="bg-white max-h-[calc(100%-200px)] w-[85%] mt-[100px] lg:mt-[120px] rounded-lg flex flex-col">
             <div
-              className={`pt-[30px] pb-[30px] ${color[0]} flex flex-col items-center relative rounded-t-lg`}
+              className={`pt-[30px] pb-[30px] ${color[0]} flex flex-col items-center relative rounded-t-lg flex-shrink-0`}
             >
               <h2 className="text-2xl font-bold mb-2">{title}</h2>
               <h3
@@ -118,7 +118,7 @@ export default function TicketButtonAndDialog({
                 />
               </button>
             </div>
-            <div className="overflow-auto h-[calc(100%-156px)] pb-[80px]">
+            <div className="overflow-auto pb-10">
               <div className="mx-auto max-w-[500px] px-2 pt-[38px]">
                 <p className="font-bold mb-1 text-center text-[#E74310] text-lg">
                   {availablePeriod}
