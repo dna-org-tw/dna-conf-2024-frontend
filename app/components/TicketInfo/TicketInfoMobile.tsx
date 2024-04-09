@@ -91,34 +91,33 @@ export default function TicketInfoMobile({ lang }: { lang: Lang }) {
             t={t}
             color={ticketColor.blue}
             title={t("single classic ticket.title")}
-            price={t("coming soon")}
+            price={t("single classic ticket.price")}
             availablePeriod={t("single classic ticket.available period")}
             originalPrice={t("single classic ticket.original price")}
             content={[
+              t("single classic ticket.content4"),
               t("single classic ticket.content1"),
               t("single classic ticket.content2"),
               t("single classic ticket.content3"),
-              t("single classic ticket.content4"),
             ]}
             label={t("single classic ticket.label")}
             showTrumpet
             isOpen={isOpen === ticketType.SingleClassic}
             handleToggle={() => handleToggle(ticketType.SingleClassic)}
             className="mb-4"
-            disabled
           />
           <TicketButtonAndDialog
             t={t}
             color={ticketColor.red}
             title={t("vip ticket.title")}
-            price={t("coming soon")}
+            price={t("vip ticket.price")}
             availablePeriod={t("vip ticket.available period")}
             originalPrice={t("vip ticket.original price")}
             content={[
+              t("vip ticket.content4"),
               t("vip ticket.content1"),
               t("vip ticket.content2"),
               t("vip ticket.content3"),
-              t("vip ticket.content4"),
               t("vip ticket.content5"),
             ]}
             label={t("vip ticket.label")}
@@ -126,7 +125,6 @@ export default function TicketInfoMobile({ lang }: { lang: Lang }) {
             isOpen={isOpen === ticketType.Vip}
             handleToggle={() => handleToggle(ticketType.Vip)}
             className="mb-4"
-            disabled
           />
         </div>
       </div>
