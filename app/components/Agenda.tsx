@@ -8,6 +8,7 @@ export default async function Agenda({ lang }: { lang: Lang }) {
   const isZhTw = lang === "zh-TW";
   return (
     <section
+      id="agenda"
       className={`relative w-full py-20 px-6 sm:h-[320px] md:h-[370px] lg:h-[420px] max-h-[420px] bg-contain bg-no-repeat bg-bottom bg-[#F6F6F6] bg-[url('/images/coming-soon-bg.png')]`}
     >
       <HeaderTitleWithLine title={t("AGENDA")} lineColor="red" />
