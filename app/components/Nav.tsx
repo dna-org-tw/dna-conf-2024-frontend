@@ -1,18 +1,18 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import Image from 'next/image';
-import MenuDropdown from './MenuDropdown';
-import MenuContent from './MenuContent';
-import { useClientTranslation } from '@/i18n/client';
-import { Button } from '@/components/ui/button';
-import { Lang } from '@/types/common';
+import Link from "next/link";
+import Image from "next/image";
+import MenuDropdown from "./MenuDropdown";
+import MenuContent from "./MenuContent";
+import { useClientTranslation } from "@/i18n/client";
+import { Button } from "@/components/ui/button";
+import { Lang } from "@/types/common";
 
 export default function Nav({ lang }: { lang: Lang }) {
 	const { t } = useClientTranslation(lang);
 
 	return (
-		<nav className="w-full h-[60px] lg:h-[94px] flex items-center justify-between px-8 lg:px-12 bg-brand-gray relative z-50">
+		<nav className="fixed w-full h-[60px] lg:h-[94px] flex items-center justify-between px-8 lg:px-12 bg-brand-gray z-[100]">
 			<Link href={`/${lang}/2024`} className="h-2/5 flex  items-center">
 				<Image
 					src="/images/LOGO.png"
@@ -33,10 +33,10 @@ export default function Nav({ lang }: { lang: Lang }) {
 						href="https://dna.kolable.app/projects/c8d45648-a2f6-4675-a8e0-fbbd907c5789"
 						target="_blank"
 					>
-						{t('BUY_TICKET')}
+						{t("BUY_TICKET")}
 					</Link>
 				</Button>
-				<Link href={`/${lang === 'en-US' ? 'zh-TW' : 'en-US'}/2024`}>
+				<Link href={`/${lang === "en-US" ? "zh-TW" : "en-US"}/2024`}>
 					<Image
 						src="/images/i18n.png"
 						alt="i18n"
