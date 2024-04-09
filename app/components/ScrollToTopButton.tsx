@@ -10,7 +10,7 @@ const _scrollToTop = () => {
   }
 };
 
-/* 
+/*
   @param {number} threshold - The scroll position to show the button
   @param {number} throttleTime - The time to throttle the scroll event
   desktop: 1741, mobile: 1413
@@ -26,12 +26,11 @@ const ScrollToTopButton = ({ threshold = 1741, throttleTime = 100 }) => {
   // use throttle to control the frequency of the scroll event
   const toggleVisibility = throttle(() => {
     if (windowSize.width > 768) {
-      threshold = 1741;
+      threshold = 1200;
+    } else {
+      threshold = 800;
     }
-    if (windowSize.width <= 768) {
-      threshold = 1413;
-    }
-    
+
     const shouldBeVisible = window.scrollY > threshold;
     if (isVisible !== shouldBeVisible) {
       setIsVisible(shouldBeVisible);
@@ -49,7 +48,7 @@ const ScrollToTopButton = ({ threshold = 1741, throttleTime = 100 }) => {
 
       window.addEventListener("resize", handleResize);
       handleResize();
-      
+
       return () => window.removeEventListener("resize", handleResize);
     }
   }, [throttleTime]);
@@ -64,12 +63,12 @@ const ScrollToTopButton = ({ threshold = 1741, throttleTime = 100 }) => {
   const size =
     windowSize.width > 768
       ? { width: 80, height: 80 }
-      : { width: 60, height: 60 };
+      : { width: 44, height: 44 };
 
   return isVisible ? (
     <button
       onClick={_scrollToTop}
-      className="fixed z-[999] top-[15%] xs:top-[5%] right-[2%]"
+      className="fixed z-[999] bottom-36 md:bottom-4 right-4 md:right-6"
     >
       <Image
         src="/images/icon_scrollToTop.svg"

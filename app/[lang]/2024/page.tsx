@@ -60,7 +60,7 @@ export default async function Home({
             width={124}
             height={100}
           />
-          <ColorfulButton href="https://dna.kolable.app/projects/c8d45648-a2f6-4675-a8e0-fbbd907c5789">
+          <ColorfulButton href="https://psee.io/5qfa4a">
             {t("BUY TICKET")}
           </ColorfulButton>
 

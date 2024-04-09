@@ -29,10 +29,7 @@ const MenuContent: React.FC<MenuContentProp> = ({ translatedData, lng }) => {
         asChild
         className="bg-cta hover:bg-cta/90 rounded-lg px-4 py-2 w-fit"
       >
-        <Link
-          href="https://dna.kolable.app/projects/c8d45648-a2f6-4675-a8e0-fbbd907c5789"
-          target="_blank"
-        >
+        <Link href="https://psee.io/5qfa4a" target="_blank">
           {translatedData.BUY_TICKET}
         </Link>
       </Button>
