@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useClientTranslation } from "@/i18n/client";
 import TicketButtonAndDialog from "./TicketButtonAndDialog";
 import { ticketColor } from "./index";
@@ -18,6 +18,7 @@ type TicketType = (typeof ticketType)[keyof typeof ticketType];
 export default function TicketInfoMobile({ lang }: { lang: Lang }) {
   const [isOpen, setIsOpen] = useState<TicketType>();
   const { t } = useClientTranslation(lang);
+  const scrollBarPosition = useRef(0);
 
   const handleToggle = (type: TicketType) => {
     if (isOpen === type) {
@@ -29,9 +30,19 @@ export default function TicketInfoMobile({ lang }: { lang: Lang }) {
 
   useEffect(() => {
     if (isOpen) {
+      scrollBarPosition.current = document.documentElement.scrollTop;
       document.body.style.overflow = "hidden";
+      document.body.style.position = "fixed";
+      document.body.style.touchAction = "none";
     } else {
       document.body.style.overflow = "auto";
+      document.body.style.position = "relative";
+      document.body.style.touchAction = "auto";
+      window.scrollTo({
+        top: scrollBarPosition.current,
+        left: 0,
+        behavior: "instant",
+      });
     }
   }, [isOpen]);
 
