@@ -13,6 +13,7 @@ import ColorfulButton from "@/app/components/ColorfulButton";
 import TicketInfo from "@/app/components/TicketInfo";
 import ScrollToTopButton from "@/app/components/ScrollToTopButton";
 import Image from "next/image";
+import {getSpeakers} from "@/lib/notion";
 
 export default async function Home({
   params: { lang },
@@ -20,6 +21,9 @@ export default async function Home({
   params: LangParams;
 }) {
   const { t } = await useServerTranslation(lang);
+
+  const speakers = await getSpeakers();
+  console.log(speakers);
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between">
@@ -121,3 +125,5 @@ export default async function Home({
     </main>
   );
 }
+
+export const revalidate = 60;
