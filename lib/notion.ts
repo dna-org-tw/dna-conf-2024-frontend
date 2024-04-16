@@ -121,3 +121,53 @@ export const getSpeakers = async () => {
   return transformToConferenceSpeakers(pages);
 }
 
+export const getSessions = async () => {
+  const notion = new Client({ auth: process.env.NOTION_TOKEN });
+  const pages = await notion.databases.query({ database_id: "9e5ad6893ac742e88779db8dc7bdc59c" }) as any as NotionResponse;
+  return transformSessionData(pages.results as any as InputPage[]);
+}
+
+interface InputPage {
+  properties: {
+    title_zh: { title: { text: { content: string } }[] };
+    title_en: { rich_text: { text: { content: string } }[] };
+    location_zh: { multi_select: { name: string }[] };
+    location_en: { multi_select: { name: string }[] };
+    tags_zh: { multi_select: { name: string }[] };
+    tags_en: { multi_select: { name: string }[] };
+    status: { select: { name: string } };
+    time_slots: {multi_select: {name: string}[]};
+    speaker_zh: { rich_text: { text: { content: string } }[] };
+    speaker_en: { rich_text: { text: { content: string } }[] };
+  };
+}
+
+interface OutputPage {
+  title: { zh: string; en: string };
+  location: { zh: string; en: string };
+  tags: { zh: string[]; en: string[] };
+  speaker: { zh: string; en: string };
+}
+
+function transformSessionData(input: InputPage[]): OutputPage[] {
+  return input.map((page) => ({
+    title: {
+      zh: page.properties.title_zh.title.map(t => t.text.content).join(''),
+      en: page.properties.title_en.rich_text.map(t => t.text.content).join(''),
+    },
+    location: {
+      zh: page.properties.location_zh.multi_select.map(l => l.name).join(', '),
+      en: page.properties.location_en.multi_select.map(l => l.name).join(', '),
+    },
+    tags: {
+      zh: page.properties.tags_zh.multi_select.map(t => t.name),
+      en: page.properties.tags_en.multi_select.map(t => t.name),
+    },
+    speaker: {
+      zh: page.properties.speaker_zh.rich_text.map(s => s.text.content).join(''),
+      en: page.properties.speaker_en.rich_text.map(s => s.text.content).join(''),
+    },
+    status: page.properties.status.select.name,
+    timeSlots: page.properties.time_slots.multi_select.map(t => t.name)
+  }));
+}
