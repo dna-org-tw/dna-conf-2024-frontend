@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { useServerTranslation } from "@/i18n";
 import { LangParams } from "@/types/common";
 import Speaker from "../../components/speaker";
@@ -13,7 +12,7 @@ import ColorfulButton from "@/app/components/ColorfulButton";
 import TicketInfo from "@/app/components/TicketInfo";
 import ScrollToTopButton from "@/app/components/ScrollToTopButton";
 import Image from "next/image";
-import {getSessions, getSpeakers} from "@/lib/notion";
+import { getSessions, getSpeakers } from "@/lib/notion";
 
 export default async function Home({
   params: { lang },
@@ -22,11 +21,11 @@ export default async function Home({
 }) {
   const { t } = await useServerTranslation(lang);
 
-  const speakers = await getSpeakers();
-  console.log(speakers);
+  // const speakers = await getSpeakers();
+  // console.log(speakers);
 
-  const sessions = await getSessions();
-  console.log(sessions);
+  // const sessions = await getSessions();
+  // console.log(sessions);
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between">
@@ -50,7 +49,12 @@ export default async function Home({
           imgSrc="/images/osera-ryo.png"
         />
       </section>
-      <Agenda lang={lang} />
+      <section
+        id="agenda"
+        className="w-full pt-6 md:pt-20 pb-16 md:pb-6 px-6 md:px-24"
+      >
+        <Agenda lang={lang} />
+      </section>
       <HighLights lang={lang} />
       <section
         id="ticket"
