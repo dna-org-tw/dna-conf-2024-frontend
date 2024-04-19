@@ -100,15 +100,16 @@ export default async function Agenda({ lang }: { lang: Lang }) {
   return (
     <>
       <HeaderTitleWithLine title={t("AGENDA")} lineColor="red" />
-      <div className="grid grid-cols-7 gap-2">
+      <div className="grid md:grid-cols-7 gap-2">
         {mockData.conferenceSchedule.map((session) => (
           <>
             <div
               key={`row-${session.row}`}
-              className="flex flex-col justify-center items-center bg-[#FFD028] border-[#FFD028] border-2 py-3 px-4 rounded-md"
+              className="flex md:flex-col justify-center items-center gap-y-1 gap-x-2 bg-[#FFD028] border-[#FFD028] border-2 py-1 md:py-3 px-4 rounded-md mt-6 md:mt-0"
             >
               <div className="font-bold">{session.time[0]}</div>
-              <div className="h-6 w-0 border border-black"></div>
+              <div className="hidden md:block h-6 w-0 border border-black"></div>
+              <div className="md:hidden w-4 border border-black"></div>
               <div className="font-bold">{session.time[1]}</div>
             </div>
             {session.events.map((event, i) => {
@@ -118,9 +119,9 @@ export default async function Agenda({ lang }: { lang: Lang }) {
                   className={cn(
                     "p-5 border-2 rounded-md flex flex-col justify-between gap-y-4 border-[#00993E]",
                     {
-                      "col-span-6": session.events.length === 1,
-                      "col-span-3": session.events.length === 2,
-                      "col-span-2": session.events.length === 3,
+                      "md:col-span-6": session.events.length === 1,
+                      "md:col-span-3": session.events.length === 2,
+                      "md:col-span-2": session.events.length === 3,
                       // "bg-[#00993E1A] bg-opacity-10": true,
                       "border-[#E74310]":
                         !event.title &&
