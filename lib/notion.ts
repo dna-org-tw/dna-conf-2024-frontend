@@ -135,11 +135,11 @@ interface InputPage {
     location_en: { multi_select: { name: string }[] };
     tags_zh: { multi_select: { name: string }[] };
     tags_en: { multi_select: { name: string }[] };
-    status: { select: { name: string } };
+    status: { select?: { name: string } };
     time_slots: {multi_select: {name: string}[]};
     speaker_zh: { rich_text: { text: { content: string } }[] };
     speaker_en: { rich_text: { text: { content: string } }[] };
-    color: { select: { name: string } };
+    color: { select?: { name: string } };
   };
 }
 
@@ -148,7 +148,7 @@ interface OutputPage {
   location: { zh: string; en: string };
   tags: { zh: string[]; en: string[] };
   speaker: { zh: string; en: string };
-  color: string;
+  color?: string;
 }
 
 function transformSessionData(input: InputPage[]): OutputPage[] {
@@ -169,8 +169,8 @@ function transformSessionData(input: InputPage[]): OutputPage[] {
       zh: page.properties.speaker_zh.rich_text.map(s => s.text.content).join(''),
       en: page.properties.speaker_en.rich_text.map(s => s.text.content).join(''),
     },
-    status: page.properties.status.select.name,
+    status: page.properties.status.select?.name,
     timeSlots: page.properties.time_slots.multi_select.map(t => t.name),
-    color: page.properties.color.select.name,
+    color: page.properties.color.select?.name,
   }));
 }
