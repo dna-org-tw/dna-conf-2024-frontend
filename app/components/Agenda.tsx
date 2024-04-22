@@ -30,7 +30,7 @@ export default async function Agenda({
   return (
     <>
       <HeaderTitleWithLine title={t("AGENDA")} lineColor="red" />
-      <div className="grid md:grid-cols-7 gap-2">
+      <div className="grid md:grid-cols-7 gap-2 max-w-[772px] mx-auto">
         {Object.keys(sessionsByTimeSlots).map((timeSlot, i) => {
           const s = sessionsByTimeSlots[timeSlot];
           const [startTime, endTime] = timeSlot.split("-");
