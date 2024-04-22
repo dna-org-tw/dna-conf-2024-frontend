@@ -21,10 +21,10 @@ export default async function Home({
 }) {
   const { t } = await useServerTranslation(lang);
 
-  // const speakers = await getSpeakers();
+  const speakers = await getSpeakers();
   // console.log(speakers);
 
-  // const sessions = await getSessions();
+  const sessions = await getSessions();
   // console.log(sessions);
 
   return (
@@ -53,7 +53,7 @@ export default async function Home({
         id="agenda"
         className="w-full pt-6 md:pt-20 pb-16 md:pb-6 px-6 md:px-24"
       >
-        <Agenda lang={lang} />
+        <Agenda lang={lang} sessions={sessions} />
       </section>
       <HighLights lang={lang} />
       <section
