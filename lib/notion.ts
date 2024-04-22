@@ -70,16 +70,16 @@ interface ConferenceSpeaker {
 
 function extractProperty(property: any): any {
   switch (property.type) {
-    case 'title':
-    case 'rich_text':
+    case "title":
+    case "rich_text":
       return property[property.type]
         .map((text: any) => text.plain_text)
-        .join('');
-    case 'url':
+        .join("");
+    case "url":
       return property[property.type];
-    case 'multi_select':
+    case "multi_select":
       return property[property.type].map((select: any) => select.name);
-    case 'select':
+    case "select":
       return property[property.type]?.name;
     default:
       return undefined;
@@ -95,7 +95,7 @@ function transformToConferenceSpeakers(
       title: extractProperty(properties.title),
       name: extractProperty(properties.name),
       bio: extractProperty(properties.bio),
-      photo: extractProperty(properties['photo url']),
+      photo: extractProperty(properties["photo url"]),
       socialMedia: {
         facebook: extractProperty(properties.facebook),
         instagram: extractProperty(properties.instagram),
@@ -106,10 +106,10 @@ function transformToConferenceSpeakers(
     };
 
     const sessionInfo: SessionInfo = {
-      title: extractProperty(properties['session title']),
-      room: extractProperty(properties['session room']),
-      description: extractProperty(properties['session description']),
-      hashTags: extractProperty(properties['session tags']),
+      title: extractProperty(properties["session title"]),
+      room: extractProperty(properties["session room"]),
+      description: extractProperty(properties["session description"]),
+      hashTags: extractProperty(properties["session tags"]),
     };
 
     return {
