@@ -54,6 +54,7 @@ export default async function Agenda({
                         "border-[#00993E]": session.color === "#00993E",
                         "border-[#10B9DA]": session.color === "#10B9DA",
                         "border-[#E74310]": session.color === "#E74310",
+                        "border-[#C54091]": session.color === "#C54091",
                         "md:col-span-6": s.length === 1,
                         "md:col-span-3": s.length === 2,
                         "md:col-span-2": s.length === 3,
@@ -83,6 +84,8 @@ export default async function Agenda({
                                   session.color === "#10B9DA",
                                 "bg-[#E74310] hover:bg-[#E74310]":
                                   session.color === "#E74310",
+                                "bg-[#C54091] hover:bg-[#C54091]":
+                                  session.color === "#C54091",
                               })}
                             >
                               {tag}
@@ -97,6 +100,7 @@ export default async function Agenda({
                                 "text-[#00993E]": session.color === "#00993E",
                                 "text-[#10B9DA]": session.color === "#10B9DA",
                                 "text-[#E74310]": session.color === "#E74310",
+                                "text-[#C54091]": session.color === "#C54091",
                               })}
                             >
                               <span
