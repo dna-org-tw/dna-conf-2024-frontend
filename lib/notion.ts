@@ -145,6 +145,7 @@ interface InputPage {
     tags_en: { multi_select: { name: string }[] };
     status: { select: { name: string } };
     time_slots: { multi_select: { name: string }[] };
+    time_section: { select: { name: string } };
     speaker_zh: { rich_text: { text: { content: string } }[] };
     speaker_en: { rich_text: { text: { content: string } }[] };
     color: { select: { name: string } };
@@ -159,6 +160,7 @@ export interface Session {
   speaker: { "zh-TW": string; "en-US": string };
   status: string;
   timeSlots: string[];
+  timeSection: string;
   color?: string;
   order?: number;
 }
@@ -195,6 +197,7 @@ function transformSessionData(input: InputPage[]): Session[] {
     },
     status: page.properties.status.select?.name,
     timeSlots: page.properties.time_slots.multi_select.map((t) => t.name),
+    timeSection: page.properties.time_section.select?.name,
     color: page.properties.color.select?.name,
     order: page.properties.order.number,
   }));
