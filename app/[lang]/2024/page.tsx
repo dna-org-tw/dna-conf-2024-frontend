@@ -13,7 +13,7 @@ import TicketInfo from "@/app/components/TicketInfo";
 import ScrollToTopButton from "@/app/components/ScrollToTopButton";
 import Image from "next/image";
 import { getSessions, getSpeakers } from "@/lib/notion";
-
+import Carousel from "@/app/components/Carousel";
 export default async function Home({
   params: { lang },
 }: {
@@ -36,18 +36,25 @@ export default async function Home({
       </section>
       <section
         id="speaker"
-        className="w-full pt-6 md:pt-20 pb-16 md:pb-6 px-6 md:px-24"
+        className=" pt-6 md:pt-20 pb-16 md:pb-6 px-6 md:px-24"
       >
         <HeaderTitleWithLine
           title={t("KEYNOTE SPEAKER")}
           lineColor="darkBlue"
         />
-        <Speaker
-          name="大瀬良 亮"
-          nameEN="OSERA Ryo"
-          title="幹事"
-          imgSrc="/images/osera-ryo.png"
-        />
+        <Carousel speed={5000}>
+          {speakers
+            .filter((speaker) => !!speaker.speakerInfo.name)
+            .map((speaker) => (
+              <Speaker
+                key={speaker.speakerInfo.title}
+                name={speaker.speakerInfo.title}
+                nameEN={speaker.speakerInfo.name}
+                title=""
+                imgSrc={speaker.speakerInfo.photo}
+              />
+            ))}
+        </Carousel>
       </section>
       <section
         id="agenda"
