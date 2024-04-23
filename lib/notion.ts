@@ -193,7 +193,7 @@ function transformSessionData(input: InputPage[]): Session[] {
         .map((s) => s.text.content)
         .join(""),
     },
-    status: page.properties.status.select.name,
+    status: page.properties.status.select?.name,
     timeSlots: page.properties.time_slots.multi_select.map((t) => t.name),
     color: page.properties.color.select?.name,
     order: page.properties.order.number,
