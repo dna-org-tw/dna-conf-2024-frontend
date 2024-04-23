@@ -1,4 +1,4 @@
-import {Client} from "@notionhq/client";
+import { Client } from "@notionhq/client";
 
 interface NotionUser {
   object: string;
@@ -70,62 +70,70 @@ interface ConferenceSpeaker {
 
 function extractProperty(property: any): any {
   switch (property.type) {
-    case 'title':
-    case 'rich_text':
-      return property[property.type].map((text: any) => text.plain_text).join('');
-    case 'url':
+    case "title":
+    case "rich_text":
+      return property[property.type]
+        .map((text: any) => text.plain_text)
+        .join("");
+    case "url":
       return property[property.type];
-    case 'multi_select':
+    case "multi_select":
       return property[property.type].map((select: any) => select.name);
-    case 'select':
+    case "select":
       return property[property.type]?.name;
     default:
       return undefined;
   }
 }
 
-function transformToConferenceSpeakers(notionResponse: NotionResponse): ConferenceSpeaker[] {
-  return notionResponse.results.map(page => {
+function transformToConferenceSpeakers(
+  notionResponse: NotionResponse
+): ConferenceSpeaker[] {
+  return notionResponse.results.map((page) => {
     const properties = page.properties;
     const speakerInfo: SpeakerInfo = {
       title: extractProperty(properties.title),
       name: extractProperty(properties.name),
       bio: extractProperty(properties.bio),
-      photo: extractProperty(properties['photo url']),
+      photo: extractProperty(properties["photo url"]),
       socialMedia: {
         facebook: extractProperty(properties.facebook),
         instagram: extractProperty(properties.instagram),
         linkedin: extractProperty(properties.linkedin),
         twitter: extractProperty(properties.twitter),
         website: extractProperty(properties.Website),
-      }
+      },
     };
 
     const sessionInfo: SessionInfo = {
-      title: extractProperty(properties['session title']),
-      room: extractProperty(properties['session room']),
-      description: extractProperty(properties['session description']),
-      hashTags: extractProperty(properties['session tags']),
+      title: extractProperty(properties["session title"]),
+      room: extractProperty(properties["session room"]),
+      description: extractProperty(properties["session description"]),
+      hashTags: extractProperty(properties["session tags"]),
     };
 
     return {
       speakerInfo,
-      session: sessionInfo
+      session: sessionInfo,
     };
   });
 }
 
 export const getSpeakers = async () => {
   const notion = new Client({ auth: process.env.NOTION_TOKEN });
-  const pages = await notion.databases.query({ database_id: process.env.NOTION_DATABASE_ID! }) as any as NotionResponse;
+  const pages = (await notion.databases.query({
+    database_id: process.env.NOTION_DATABASE_ID!,
+  })) as any as NotionResponse;
   return transformToConferenceSpeakers(pages);
-}
+};
 
 export const getSessions = async () => {
   const notion = new Client({ auth: process.env.NOTION_TOKEN });
-  const pages = await notion.databases.query({ database_id: "9e5ad6893ac742e88779db8dc7bdc59c" }) as any as NotionResponse;
+  const pages = (await notion.databases.query({
+    database_id: "9e5ad6893ac742e88779db8dc7bdc59c",
+  })) as any as NotionResponse;
   return transformSessionData(pages.results as any as InputPage[]);
-}
+};
 
 interface InputPage {
   properties: {
@@ -136,38 +144,58 @@ interface InputPage {
     tags_zh: { multi_select: { name: string }[] };
     tags_en: { multi_select: { name: string }[] };
     status: { select: { name: string } };
-    time_slots: {multi_select: {name: string}[]};
+    time_slots: { multi_select: { name: string }[] };
     speaker_zh: { rich_text: { text: { content: string } }[] };
     speaker_en: { rich_text: { text: { content: string } }[] };
+    color: { select: { name: string } };
+    order: { number: number };
   };
 }
 
-interface OutputPage {
-  title: { zh: string; en: string };
-  location: { zh: string; en: string };
-  tags: { zh: string[]; en: string[] };
-  speaker: { zh: string; en: string };
+export interface Session {
+  title: { "zh-TW": string; "en-US": string };
+  location: { "zh-TW": string; "en-US": string };
+  tags: { "zh-TW": string[]; "en-US": string[] };
+  speaker: { "zh-TW": string; "en-US": string };
+  status: string;
+  timeSlots: string[];
+  color?: string;
+  order?: number;
 }
 
-function transformSessionData(input: InputPage[]): OutputPage[] {
+function transformSessionData(input: InputPage[]): Session[] {
   return input.map((page) => ({
     title: {
-      zh: page.properties.title_zh.title.map(t => t.text.content).join(''),
-      en: page.properties.title_en.rich_text.map(t => t.text.content).join(''),
+      "zh-TW": page.properties.title_zh.title
+        .map((t) => t.text.content)
+        .join(""),
+      "en-US": page.properties.title_en.rich_text
+        .map((t) => t.text.content)
+        .join(""),
     },
     location: {
-      zh: page.properties.location_zh.multi_select.map(l => l.name).join(', '),
-      en: page.properties.location_en.multi_select.map(l => l.name).join(', '),
+      "zh-TW": page.properties.location_zh.multi_select
+        .map((l) => l.name)
+        .join(", "),
+      "en-US": page.properties.location_en.multi_select
+        .map((l) => l.name)
+        .join(", "),
     },
     tags: {
-      zh: page.properties.tags_zh.multi_select.map(t => t.name),
-      en: page.properties.tags_en.multi_select.map(t => t.name),
+      "zh-TW": page.properties.tags_zh.multi_select.map((t) => t.name),
+      "en-US": page.properties.tags_en.multi_select.map((t) => t.name),
     },
     speaker: {
-      zh: page.properties.speaker_zh.rich_text.map(s => s.text.content).join(''),
-      en: page.properties.speaker_en.rich_text.map(s => s.text.content).join(''),
+      "zh-TW": page.properties.speaker_zh.rich_text
+        .map((s) => s.text.content)
+        .join(""),
+      "en-US": page.properties.speaker_en.rich_text
+        .map((s) => s.text.content)
+        .join(""),
     },
     status: page.properties.status.select.name,
-    timeSlots: page.properties.time_slots.multi_select.map(t => t.name)
+    timeSlots: page.properties.time_slots.multi_select.map((t) => t.name),
+    color: page.properties.color.select?.name,
+    order: page.properties.order.number,
   }));
 }

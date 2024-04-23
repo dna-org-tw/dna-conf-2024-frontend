@@ -1,6 +1,6 @@
 import { useServerTranslation } from "@/i18n";
 import { LangParams } from "@/types/common";
-import Speaker from "../../components/Speaker";
+import Speaker from "../../components/speaker";
 import HeaderTitleWithLine from "@/app/components/HeaderTitleWithLine";
 import Transportation from "@/app/components/transportation";
 import Guidelines from "@/app/components/guidelines";
@@ -14,7 +14,6 @@ import ScrollToTopButton from "@/app/components/ScrollToTopButton";
 import Image from "next/image";
 import { getSessions, getSpeakers } from "@/lib/notion";
 import Carousel from "@/app/components/Carousel";
-
 export default async function Home({
   params: { lang },
 }: {
@@ -23,10 +22,10 @@ export default async function Home({
   const { t } = await useServerTranslation(lang);
 
   const speakers = await getSpeakers();
-  console.log(speakers);
+  // console.log(speakers);
 
   const sessions = await getSessions();
-  console.log(sessions);
+  // console.log(sessions);
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between">
@@ -57,7 +56,12 @@ export default async function Home({
             ))}
         </Carousel>
       </section>
-      <Agenda lang={lang} />
+      <section
+        id="agenda"
+        className="w-full pt-6 md:pt-20 pb-16 md:pb-6 px-6 md:px-24"
+      >
+        <Agenda lang={lang} sessions={sessions} />
+      </section>
       <HighLights lang={lang} />
       <section
         id="ticket"
