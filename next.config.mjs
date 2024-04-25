@@ -6,6 +6,9 @@ const nextConfig = {
       {
         hostname: "conf.dna.org.tw",
       },
+      {
+        hostname: "drive.dna.org.tw",
+      },
     ],
   },
 };

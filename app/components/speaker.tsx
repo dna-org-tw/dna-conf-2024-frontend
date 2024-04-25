@@ -1,5 +1,6 @@
 import Image from "next/image";
 import clsx from "clsx";
+import { Session } from "@/lib/notion";
 
 interface IProps {
   name?: string;
@@ -8,8 +9,7 @@ interface IProps {
   imgSrc?: string;
 }
 
-function Speaker(props: IProps) {
-  const { name = "", nameEN = "", title = "", imgSrc = "" } = props;
+function Speaker({ name = "", nameEN = "", title = "", imgSrc = "" }: IProps) {
   return (
     <section className="flex justify-center items-center w-full ml-5">
       <div className={clsx("flex flex-col")}>

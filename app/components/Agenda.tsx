@@ -75,7 +75,6 @@ function SessionTable(
   lang: Lang
 ) {
   const s = timeSlotSessions[timeSlot];
-  console.log(timeSlotSessions);
   const [startTime, endTime] = timeSlot.split("-");
   return (
     <>

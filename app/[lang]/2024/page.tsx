@@ -1,6 +1,5 @@
 import { useServerTranslation } from "@/i18n";
 import { LangParams } from "@/types/common";
-import Speaker from "../../components/speaker";
 import HeaderTitleWithLine from "@/app/components/HeaderTitleWithLine";
 import Transportation from "@/app/components/transportation";
 import Guidelines from "@/app/components/guidelines";
@@ -13,7 +12,8 @@ import TicketInfo from "@/app/components/TicketInfo";
 import ScrollToTopButton from "@/app/components/ScrollToTopButton";
 import Image from "next/image";
 import { getSessions, getSpeakers } from "@/lib/notion";
-import Carousel from "@/app/components/Carousel";
+import { SpeakerSessionDialog } from "@/app/components/SpeakerSessionDialog";
+import SpeakerSection from "@/app/components/SpeakerSection";
 export default async function Home({
   params: { lang },
 }: {
@@ -22,10 +22,7 @@ export default async function Home({
   const { t } = await useServerTranslation(lang);
 
   const speakers = await getSpeakers();
-  // console.log(speakers);
-
   const sessions = await getSessions();
-  // console.log(sessions);
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between">
@@ -38,23 +35,7 @@ export default async function Home({
         id="speaker"
         className=" pt-6 md:pt-20 pb-16 md:pb-6 px-6 md:px-24"
       >
-        <HeaderTitleWithLine
-          title={t("KEYNOTE SPEAKER")}
-          lineColor="darkBlue"
-        />
-        <Carousel speed={5000}>
-          {speakers
-            .filter((speaker) => !!speaker.speakerInfo.name)
-            .map((speaker) => (
-              <Speaker
-                key={speaker.speakerInfo.title}
-                name={speaker.speakerInfo.title}
-                nameEN={speaker.speakerInfo.name}
-                title=""
-                imgSrc={speaker.speakerInfo.photo}
-              />
-            ))}
-        </Carousel>
+        <SpeakerSection title={t("KEYNOTE SPEAKER")} speakers={speakers} />
       </section>
       <section
         id="agenda"

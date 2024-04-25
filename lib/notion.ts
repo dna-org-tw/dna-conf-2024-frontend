@@ -63,7 +63,7 @@ interface SessionInfo {
   hashTags: string[];
 }
 
-interface ConferenceSpeaker {
+export interface ConferenceSpeaker {
   speakerInfo: SpeakerInfo;
   session: SessionInfo;
 }
