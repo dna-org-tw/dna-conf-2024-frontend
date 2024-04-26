@@ -15,9 +15,9 @@ export function SpeakerSessionDialog({
   return (
     <Dialog>
       <DialogTrigger>{children}</DialogTrigger>
-      <DialogContent className="sm:max-w-[720px]">
-        <div className="flex pb-6 border-b-2">
-          <div className="flex-none">
+      <DialogContent className="md:max-w-[720px] max-h-[80vh] md:max-h-initial overflow-y-scroll">
+        <div className="flex flex-col md:flex-row pb-6 border-b-2">
+          <div className="flex-none flex justify-center">
             {speakerInfo.photo && (
               <Image
                 src={speakerInfo.photo}
