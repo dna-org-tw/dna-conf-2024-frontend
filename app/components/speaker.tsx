@@ -13,13 +13,13 @@ function Speaker({ name = "", nameEN = "", title = "", imgSrc = "" }: IProps) {
   return (
     <section className="flex justify-center items-center w-full ml-5">
       <div className={clsx("flex flex-col")}>
-        <Image
+        {imgSrc && <Image
           src={imgSrc}
           alt={`speaker ${name} ${title}`}
           width={493}
           height={468}
           className="w-full max-w-[270px]"
-        />
+        />}
         <div
           className={clsx(
             "mt-[30px] flex flex-col justify-center text-center text-nowrap text-[#004E9D]",
