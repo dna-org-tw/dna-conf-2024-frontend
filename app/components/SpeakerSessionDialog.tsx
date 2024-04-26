@@ -16,15 +16,15 @@ export function SpeakerSessionDialog({
     <Dialog>
       <DialogTrigger>{children}</DialogTrigger>
       <DialogContent className="md:max-w-[720px] max-h-[80vh] md:max-h-initial overflow-y-scroll">
-        <div className="flex flex-col md:flex-row pb-6 border-b-2">
-          <div className="flex-none flex justify-center">
+        <div className="flex flex-col md:flex-row pb-6 border-b-2 gap-4">
+          <div className="flex-none flex justify-center items-start">
             {speakerInfo.photo && (
               <Image
                 src={speakerInfo.photo}
                 alt={speakerInfo.name}
                 width={178}
                 height={178}
-                className="w-[178px]"
+                className="object-contain"
               />
             )}
           </div>
