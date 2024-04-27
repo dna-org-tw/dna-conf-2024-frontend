@@ -24,16 +24,6 @@ export default function Carousel({
 
   const page = Math.ceil(children.length / cols);
 
-  const scrollTo = (slideIndex: number) => {
-    const slideElement = document.getElementById(`slide-${slideIndex}`);
-    if (slideElement) {
-      slideElement.scrollIntoView({
-        behavior: "smooth",
-        block: "nearest",
-        inline: "nearest",
-      });
-    }
-  };
   const handleSlideChange = (slideIndex: number) => {
     if (slideIndex > childList.length - 1) {
       slideIndex = 0;
