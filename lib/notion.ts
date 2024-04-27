@@ -51,16 +51,16 @@ interface SocialMediaLinks {
 interface SpeakerInfo {
   title: string;
   name: string;
-  bio: string;
+  bio: {"zh-TW": string; "en-US": string};
   photo?: string;
   socialMedia: SocialMediaLinks;
 }
 
 interface SessionInfo {
-  title: string;
+  title: { "zh-TW": string; "en-US": string };
   room?: string;
-  description: string;
-  hashTags: string[];
+  description: { "zh-TW": string; "en-US": string };
+  hashTags: { "zh-TW": string[]; "en-US": string[] };
 }
 
 export interface ConferenceSpeaker {
@@ -94,7 +94,7 @@ function transformToConferenceSpeakers(
     const speakerInfo: SpeakerInfo = {
       title: extractProperty(properties.title),
       name: extractProperty(properties.name),
-      bio: extractProperty(properties.bio),
+      bio: {"zh-TW": extractProperty(properties.bio), "en-US": extractProperty(properties["bio_en"])},
       photo: extractProperty(properties["photo url"]),
       socialMedia: {
         facebook: extractProperty(properties.facebook),
@@ -106,10 +106,10 @@ function transformToConferenceSpeakers(
     };
 
     const sessionInfo: SessionInfo = {
-      title: extractProperty(properties["session title"]),
-      room: extractProperty(properties["session room"]),
-      description: extractProperty(properties["session description"]),
-      hashTags: extractProperty(properties["session tags"]),
+      title: {"zh-TW": extractProperty(properties["session title"]) || "", "en-US": extractProperty(properties["session_title_en"]) || ""},
+      room: extractProperty(properties["session room"]) || "",
+      description: {"zh-TW": extractProperty(properties["session description"]) || "", "en-US": extractProperty(properties["session_description_en"]) || ""},
+      hashTags: {"zh-TW": extractProperty(properties["session tags"]) || [], "en-US": extractProperty(properties["session_tags_en"]) || []},
     };
 
     return {

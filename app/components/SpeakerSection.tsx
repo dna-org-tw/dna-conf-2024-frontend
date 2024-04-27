@@ -5,13 +5,16 @@ import Carousel from "./Carousel";
 import HeaderTitleWithLine from "./HeaderTitleWithLine";
 import Speaker from "./speaker";
 import { SpeakerSessionDialog } from "./SpeakerSessionDialog";
+import { Lang } from "@/types/common";
 
 export default function SpeakerSection({
   title,
   speakers,
+  lang,
 }: {
   title: string;
   speakers: ConferenceSpeaker[];
+  lang: Lang;
 }) {
   return (
     <>
@@ -21,7 +24,7 @@ export default function SpeakerSection({
           .filter((speaker) => !!speaker.speakerInfo.name)
           .map((speaker) => (
             <div key={speaker.speakerInfo.title}>
-              <SpeakerSessionDialog conferenceSpeaker={speaker}>
+              <SpeakerSessionDialog conferenceSpeaker={speaker} lang={lang}>
                 <Speaker
                   name={speaker.speakerInfo.title}
                   nameEN={speaker.speakerInfo.name}

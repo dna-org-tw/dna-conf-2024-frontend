@@ -4,12 +4,15 @@ import { ConferenceSpeaker } from "@/lib/notion";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
+import { Lang } from "@/types/common";
 
 export function SpeakerSessionDialog({
   conferenceSpeaker: { speakerInfo, session },
+  lang,
   children,
 }: {
   conferenceSpeaker: ConferenceSpeaker;
+  lang: Lang,
   children: React.ReactNode;
 }) {
   return (
@@ -31,7 +34,7 @@ export function SpeakerSessionDialog({
           <div className="flex flex-col gap-3">
             <h2 className="text-2xl font-bold">{speakerInfo.title}</h2>
             <h2 className="text-2xl font-bold">{speakerInfo.name}</h2>
-            <div>{speakerInfo.bio}</div>
+            <div>{speakerInfo.bio[lang]}</div>
             <div className="flex gap-3">
               {speakerInfo.socialMedia?.facebook && (
                 <Link href={speakerInfo.socialMedia?.facebook} target="_blank">
@@ -81,10 +84,10 @@ export function SpeakerSessionDialog({
               <span>{session.room}</span>
             </div>
           </div>
-          <h3 className="text-xl font-bold">{session.title}</h3>
-          <div>{session.description}</div>
+          <h3 className="text-xl font-bold">{session.title[lang]}</h3>
+          <div>{session.description[lang]}</div>
           <div className="flex gap-2">
-            {session.hashTags?.map((tag) => (
+            {session.hashTags[lang]?.map((tag) => (
               <Badge className={cn("font-normal tracking-wide")}>#{tag}</Badge>
             ))}
           </div>

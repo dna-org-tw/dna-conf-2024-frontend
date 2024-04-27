@@ -35,7 +35,7 @@ export default async function Home({
         id="speaker"
         className=" pt-6 md:pt-20 pb-16 md:pb-6 px-6 md:px-24"
       >
-        <SpeakerSection title={t("KEYNOTE SPEAKER")} speakers={speakers} />
+        <SpeakerSection title={t("KEYNOTE SPEAKER")} speakers={speakers} lang={lang} />
       </section>
       <section
         id="agenda"
