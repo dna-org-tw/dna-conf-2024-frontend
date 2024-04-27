@@ -40,7 +40,6 @@ export default function Carousel({
     } else if (slideIndex < 0) {
       slideIndex = childList.length - 1;
     }
-    scrollTo(slideIndex);
   };
 
   const handleNextSlideChange = () => handleSlideChange(currentSlide + 1);
