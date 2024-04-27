@@ -22,8 +22,8 @@ export default function SpeakerSection({
       <Carousel speed={5000}>
         {speakers
           .filter((speaker) => !!speaker.speakerInfo.name)
-          .map((speaker) => (
-            <div key={speaker.speakerInfo.title}>
+          .map((speaker, i) => (
+            <div key={`${speaker.speakerInfo.title}-${i}}`}>
               <SpeakerSessionDialog conferenceSpeaker={speaker} lang={lang}>
                 <Speaker
                   name={speaker.speakerInfo.title}
