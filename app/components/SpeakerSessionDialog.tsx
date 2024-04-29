@@ -10,18 +10,20 @@ export function SpeakerSessionDialog({
   conferenceSpeaker,
   lang,
   color = "#00993E",
+  asChild,
   children,
 }: {
   conferenceSpeaker?: ConferenceSpeaker;
   lang: Lang;
   color?: string;
+  asChild?: boolean;
   children: React.ReactNode;
 }) {
   const { speakerInfo, session } = conferenceSpeaker || {};
 
   return (
     <Dialog>
-      <DialogTrigger asChild>{children}</DialogTrigger>
+      <DialogTrigger asChild={asChild}>{children}</DialogTrigger>
       <DialogContent className="md:max-w-[720px] max-h-[80vh] md:max-h-initial overflow-y-auto">
         <div
           className="flex flex-col md:flex-row pb-6 border-b-2 gap-4"
@@ -106,8 +108,13 @@ export function SpeakerSessionDialog({
           <h3 className="text-xl font-bold">{session?.title[lang]}</h3>
           <div>{session?.description[lang]}</div>
           <div className="flex gap-2" style={{ color: color }}>
-            {session?.hashTags[lang]?.map((tag) => (
-              <Badge className={cn("font-normal tracking-wide")}>#{tag}</Badge>
+            {session?.hashTags[lang]?.map((tag, i) => (
+              <Badge
+                key={`${tag}-${i}`}
+                className={cn("font-normal tracking-wide")}
+              >
+                #{tag}
+              </Badge>
             ))}
           </div>
         </div>

@@ -73,7 +73,7 @@ const ScrollToTopButton = ({ threshold = 1741, throttleTime = 100 }) => {
       <Image
         src="/images/icon_scrollToTop.svg"
         alt="scrollToTop"
-        objectFit="cover"
+        className="object-cover"
         {...size}
       />
     </button>

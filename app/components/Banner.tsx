@@ -30,7 +30,7 @@ export default async function Banner({ lang }: { lang: Lang }) {
                 : "/images/banner-slogan-en.svg"
             }
             alt="adventuring in 2024"
-            objectFit="cover"
+            className="object-cover"
             fill
           />
         </div>
