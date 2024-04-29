@@ -21,7 +21,7 @@ export function SpeakerSessionDialog({
 
   return (
     <Dialog>
-      <DialogTrigger>{children}</DialogTrigger>
+      <DialogTrigger asChild>{children}</DialogTrigger>
       <DialogContent className="md:max-w-[720px] max-h-[80vh] md:max-h-initial overflow-y-auto">
         <div
           className="flex flex-col md:flex-row pb-6 border-b-2 gap-4"
@@ -39,8 +39,18 @@ export function SpeakerSessionDialog({
             )}
           </div>
           <div className="flex flex-col gap-3">
-            <h2 className="text-2xl font-bold">{speakerInfo?.title}</h2>
-            <h2 className="text-2xl font-bold">{speakerInfo?.name}</h2>
+            <h2
+              className="text-center md:text-start text-2xl font-bold"
+              style={{ color: color }}
+            >
+              {speakerInfo?.title}
+            </h2>
+            <h2
+              className="text-center md:text-start text-2xl font-bold"
+              style={{ color: color }}
+            >
+              {speakerInfo?.name}
+            </h2>
             <div>{speakerInfo?.bio[lang]}</div>
             <div className="flex gap-3">
               {speakerInfo?.socialMedia?.facebook && (
