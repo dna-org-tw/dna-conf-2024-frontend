@@ -26,7 +26,7 @@ export default function Slide({
       id={`slide-${slideIndex}`}
       key={slideIndex}
       ref={ref}
-      className={`grid grid-cols-1 w-full snap-center	 sm:grid-cols-2 md:grid-cols-3`}
+      className={`grid gap-3 grid-cols-1 w-full snap-center	sm:grid-cols-2 md:grid-cols-3`}
     >
       {children}
     </div>

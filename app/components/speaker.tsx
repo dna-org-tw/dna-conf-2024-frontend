@@ -11,7 +11,7 @@ interface IProps {
 
 function Speaker({ name = "", nameEN = "", title = "", imgSrc = "" }: IProps) {
   return (
-    <section className="flex justify-center items-center w-full ml-5">
+    <section className="flex justify-center items-center w-full">
       <div className={clsx("flex flex-col")}>
         {imgSrc && <Image
           src={imgSrc}

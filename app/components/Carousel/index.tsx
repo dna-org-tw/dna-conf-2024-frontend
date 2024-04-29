@@ -2,6 +2,7 @@
 import { useEffect, useState, ReactElement } from "react";
 import CarouselSlide from "./CarouselSlide";
 import Image from "next/image";
+import { useInView } from "react-intersection-observer";
 
 export default function Carousel({
   children,
@@ -12,6 +13,9 @@ export default function Carousel({
 }) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [cols, setCols] = useState(3);
+  const [ref, inView] = useInView({
+    threshold: 1,
+  });
 
   const childList = children.reduce<ReactElement[][]>((result, child, i) => {
     if (i % cols === 0) {
@@ -26,7 +30,7 @@ export default function Carousel({
 
   const scrollTo = (slideIndex: number) => {
     const slideElement = document.getElementById(`slide-${slideIndex}`);
-    if (slideElement) {
+    if (slideElement && inView) {
       slideElement.scrollIntoView({
         behavior: "smooth",
         block: "nearest",
@@ -34,6 +38,7 @@ export default function Carousel({
       });
     }
   };
+
   const handleSlideChange = (slideIndex: number) => {
     if (slideIndex > childList.length - 1) {
       slideIndex = 0;
@@ -84,7 +89,7 @@ export default function Carousel({
 
   return (
     <div className="flex flex-col items-center gap-5">
-      <div className="flex w-full overflow-hidden">
+      <div className="flex gap-3 w-full overflow-hidden">
         <button
           className="z-10 bg-white hidden sm:block"
           onClick={handlePreSlideChange}
@@ -99,7 +104,8 @@ export default function Carousel({
           />
         </button>
         <div
-          className={`grid relative max-w-7xl snap-x snap-mandatory overflow-x-scroll`}
+          className={`grid gap-3 relative max-w-7xl snap-x snap-mandatory overflow-x-scroll`}
+          ref={ref}
           style={{
             gridTemplateColumns: `repeat(${page},100%)`,
             transition: "transform 0.5s ease-in-out",
