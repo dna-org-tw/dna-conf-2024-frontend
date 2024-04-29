@@ -35,13 +35,17 @@ export default async function Home({
         id="speaker"
         className=" pt-6 md:pt-20 pb-16 md:pb-6 px-6 md:px-24"
       >
-        <SpeakerSection title={t("KEYNOTE SPEAKER")} speakers={speakers} lang={lang} />
+        <SpeakerSection
+          title={t("KEYNOTE SPEAKER")}
+          speakers={speakers}
+          lang={lang}
+        />
       </section>
       <section
         id="agenda"
         className="w-full pt-6 md:pt-20 pb-16 md:pb-6 px-6 md:px-24"
       >
-        <Agenda lang={lang} sessions={sessions} />
+        <Agenda lang={lang} speakers={speakers} sessions={sessions} />
       </section>
       <HighLights lang={lang} />
       <section
@@ -121,5 +125,5 @@ export default async function Home({
   );
 }
 
-export const dynamic = 'force-static';
+export const dynamic = "force-static";
 export const revalidate = 60;

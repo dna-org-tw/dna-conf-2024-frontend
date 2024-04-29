@@ -7,21 +7,23 @@ import Link from "next/link";
 import { Lang } from "@/types/common";
 
 export function SpeakerSessionDialog({
-  conferenceSpeaker: { speakerInfo, session },
+  conferenceSpeaker,
   lang,
   children,
 }: {
-  conferenceSpeaker: ConferenceSpeaker;
-  lang: Lang,
+  conferenceSpeaker?: ConferenceSpeaker;
+  lang: Lang;
   children: React.ReactNode;
 }) {
+  const { speakerInfo, session } = conferenceSpeaker || {};
+
   return (
     <Dialog>
       <DialogTrigger>{children}</DialogTrigger>
-      <DialogContent className="md:max-w-[720px] max-h-[80vh] md:max-h-initial overflow-y-scroll">
+      <DialogContent className="md:max-w-[720px] max-h-[80vh] md:max-h-initial overflow-y-auto">
         <div className="flex flex-col md:flex-row pb-6 border-b-2 gap-4">
           <div className="flex-none flex justify-center items-start">
-            {speakerInfo.photo && (
+            {speakerInfo?.photo && (
               <Image
                 src={speakerInfo.photo}
                 alt={speakerInfo.name}
@@ -32,11 +34,11 @@ export function SpeakerSessionDialog({
             )}
           </div>
           <div className="flex flex-col gap-3">
-            <h2 className="text-2xl font-bold">{speakerInfo.title}</h2>
-            <h2 className="text-2xl font-bold">{speakerInfo.name}</h2>
-            <div>{speakerInfo.bio[lang]}</div>
+            <h2 className="text-2xl font-bold">{speakerInfo?.title}</h2>
+            <h2 className="text-2xl font-bold">{speakerInfo?.name}</h2>
+            <div>{speakerInfo?.bio[lang]}</div>
             <div className="flex gap-3">
-              {speakerInfo.socialMedia?.facebook && (
+              {speakerInfo?.socialMedia?.facebook && (
                 <Link href={speakerInfo.socialMedia?.facebook} target="_blank">
                   <Image
                     src="/images/speaker/facebook.svg"
@@ -46,7 +48,7 @@ export function SpeakerSessionDialog({
                   />
                 </Link>
               )}
-              {speakerInfo.socialMedia?.instagram && (
+              {speakerInfo?.socialMedia?.instagram && (
                 <Link href={speakerInfo.socialMedia?.instagram} target="_blank">
                   <Image
                     src="/images/speaker/instagram.svg"
@@ -56,7 +58,7 @@ export function SpeakerSessionDialog({
                   />
                 </Link>
               )}
-              {speakerInfo.socialMedia?.website && (
+              {speakerInfo?.socialMedia?.website && (
                 <Link href={speakerInfo.socialMedia?.website} target="_blank">
                   <Image
                     src="/images/speaker/mail.svg"
@@ -81,13 +83,13 @@ export function SpeakerSessionDialog({
               <h2 className="text-2xl font-bold">議程資訊</h2>
             </div>
             <div className="flex items-center gap-x-3">
-              <span>{session.room}</span>
+              <span>{session?.room}</span>
             </div>
           </div>
-          <h3 className="text-xl font-bold">{session.title[lang]}</h3>
-          <div>{session.description[lang]}</div>
+          <h3 className="text-xl font-bold">{session?.title[lang]}</h3>
+          <div>{session?.description[lang]}</div>
           <div className="flex gap-2">
-            {session.hashTags[lang]?.map((tag) => (
+            {session?.hashTags[lang]?.map((tag) => (
               <Badge className={cn("font-normal tracking-wide")}>#{tag}</Badge>
             ))}
           </div>
