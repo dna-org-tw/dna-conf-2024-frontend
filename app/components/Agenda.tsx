@@ -31,10 +31,12 @@ function SessionBlock({
   sessionCount,
   session,
   lang,
+  className,
 }: {
   sessionCount: number;
   session: Session;
   lang: Lang;
+  className?: string;
 }) {
   return (
     <div
@@ -45,7 +47,8 @@ function SessionBlock({
           "md:col-span-6": sessionCount === 1,
           "md:col-span-3": sessionCount === 2,
           "md:col-span-2": sessionCount === 3,
-        }
+        },
+        className
       )}
       style={{ borderColor: session.color }}
     >
@@ -185,7 +188,7 @@ function SessionTable(
         <div className="font-bold">{endTime}</div>
       </div>
       {s.map((session, j) => {
-        return hasSpeaker(session) ? (
+        return hasSpeaker(session) && session.status !== "Coming Soon" ? (
           <SpeakerSessionDialog
             conferenceSpeaker={sessionSpeaker(session)}
             color={session.color}
@@ -195,6 +198,7 @@ function SessionTable(
               sessionCount={s.length}
               session={session}
               lang={lang}
+              className="cursor-pointer"
             />
           </SpeakerSessionDialog>
         ) : (
