@@ -42,14 +42,12 @@ function SessionBlock({
         `p-5 border-2 rounded-md flex flex-col justify-between gap-y-4`,
         {
           "border-[#00993E]": session.color === "#00993E",
-          "border-[#10B9DA]": session.color === "#10B9DA",
-          "border-[#E74310]": session.color === "#E74310",
-          "border-[#C54091]": session.color === "#C54091",
           "md:col-span-6": sessionCount === 1,
           "md:col-span-3": sessionCount === 2,
           "md:col-span-2": sessionCount === 3,
         }
       )}
+      style={{ borderColor: session.color }}
     >
       {session.status === "Coming Soon" ? (
         <div className="flex flex-col justify-center items-center gap-y-2">
@@ -71,10 +69,8 @@ function SessionBlock({
           <div
             className={cn("font-bold", {
               "text-[#00993E]": session.color === "#00993E",
-              "text-[#10B9DA]": session.color === "#10B9DA",
-              "text-[#E74310]": session.color === "#E74310",
-              "text-[#C54091]": session.color === "#C54091",
             })}
+            style={{ color: session.color }}
           >
             Coming Soon...
           </div>
@@ -85,16 +81,10 @@ function SessionBlock({
           <div className="inline-flex gap-x-2">
             {session.tags?.[lang].map((tag) => (
               <Badge
-                className={cn("font-normal tracking-wide", {
-                  "bg-[#00993E] hover:bg-[#00993E]":
-                    session.color === "#00993E",
-                  "bg-[#10B9DA] hover:bg-[#10B9DA]":
-                    session.color === "#10B9DA",
-                  "bg-[#E74310] hover:bg-[#E74310]":
-                    session.color === "#E74310",
-                  "bg-[#C54091] hover:bg-[#C54091]":
-                    session.color === "#C54091",
-                })}
+                className={cn(
+                  "font-normal tracking-wide bg-[#00993E] hover:bg-current"
+                )}
+                style={{ backgroundColor: session.color }}
               >
                 {tag}
               </Badge>
@@ -104,12 +94,8 @@ function SessionBlock({
             <div>{session.speaker?.[lang]}</div>
             {session.location?.[lang] && (
               <div
-                className={cn("flex gap-3", {
-                  "text-[#00993E]": session.color === "#00993E",
-                  "text-[#10B9DA]": session.color === "#10B9DA",
-                  "text-[#E74310]": session.color === "#E74310",
-                  "text-[#C54091]": session.color === "#C54091",
-                })}
+                className={cn("flex gap-3 text-[#00993E]")}
+                style={{ color: session.color }}
               >
                 <span className={cn("inline-flex items-baseline")}>
                   <MapPin size={16} className="self-center pr-1" />{" "}
@@ -202,6 +188,7 @@ function SessionTable(
         return hasSpeaker(session) ? (
           <SpeakerSessionDialog
             conferenceSpeaker={sessionSpeaker(session)}
+            color={session.color}
             lang={lang}
           >
             <SessionBlock
