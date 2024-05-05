@@ -98,7 +98,7 @@ function SessionBlock({
             ))}
           </div>
           <div className="flex flex-row justify-between">
-            <div>{lang === 'zh-TW' ? speaker?.name : speaker?.title}</div>
+            <div>{lang === 'zh-TW' ? speaker?.title : speaker?.name}</div>
             {session.location?.[lang] && (
               <div
                 className={cn("flex gap-3 text-[#00993E]")}

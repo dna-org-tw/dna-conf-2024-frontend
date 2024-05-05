@@ -102,7 +102,7 @@ export function SpeakerSessionDialog({
               </h2>
             </div>
             <div className="flex items-center gap-x-3" style={{ color: color }}>
-              <span>{session?.location["zh-TW"]}</span>
+              <span>{session?.location[lang]}</span>
             </div>
           </div>
           <h3 className="text-xl font-bold">{session?.title[lang]}</h3>
