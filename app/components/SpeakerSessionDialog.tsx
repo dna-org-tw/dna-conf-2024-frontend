@@ -1,26 +1,26 @@
 import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
-import { ConferenceSpeaker } from "@/lib/notion";
+import { Session, Speaker } from "@/lib/notion";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 import { Lang } from "@/types/common";
 
 export function SpeakerSessionDialog({
-  conferenceSpeaker,
+  speaker,
+  session,
   lang,
   color = "#00993E",
   asChild,
   children,
 }: {
-  conferenceSpeaker?: ConferenceSpeaker;
+  speaker?: Speaker;
+  session?: Session;
   lang: Lang;
   color?: string;
   asChild?: boolean;
   children: React.ReactNode;
 }) {
-  const { speakerInfo, session } = conferenceSpeaker || {};
-
   return (
     <Dialog>
       <DialogTrigger asChild={asChild}>{children}</DialogTrigger>
@@ -30,10 +30,10 @@ export function SpeakerSessionDialog({
           style={{ borderColor: color }}
         >
           <div className="flex-none flex justify-center items-start">
-            {speakerInfo?.photo && (
+            {speaker?.photo && (
               <Image
-                src={speakerInfo.photo}
-                alt={speakerInfo.name}
+                src={speaker.photo}
+                alt={speaker.name}
                 width={178}
                 height={178}
                 className="object-contain"
@@ -45,18 +45,18 @@ export function SpeakerSessionDialog({
               className="text-center md:text-start text-2xl font-bold"
               style={{ color: color }}
             >
-              {speakerInfo?.title}
+              {speaker?.title}
             </h2>
             <h2
               className="text-center md:text-start text-2xl font-bold"
               style={{ color: color }}
             >
-              {speakerInfo?.name}
+              {speaker?.name}
             </h2>
-            <div>{speakerInfo?.bio[lang]}</div>
+            <div>{speaker?.bio[lang]}</div>
             <div className="flex gap-3">
-              {speakerInfo?.socialMedia?.facebook && (
-                <Link href={speakerInfo.socialMedia?.facebook} target="_blank">
+              {speaker?.socialMedia?.facebook && (
+                <Link href={speaker.socialMedia?.facebook} target="_blank">
                   <Image
                     src="/images/speaker/facebook.svg"
                     alt="facebook"
@@ -65,8 +65,8 @@ export function SpeakerSessionDialog({
                   />
                 </Link>
               )}
-              {speakerInfo?.socialMedia?.instagram && (
-                <Link href={speakerInfo.socialMedia?.instagram} target="_blank">
+              {speaker?.socialMedia?.instagram && (
+                <Link href={speaker.socialMedia?.instagram} target="_blank">
                   <Image
                     src="/images/speaker/instagram.svg"
                     alt="instagram"
@@ -75,8 +75,8 @@ export function SpeakerSessionDialog({
                   />
                 </Link>
               )}
-              {speakerInfo?.socialMedia?.website && (
-                <Link href={speakerInfo.socialMedia?.website} target="_blank">
+              {speaker?.socialMedia?.website && (
+                <Link href={speaker.socialMedia?.website} target="_blank">
                   <Image
                     src="/images/speaker/mail.svg"
                     alt="website"
@@ -102,13 +102,13 @@ export function SpeakerSessionDialog({
               </h2>
             </div>
             <div className="flex items-center gap-x-3" style={{ color: color }}>
-              <span>{session?.room}</span>
+              <span>{session?.location["zh-TW"]}</span>
             </div>
           </div>
           <h3 className="text-xl font-bold">{session?.title[lang]}</h3>
           <div>{session?.description[lang]}</div>
           <div className="flex gap-2" style={{ color: color }}>
-            {session?.hashTags[lang]?.map((tag, i) => (
+            {session?.tags[lang]?.map((tag, i) => (
               <Badge
                 key={`${tag}-${i}`}
                 className={cn("font-normal tracking-wide")}

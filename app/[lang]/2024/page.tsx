@@ -38,6 +38,7 @@ export default async function Home({
         <SpeakerSection
           title={t("KEYNOTE SPEAKER")}
           speakers={speakers}
+          sessions={sessions}
           lang={lang}
         />
       </section>

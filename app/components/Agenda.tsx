@@ -4,7 +4,7 @@ import HeaderTitleWithLine from "./HeaderTitleWithLine";
 import { cn } from "@/lib/utils";
 import { MapPin } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import { ConferenceSpeaker, Session } from "@/lib/notion";
+import { Speaker, Session, getSpeaker} from "@/lib/notion";
 import { SpeakerSessionDialog } from "./SpeakerSessionDialog";
 
 const getSessionsDuringTimeSection = (
@@ -24,20 +24,23 @@ const getSessionsDuringTimeSection = (
     }, {});
 
 function hasSpeaker(session: Session) {
-  return Boolean(session.speaker?.["zh-TW"]);
+  return Boolean(session.speakerIDs && session.speakerIDs.length > 0);
 }
 
 function SessionBlock({
   sessionCount,
   session,
+  speakers,
   lang,
   className,
 }: {
   sessionCount: number;
   session: Session;
+  speakers: Speaker[];
   lang: Lang;
   className?: string;
 }) {
+  const speaker = hasSpeaker(session) ? speakers.find((speaker) => session.speakerIDs.includes(speaker.id)) : undefined;
   return (
     <div
       className={cn(
@@ -95,7 +98,7 @@ function SessionBlock({
             ))}
           </div>
           <div className="flex flex-row justify-between">
-            <div>{session.speaker?.[lang]}</div>
+            <div>{lang === 'zh-TW' ? speaker?.name : speaker?.title}</div>
             {session.location?.[lang] && (
               <div
                 className={cn("flex gap-3 text-[#00993E]")}
@@ -120,7 +123,7 @@ export default async function Agenda({
   sessions,
 }: {
   lang: Lang;
-  speakers: ConferenceSpeaker[];
+  speakers: Speaker[];
   sessions: Session[];
 }) {
   const { t } = await useServerTranslation(lang);
@@ -200,15 +203,13 @@ function SessionTable({
   timeSlot: string;
   i: number;
   lang: Lang;
-  speakers: ConferenceSpeaker[];
+  speakers: Speaker[];
 }) {
   const s = timeSlotSessions[timeSlot];
   const [startTime, endTime] = timeSlot.split("-");
 
   function sessionSpeaker(session: Session) {
-    return speakers.find(
-      (speaker) => speaker.speakerInfo.title === session.speaker?.["zh-TW"]
-    );
+    return speakers.find((speaker) => session.speakerIDs.includes(speaker.id));
   }
 
   return (
@@ -222,25 +223,26 @@ function SessionTable({
         <div className="md:hidden w-4 border border-black"></div>
         <div className="font-bold">{endTime}</div>
       </div>
-      {s.map((session, j) => {
+      {s.map((session) => {
         return hasSpeaker(session) && session.status !== "Coming Soon" ? (
           <SpeakerSessionDialog
-            key={`session-${j}`}
-            conferenceSpeaker={sessionSpeaker(session)}
+            key={session.id}
+            speaker={sessionSpeaker(session)}
             color={session.color}
+            session={session}
             lang={lang}
             asChild
           >
             <SessionBlock
-              key={`session-${j}`}
               sessionCount={s.length}
               session={session}
+              speakers={speakers}
               lang={lang}
               className="cursor-pointer"
             />
           </SpeakerSessionDialog>
         ) : (
-          <SessionBlock sessionCount={s.length} session={session} lang={lang} />
+          <SessionBlock key={session.id} sessionCount={s.length} session={session} lang={lang} speakers={speakers} />
         );
       })}
     </>
