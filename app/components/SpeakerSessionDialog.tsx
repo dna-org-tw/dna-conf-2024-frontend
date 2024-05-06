@@ -42,16 +42,10 @@ export async function SpeakerSessionDialog({
             )}
           </div>
           <div className="flex flex-col gap-3">
-            <h2
-              className="text-center md:text-start text-2xl font-bold"
-              style={{ color: session?.color || "#00993E" }}
-            >
+            <h2 className="text-center md:text-start text-2xl font-bold">
               {speaker?.title}
             </h2>
-            <h2
-              className="text-center md:text-start text-2xl font-bold"
-              style={{ color: session?.color || "#00993E" }}
-            >
+            <h2 className="text-center md:text-start text-2xl font-bold">
               {speaker?.name}
             </h2>
             <div>{speaker?.bio[lang]}</div>
