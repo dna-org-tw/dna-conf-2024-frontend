@@ -7,6 +7,8 @@ import { Trans } from "react-i18next/TransWithoutContext";
 
 export const DNA_FB_LINK = "https://psee.io/5qfm8k";
 export const PURCHASE_TICKET_LINK = "https://psee.io/5qfa4a";
+const GOLDCARD_INFO_LINK =
+  "https://dna.oen.tw/posts/2g318FmSQRI6uJEzVOrSxtbYApo";
 
 export const ticketColor: { [key: string]: string[] } = {
   yellow: ["bg-single-ticket", "border-single-ticket"],
@@ -101,7 +103,7 @@ export default async function TicketInfo({ lang }: { lang: Lang }) {
               <p
                 className={clsx(
                   "text-[#F9D2E5] font-bold",
-                  isZhTw ? "" : "text-sm",
+                  isZhTw ? "" : "text-sm"
                 )}
               >
                 {t("vip ticket.available period")}
@@ -109,7 +111,7 @@ export default async function TicketInfo({ lang }: { lang: Lang }) {
               <p
                 className={clsx(
                   "text-[#F9D2E5] font-bold",
-                  isZhTw ? "" : "text-sm",
+                  isZhTw ? "" : "text-sm"
                 )}
               >
                 {`${t("original price")} ${t("vip ticket.original price")}`}
@@ -175,9 +177,15 @@ export default async function TicketInfo({ lang }: { lang: Lang }) {
             </div>
           </div>
         </div>
-        <div
-          className={clsx("text-center mt-16", isZhTw ? "tracking-[4px]" : "")}
-        >
+      </div>
+      <TicketInfoMobile lang={lang} />
+      <div
+        className={clsx(
+          "flex flex-col lg:flex-row justify-center gap-y-10 text-center mt-16",
+          isZhTw ? "tracking-[4px]" : ""
+        )}
+      >
+        <div className="flex-1">
           <Trans
             t={t}
             i18nKey="looking for partner"
@@ -189,7 +197,27 @@ export default async function TicketInfo({ lang }: { lang: Lang }) {
                   href={DNA_FB_LINK}
                   className={clsx(
                     "underline font-bold",
-                    isZhTw ? "tracking-normal" : "",
+                    isZhTw ? "tracking-normal" : ""
+                  )}
+                  target="_blank"
+                  rel="noreferrer"
+                />
+              ),
+            }}
+          />
+        </div>
+        <div className="flex-1">
+          <Trans
+            t={t}
+            i18nKey="goldcard info"
+            components={{
+              br: <br />,
+              a: (
+                <a
+                  href={GOLDCARD_INFO_LINK}
+                  className={clsx(
+                    "underline font-bold",
+                    isZhTw ? "tracking-normal" : ""
                   )}
                   target="_blank"
                   rel="noreferrer"
@@ -199,7 +227,6 @@ export default async function TicketInfo({ lang }: { lang: Lang }) {
           />
         </div>
       </div>
-      <TicketInfoMobile lang={lang} />
     </div>
   );
 }
