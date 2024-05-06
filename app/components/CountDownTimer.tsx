@@ -1,17 +1,40 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import { Lang } from "@/types/common";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import clsx from "clsx";
 
 export default function CountDownTimer({ lang }: { lang: Lang }) {
   const isZhTw = lang === "zh-TW";
+  const [days, setDays] = useState(0);
+  const [hours, setHours] = useState(0);
+  const [minutes, setMinutes] = useState(0);
+  const [seconds, setSeconds] = useState(0);
 
-  const target = new Date("8/3/2024 23:59:59");
-  const now = new Date();
-  const difference = target.getTime() - now.getTime();
-  const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+  useEffect(() => {
+    const target = new Date("8/3/2024 23:59:59");
+    const interval = setInterval(() => {
+      const now = new Date();
+      const difference = target.getTime() - now.getTime();
+
+      const d = Math.floor(difference / (1000 * 60 * 60 * 24));
+      setDays(d);
+
+      const h = Math.floor(
+        (difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+      );
+      setHours(h);
+
+      const m = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+      setMinutes(m);
+
+      const s = Math.floor((difference % (1000 * 60)) / 1000);
+      setSeconds(s);
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div className="max-w-lg mx-auto">
@@ -34,6 +57,11 @@ export default function CountDownTimer({ lang }: { lang: Lang }) {
           <div className="flex flex-col md:items-center">
             <span className="text-3xl font-bold">{minutes}</span>
             <span> {isZhTw ? "分" : "MINS"} </span>
+          </div>
+
+          <div className="flex flex-col md:hidden">
+            <span className="text-3xl font-bold">{seconds}</span>
+            <span> {isZhTw ? "秒" : "SECS"} </span>
           </div>
 
           <Button
