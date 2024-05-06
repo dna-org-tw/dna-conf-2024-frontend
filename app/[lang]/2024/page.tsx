@@ -12,7 +12,6 @@ import TicketInfo from "@/app/components/TicketInfo";
 import ScrollToTopButton from "@/app/components/ScrollToTopButton";
 import Image from "next/image";
 import { getSessions, getSpeakers } from "@/lib/notion";
-import { SpeakerSessionDialog } from "@/app/components/SpeakerSessionDialog";
 import SpeakerSection from "@/app/components/SpeakerSection";
 export default async function Home({
   params: { lang },

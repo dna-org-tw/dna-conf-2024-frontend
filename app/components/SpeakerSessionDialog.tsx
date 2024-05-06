@@ -5,9 +5,8 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 import { Lang } from "@/types/common";
-import { useServerTranslation } from "@/i18n";
 
-export async function SpeakerSessionDialog({
+export function SpeakerSessionDialog({
   speaker,
   session,
   lang,
@@ -20,8 +19,6 @@ export async function SpeakerSessionDialog({
   asChild?: boolean;
   children: React.ReactNode;
 }) {
-  const { t } = await useServerTranslation(lang);
-
   return (
     <Dialog>
       <DialogTrigger asChild={asChild}>{children}</DialogTrigger>
@@ -96,7 +93,7 @@ export async function SpeakerSessionDialog({
                 className="text-2xl font-bold"
                 style={{ color: session?.color || "#00993E" }}
               >
-                {t("DIALOG AGENDA")}
+                {lang === "en-US" ? "AGENDA" : "議程資訊"}
               </h2>
             </div>
             <div
