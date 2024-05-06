@@ -1,4 +1,4 @@
-import {Client} from "@notionhq/client";
+import { Client } from "@notionhq/client";
 
 interface SocialMediaLinks {
   facebook?: string;
@@ -12,14 +12,14 @@ export interface Speaker {
   id: string;
   title: string;
   name: string;
-  bio: {"zh-TW": string; "en-US": string};
+  bio: { "zh-TW": string; "en-US": string };
   photo?: string;
   socialMedia: SocialMediaLinks;
   sessionIDs: string[];
 }
 
 interface QuerySessionsResult {
-  results: SessionInNotion[]
+  results: SessionInNotion[];
 }
 
 interface QuerySpeakersResult {
@@ -32,7 +32,7 @@ interface SpeakerInNotion {
     title: { title: { plain_text: string }[] };
     name: { rich_text: { plain_text: string }[] };
     bio: { rich_text: { plain_text: string }[] };
-    "bio_en": { rich_text: { plain_text: string }[] };
+    bio_en: { rich_text: { plain_text: string }[] };
     "photo url": { url: string };
     facebook: { url: string };
     instagram: { url: string };
@@ -44,29 +44,29 @@ interface SpeakerInNotion {
 }
 
 interface SessionInNotion {
-    id: string;
-    properties: {
-      title_zh: { title: { text: { content: string } }[] };
-      title_en: { rich_text: { text: { content: string } }[] };
-      description_zh: { rich_text: { plain_text: string }[] };
-      description_en: { rich_text: { plain_text: string }[] };
-      location_zh: { multi_select: { name: string }[] };
-      location_en: { multi_select: { name: string }[] };
-      tags_zh: { multi_select: { name: string }[] };
-      tags_en: { multi_select: { name: string }[] };
-      status: { select: { name: string } };
-      time_slots: { multi_select: { name: string }[] };
-      time_section: { select: { name: string } };
-      speakers: { relation: { id: string }[] };
-      color: { select: { name: string } };
-      order: { number: number };
-    };
-  }
+  id: string;
+  properties: {
+    title_zh: { title: { text: { content: string } }[] };
+    title_en: { rich_text: { text: { content: string } }[] };
+    description_zh: { rich_text: { plain_text: string }[] };
+    description_en: { rich_text: { plain_text: string }[] };
+    location_zh: { multi_select: { name: string }[] };
+    location_en: { multi_select: { name: string }[] };
+    tags_zh: { multi_select: { name: string }[] };
+    tags_en: { multi_select: { name: string }[] };
+    status: { select: { name: string } };
+    time_slots: { multi_select: { name: string }[] };
+    time_section: { select: { name: string } };
+    speakers: { relation: { id: string }[] };
+    color: { select: { name: string } };
+    order: { number: number };
+  };
+}
 
 export interface Session {
   id: string;
   title: { "zh-TW": string; "en-US": string };
-  description: { "zh-TW": string, "en-US": string };
+  description: { "zh-TW": string; "en-US": string };
   location: { "zh-TW": string; "en-US": string };
   tags: { "zh-TW": string[]; "en-US": string[] };
   status: string;
@@ -97,20 +97,29 @@ function extractProperty(property: any): any {
 
 export const getSpeakers = async () => {
   const notion = new Client({ auth: process.env.NOTION_TOKEN });
-  const pages = (await notion.databases.query({ database_id: process.env.NOTION_DATABASE_ID! })) as any as QuerySpeakersResult;
+  const pages = (await notion.databases.query({
+    database_id: process.env.NOTION_DATABASE_ID!,
+  })) as any as QuerySpeakersResult;
   const speakerIDs: string[] = pages.results.map((page) => page.id);
-  return await Promise.all(speakerIDs.map((speakerId) => getSpeaker(speakerId)));
+  return await Promise.all(
+    speakerIDs.map((speakerId) => getSpeaker(speakerId))
+  );
 };
 
 export const getSpeaker = async (speakerId: string) => {
   const notion = new Client({ auth: process.env.NOTION_TOKEN });
-  const page = (await notion.pages.retrieve({ page_id: speakerId })) as any as SpeakerInNotion;
+  const page = (await notion.pages.retrieve({
+    page_id: speakerId,
+  })) as any as SpeakerInNotion;
   const properties = page.properties;
   const speakerInfo: Speaker = {
     id: speakerId,
     title: extractProperty(properties.title),
     name: extractProperty(properties.name),
-    bio: {"zh-TW": extractProperty(properties.bio), "en-US": extractProperty(properties["bio_en"])},
+    bio: {
+      "zh-TW": extractProperty(properties.bio),
+      "en-US": extractProperty(properties["bio_en"]),
+    },
     photo: extractProperty(properties["photo url"]),
     sessionIDs: properties.sessions.relation.map((s: any) => s.id),
     socialMedia: {
@@ -122,19 +131,23 @@ export const getSpeaker = async (speakerId: string) => {
     },
   };
   return speakerInfo;
-}
+};
 
 export const getSessions = async () => {
   const notion = new Client({ auth: process.env.NOTION_TOKEN });
-  const pages = (await notion.databases.query({ database_id: "9e5ad6893ac742e88779db8dc7bdc59c" })) as any as QuerySessionsResult;
+  const pages = (await notion.databases.query({
+    database_id: "9e5ad6893ac742e88779db8dc7bdc59c",
+  })) as any as QuerySessionsResult;
   return pages.results.map(transformSessionFromNotion) as Session[];
 };
 
 export const getSession = async (sessionId: string) => {
   const notion = new Client({ auth: process.env.NOTION_TOKEN });
-  const page = (await notion.pages.retrieve({ page_id: sessionId })) as any as SessionInNotion;
+  const page = (await notion.pages.retrieve({
+    page_id: sessionId,
+  })) as any as SessionInNotion;
   return transformSessionFromNotion(page);
-}
+};
 
 const transformSessionFromNotion = (page: SessionInNotion) => {
   return {
@@ -173,5 +186,5 @@ const transformSessionFromNotion = (page: SessionInNotion) => {
         .map((t) => t.plain_text)
         .join(""),
     },
-  } as Session
-}
+  } as Session;
+};

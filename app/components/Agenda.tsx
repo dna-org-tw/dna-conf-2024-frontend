@@ -4,7 +4,7 @@ import HeaderTitleWithLine from "./HeaderTitleWithLine";
 import { cn } from "@/lib/utils";
 import { MapPin } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import { Speaker, Session, getSpeaker} from "@/lib/notion";
+import { Speaker, Session } from "@/lib/notion";
 import { SpeakerSessionDialog } from "./SpeakerSessionDialog";
 
 const getSessionsDuringTimeSection = (
@@ -40,7 +40,9 @@ function SessionBlock({
   lang: Lang;
   className?: string;
 }) {
-  const speaker = hasSpeaker(session) ? speakers.find((speaker) => session.speakerIDs.includes(speaker.id)) : undefined;
+  const speaker = hasSpeaker(session)
+    ? speakers.find((speaker) => session.speakerIDs.includes(speaker.id))
+    : undefined;
   return (
     <div
       className={cn(
@@ -98,7 +100,7 @@ function SessionBlock({
             ))}
           </div>
           <div className="flex flex-row justify-between">
-            <div>{lang === 'zh-TW' ? speaker?.title : speaker?.name}</div>
+            <div>{lang === "zh-TW" ? speaker?.title : speaker?.name}</div>
             {session.location?.[lang] && (
               <div
                 className={cn("flex gap-3 text-[#00993E]")}
@@ -228,7 +230,6 @@ function SessionTable({
           <SpeakerSessionDialog
             key={session.id}
             speaker={sessionSpeaker(session)}
-            color={session.color}
             session={session}
             lang={lang}
             asChild
@@ -242,7 +243,13 @@ function SessionTable({
             />
           </SpeakerSessionDialog>
         ) : (
-          <SessionBlock key={session.id} sessionCount={s.length} session={session} lang={lang} speakers={speakers} />
+          <SessionBlock
+            key={session.id}
+            sessionCount={s.length}
+            session={session}
+            lang={lang}
+            speakers={speakers}
+          />
         );
       })}
     </>

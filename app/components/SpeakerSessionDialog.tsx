@@ -5,29 +5,30 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 import { Lang } from "@/types/common";
+import { useServerTranslation } from "@/i18n";
 
-export function SpeakerSessionDialog({
+export async function SpeakerSessionDialog({
   speaker,
   session,
   lang,
-  color = "#00993E",
   asChild,
   children,
 }: {
   speaker?: Speaker;
   session?: Session;
   lang: Lang;
-  color?: string;
   asChild?: boolean;
   children: React.ReactNode;
 }) {
+  const { t } = await useServerTranslation(lang);
+
   return (
     <Dialog>
       <DialogTrigger asChild={asChild}>{children}</DialogTrigger>
       <DialogContent className="md:max-w-[720px] max-h-[80vh] md:max-h-initial overflow-y-auto">
         <div
           className="flex flex-col md:flex-row pb-6 border-b-2 gap-4"
-          style={{ borderColor: color }}
+          style={{ borderColor: session?.color || "#00993E" }}
         >
           <div className="flex-none flex justify-center items-start">
             {speaker?.photo && (
@@ -43,13 +44,13 @@ export function SpeakerSessionDialog({
           <div className="flex flex-col gap-3">
             <h2
               className="text-center md:text-start text-2xl font-bold"
-              style={{ color: color }}
+              style={{ color: session?.color || "#00993E" }}
             >
               {speaker?.title}
             </h2>
             <h2
               className="text-center md:text-start text-2xl font-bold"
-              style={{ color: color }}
+              style={{ color: session?.color || "#00993E" }}
             >
               {speaker?.name}
             </h2>
@@ -97,17 +98,26 @@ export function SpeakerSessionDialog({
                 width={24}
                 height={24}
               />
-              <h2 className="text-2xl font-bold" style={{ color: color }}>
-                議程資訊
+              <h2
+                className="text-2xl font-bold"
+                style={{ color: session?.color || "#00993E" }}
+              >
+                {t("DIALOG AGENDA")}
               </h2>
             </div>
-            <div className="flex items-center gap-x-3" style={{ color: color }}>
+            <div
+              className="flex items-center gap-x-3"
+              style={{ color: session?.color || "#00993E" }}
+            >
               <span>{session?.location[lang]}</span>
             </div>
           </div>
           <h3 className="text-xl font-bold">{session?.title[lang]}</h3>
           <div>{session?.description[lang]}</div>
-          <div className="flex gap-2" style={{ color: color }}>
+          <div
+            className="flex gap-2"
+            style={{ color: session?.color || "#00993E" }}
+          >
             {session?.tags[lang]?.map((tag, i) => (
               <Badge
                 key={`${tag}-${i}`}

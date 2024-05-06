@@ -26,7 +26,13 @@ export default function SpeakerSection({
           .filter((speaker) => !!speaker.name)
           .map((speaker, i) => (
             <div key={`${speaker.title}-${i}}`} className="flex justify-center">
-              <SpeakerSessionDialog speaker={speaker} lang={lang} session={sessions.find(s => s.speakerIDs.includes(speaker.id))}>
+              <SpeakerSessionDialog
+                speaker={speaker}
+                lang={lang}
+                session={sessions.find((s) =>
+                  s.speakerIDs.includes(speaker.id)
+                )}
+              >
                 <Speaker
                   name={speaker.title}
                   nameEN={speaker.name}
