@@ -113,6 +113,7 @@ export function SpeakerSessionDialog({
               <Badge
                 key={`${tag}-${i}`}
                 className={cn("font-normal tracking-wide")}
+                style={{ backgroundColor: session?.color || "#00993E" }}
               >
                 #{tag}
               </Badge>
