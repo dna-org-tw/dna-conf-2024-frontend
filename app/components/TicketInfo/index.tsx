@@ -7,8 +7,10 @@ import { Trans } from "react-i18next/TransWithoutContext";
 
 export const DNA_FB_LINK = "https://psee.io/5qfm8k";
 export const PURCHASE_TICKET_LINK = "https://psee.io/5qfa4a";
-const GOLDCARD_INFO_LINK =
+const GOLDCARD_INFO_LINK_ZH =
   "https://dna.oen.tw/posts/2g318FmSQRI6uJEzVOrSxtbYApo";
+const GOLDCARD_INFO_LINK_EN =
+  "https://dna.oen.tw/posts/2g33EoSRmhQA5Umcq51QzOAfB2z";
 
 export const ticketColor: { [key: string]: string[] } = {
   yellow: ["bg-single-ticket", "border-single-ticket"],
@@ -214,7 +216,7 @@ export default async function TicketInfo({ lang }: { lang: Lang }) {
               br: <br />,
               a: (
                 <a
-                  href={GOLDCARD_INFO_LINK}
+                  href={isZhTw ? GOLDCARD_INFO_LINK_ZH : GOLDCARD_INFO_LINK_EN}
                   className={clsx(
                     "underline font-bold",
                     isZhTw ? "tracking-normal" : ""
