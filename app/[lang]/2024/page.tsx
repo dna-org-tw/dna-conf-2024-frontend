@@ -89,7 +89,21 @@ export default async function Home({
           />
         </div>
         <div className="flex flex-col mt-6">
-          <Guidelines open title={t("TICKET PURCHASE GUIDE")}>
+          <Guidelines
+            open
+            title={[
+              t("TICKET PURCHASE GUIDE"),
+              t("COC.title"),
+              t("NEED HELP.title"),
+            ]}
+            cocParagraph={[
+              t("COC.paragraph1"),
+              t("COC.paragraph2"),
+              t("COC.paragraph3"),
+              t("COC.paragraph4"),
+            ]}
+            needHelpParagraph={[t("NEED HELP.paragraph")]}
+          >
             {Array.from({ length: 7 }, (_, index) => t(`notice${index + 1}`))}
           </Guidelines>
         </div>

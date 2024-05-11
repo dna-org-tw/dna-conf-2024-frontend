@@ -6,13 +6,22 @@ import clsx from "clsx";
 
 interface IProps {
   open?: boolean;
-  title: string;
+  title: string[];
+  cocParagraph: string[];
+  needHelpParagraph: string[];
   children: React.ReactNode;
 }
 
-const Guidelines: React.FC<IProps> = ({ open, children, title }) => {
+const Guidelines: React.FC<IProps> = ({
+  open,
+  children,
+  title,
+  cocParagraph,
+  needHelpParagraph,
+}) => {
   const [isOpen, setIsOpen] = useState(open);
   const [showButton, setShowButton] = useState(false);
+  const [showBorder, setShowBorder] = useState(false);
 
   const collapsibleHandler = () => {
     setIsOpen((prev) => !prev);
@@ -20,6 +29,7 @@ const Guidelines: React.FC<IProps> = ({ open, children, title }) => {
 
   useEffect(() => {
     setShowButton(isSMScreen());
+    setShowBorder(isSMScreen());
   }, [isOpen]);
 
   function isSMScreen() {
@@ -38,32 +48,63 @@ const Guidelines: React.FC<IProps> = ({ open, children, title }) => {
           })}
         ></div>
         <h6 className="text-black flex-2 font-bold text-center tracking-widest mt-4">
-          {title}
+          {title[0]}
         </h6>
-        <ol
-          className={clsx(
-            "list-decimal mt-6 pl-5 p-auto lg:ml-6 xl:ml-20 overflow-hidden",
-            { "h-[140px]": !isOpen, "h-auto": isOpen }
-          )}
-        >
-          {React.Children.map(children, (notice, index) => (
-            <li key={index} className="mb-4 md:mb-4">
-              {typeof notice === "string" &&
-              notice.includes("us@dna.org.tw") ? (
-                <p
-                  dangerouslySetInnerHTML={{
-                    __html: notice.replace(
-                      "us@dna.org.tw",
-                      "<u>us@dna.org.tw</u>"
-                    ),
-                  }}
-                />
-              ) : (
-                notice
-              )}
-            </li>
-          ))}
-        </ol>
+        <div className={`overflow-hidden h-[140px] ${isOpen ? "h-auto" : ""}`}>
+          <ol className="list-decimal mt-6 pl-5 p-auto lg:ml-6 xl:ml-20">
+            {React.Children.map(children, (content, index) => (
+              <li key={index} className="mb-4 md:mb-4">
+                {typeof content === "string" &&
+                content.includes("us@dna.org.tw") ? (
+                  <p
+                    dangerouslySetInnerHTML={{
+                      __html: content.replace(
+                        "us@dna.org.tw",
+                        "<u>us@dna.org.tw</u>"
+                      ),
+                    }}
+                  />
+                ) : (
+                  content
+                )}
+              </li>
+            ))}
+          </ol>
+          {showBorder && <div className="border-b-2 border-b-gray-200"></div>}
+          <h6 className="text-black flex-2 font-bold text-center tracking-widest pt-6 pb-2">
+            {title[1]}
+          </h6>
+          <div className="lg:ml-6 xl:ml-20">
+            {React.Children.map(cocParagraph, (content, index) => (
+              <ul key={index} className="my-4 md:mb-4">
+                {content}
+              </ul>
+            ))}
+          </div>
+          {showBorder && <div className="border-b-2 border-b-gray-200"></div>}
+          <h6 className="text-black flex-2 font-bold text-center tracking-widest pt-6 pb-2">
+            {title[2]}
+          </h6>
+          <div className="lg:ml-6 xl:ml-20">
+            {React.Children.map(needHelpParagraph, (content, index) => (
+              <ul key={index} className="my-4 md:mb-4">
+                {typeof content === "string" &&
+                content.includes("us@dna.org.tw") ? (
+                  <p
+                    dangerouslySetInnerHTML={{
+                      __html: content.replace(
+                        "us@dna.org.tw",
+                        "<u>us@dna.org.tw</u>"
+                      ),
+                    }}
+                  />
+                ) : (
+                  content
+                )}
+              </ul>
+            ))}
+          </div>
+        </div>
       </div>
       <div className="flex flex-col items-center justify-center mt-4">
         {showButton && (
