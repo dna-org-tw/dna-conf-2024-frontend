@@ -35,7 +35,7 @@ const MenuContent: React.FC<MenuContentProp> = ({ translatedData, lng }) => (
         alt="i19n"
         width={50}
         height={50}
-        className="h-full w-auto"
+        className="h-full w-auto hidden lg:block"
       />
     </Link>
   </>

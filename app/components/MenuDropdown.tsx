@@ -1,5 +1,7 @@
 "use client";
 import { useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
 import { TranslationData } from "./Nav";
 import MenuContent from "./MenuContent";
 
@@ -15,7 +17,18 @@ export default function MenuDropdown({
 
   return (
     <>
-      <div className="absolute xl:hidden right-12">
+      <div className="absolute flex xl:hidden right-4 items-center">
+        <Link href={`/${lng === "en-US" ? "zh-TW" : "en-US"}/2024`}>
+          <Image
+            src={
+              lng === "en-US" ? "/images/i18n-zh.svg" : "/images/i18n-en.svg"
+            }
+            alt="i18n"
+            width={30}
+            height={30}
+            className="mr-2"
+          />
+        </Link>
         <button
           className="flex flex-col h-12 w-12 rounded justify-center items-center group"
           onClick={() => setShowDropdown(!showDropdown)}

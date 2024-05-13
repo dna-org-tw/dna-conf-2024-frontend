@@ -34,7 +34,7 @@ export default function Nav() {
   };
 
   return (
-    <nav className="fixed w-full h-[60px] lg:h-[94px] flex items-center justify-center lg:justify-between px-24 bg-brand-gray z-50">
+    <nav className="fixed w-full h-[60px] lg:h-[94px] flex items-center ps-6 lg:justify-between lg:px-24 bg-brand-gray z-50">
       <MenuDropdown translatedData={translatedData} lng={lng} />
       <Link
         href={`/${lng}/2024`}
