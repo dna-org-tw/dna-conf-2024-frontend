@@ -11,9 +11,9 @@ export default async function HighLights({ lang }: { lang: Lang }) {
   const { t } = await useServerTranslation(lang);
 
   return (
-    <section className="w-full px-3 md:px-24 pt-16 md:pt-20 pb-16 md:pb-6 bg-no-repeat bg-cover bg-center bg-[url(/images/highlights-background.svg)] lg:bg-none">
-      <div className="flex flex-col items-center mx-auto">
-        <h2 className="text-2xl lg:text-3xl lg:text-center font-bold tracking-[10%] mb-6 lg:mb-[70px] whitespace-pre-wrap lg:whitespace-normal leading-loose lg:leading-normal">
+    <section className="w-full px-3 md:px-10 pt-8 md:pt-20 pb-4 md:pb-6 bg-no-repeat bg-cover bg-center bg-[url(/images/highlights-background.svg)] lg:bg-none">
+      <div className="flex flex-col lg:items-center">
+        <h2 className="text-2xl mx-10 lg:text-3xl lg:text-center font-bold tracking-[10%] mb-6 lg:mb-[70px] whitespace-pre-wrap lg:whitespace-normal leading-loose lg:leading-normal">
           {t("ENGAGE AND SHAPE OUR FUTURE")}
         </h2>
         <div className="hidden lg:block">
@@ -74,8 +74,8 @@ export default async function HighLights({ lang }: { lang: Lang }) {
             </Trans>
           </p>
         </div>
-        <div className="lg:hidden">
-          <ul className="list-[square] mr-2 ml-6">
+        <div className="flex items-center justify-center lg:hidden">
+          <ul className="list-[square] pl-6">
             <li className="pl-1 text-lg mb-4">
               <Trans i18nKey="2024 is our 1st Digital Nomad Conference" t={t}>
                 2024 是我們第<span className="px-2">1</span>屆數位游牧者大會
