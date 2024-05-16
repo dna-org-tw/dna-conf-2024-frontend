@@ -57,7 +57,11 @@ export default function MenuDropdown({
 
       {showDropdown && (
         <div className="flex flex-col gap-6 bg-black/80 text-white h-fit p-12 absolute left-0 top-[60px] md:top-[94px] xl:hidden w-full items-center">
-          <MenuContent translatedData={translatedData} lng={lng} />
+          <MenuContent
+            translatedData={translatedData}
+            lng={lng}
+            onClick={() => setShowDropdown(!showDropdown)}
+          />
         </div>
       )}
     </>
