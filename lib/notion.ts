@@ -9,6 +9,7 @@ interface SocialMediaLinks {
 }
 
 export interface Speaker {
+  order?: number;
   id: string;
   title: string;
   name: string;
@@ -29,6 +30,7 @@ interface QuerySpeakersResult {
 interface SpeakerInNotion {
   id: string;
   properties: {
+    order: { number: number };
     title: { title: { plain_text: string }[] };
     name: { rich_text: { plain_text: string }[] };
     bio: { rich_text: { plain_text: string }[] };
@@ -101,9 +103,9 @@ export const getSpeakers = async () => {
     database_id: process.env.NOTION_DATABASE_ID!,
   })) as any as QuerySpeakersResult;
   const speakerIDs: string[] = pages.results.map((page) => page.id);
-  return await Promise.all(
+  return (await Promise.all(
     speakerIDs.map((speakerId) => getSpeaker(speakerId))
-  );
+  )).sort((a, b) => a.order! - b.order!);
 };
 
 export const getSpeaker = async (speakerId: string) => {
@@ -113,6 +115,7 @@ export const getSpeaker = async (speakerId: string) => {
   })) as any as SpeakerInNotion;
   const properties = page.properties;
   const speakerInfo: Speaker = {
+    order: properties.order?.number || 999,
     id: speakerId,
     title: extractProperty(properties.title),
     name: extractProperty(properties.name),
