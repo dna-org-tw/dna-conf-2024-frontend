@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { Session, Speaker } from "@/lib/notion";
@@ -46,7 +47,14 @@ export function SpeakerSessionDialog({
               <h2 className="text-center md:text-start text-2xl font-bold">
                 {speaker?.name}
               </h2>
-              <div>{speaker?.bio[lang]}</div>
+              <div>
+                {speaker?.bio[lang].split("\n").map((text) => (
+                  <Fragment key={text}>
+                    {text}
+                    <br />
+                  </Fragment>
+                ))}
+              </div>
               <div className="flex gap-3">
                 {speaker?.socialMedia?.facebook && (
                   <Link href={speaker.socialMedia?.facebook} target="_blank">
