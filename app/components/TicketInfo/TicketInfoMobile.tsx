@@ -3,8 +3,15 @@
 import { useState, useEffect, useRef } from "react";
 import { useClientTranslation } from "@/i18n/client";
 import TicketButtonAndDialog from "./TicketButtonAndDialog";
-import { ticketColor } from "./index";
+import {
+  ticketColor,
+  GOLDCARD_INFO_LINK_ZH,
+  GOLDCARD_INFO_LINK_EN,
+} from "./index";
 import { Lang } from "@/types/common";
+import clsx from "clsx";
+import Image from "next/image";
+import { Trans } from "react-i18next/TransWithoutContext";
 
 const ticketType = {
   Single: "single",
@@ -19,6 +26,7 @@ export default function TicketInfoMobile({ lang }: { lang: Lang }) {
   const [isOpen, setIsOpen] = useState<TicketType>();
   const { t } = useClientTranslation(lang);
   const scrollBarPosition = useRef(0);
+  const isZhTw = lang === "zh-TW";
 
   const handleToggle = (type: TicketType) => {
     if (isOpen === type) {
@@ -136,6 +144,35 @@ export default function TicketInfoMobile({ lang }: { lang: Lang }) {
             isOpen={isOpen === ticketType.Vip}
             handleToggle={() => handleToggle(ticketType.Vip)}
             className="mb-4"
+          />
+        </div>
+      </div>
+      <div className="lg:hidden relative px-4">
+        <Image
+          src="/images/ticket-mobile-gold-card.svg"
+          alt="ticket gold card"
+          width={281}
+          height={211}
+          className="w-full"
+        />
+        <div className="absolute text-center top-5 left-0 w-full">
+          <Trans
+            t={t}
+            i18nKey="goldcard info"
+            components={{
+              br: <br />,
+              a: (
+                <a
+                  href={isZhTw ? GOLDCARD_INFO_LINK_ZH : GOLDCARD_INFO_LINK_EN}
+                  className={clsx(
+                    "underline font-bold",
+                    isZhTw ? "tracking-normal" : ""
+                  )}
+                  target="_blank"
+                  rel="noreferrer"
+                />
+              ),
+            }}
           />
         </div>
       </div>
