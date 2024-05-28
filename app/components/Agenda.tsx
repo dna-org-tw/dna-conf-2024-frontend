@@ -23,6 +23,16 @@ const getSessionsDuringTimeSection = (
       return acc;
     }, {});
 
+function hasSameLocation(sessions: Session[]) {
+  const baseLocation = sessions[0].location;
+  return sessions.every((session) => {
+    return (
+      session.status !== "Coming Soon" &&
+      JSON.stringify(session.location) === JSON.stringify(baseLocation)
+    );
+  });
+}
+
 function hasSpeaker(session: Session) {
   return Boolean(session.speakerIDs && session.speakerIDs.length > 0);
 }
@@ -52,6 +62,7 @@ function SessionBlock({
           "md:col-span-6": sessionCount === 1,
           "md:col-span-3": sessionCount === 2,
           "md:col-span-2": sessionCount === 3,
+          "md:col-span-6 ": sessionCount > 1 && session.color === "#00993E",
         },
         className
       )}
@@ -194,6 +205,7 @@ export default async function Agenda({
     </>
   );
 }
+
 function SessionTable({
   timeSlotSessions,
   timeSlot,
@@ -218,7 +230,12 @@ function SessionTable({
     <>
       <div
         key={`row-${i}`}
-        className="flex md:flex-col justify-center items-center gap-y-1 gap-x-2 bg-[#FFD028] border-[#FFD028] border-2 py-1 md:py-3 px-4 rounded-md mt-6 md:mt-0"
+        className={cn(
+          "flex md:flex-col justify-center items-center gap-y-1 gap-x-2 bg-[#FFD028] border-[#FFD028] border-2 py-1 md:py-3 px-4 rounded-md mt-6 md:mt-0",
+          {
+            [`row-span-${s.length}`]: s.length > 1 && hasSameLocation(s),
+          }
+        )}
       >
         <div className="font-bold">{startTime}</div>
         <div className="hidden md:block h-6 w-0 border border-black"></div>
