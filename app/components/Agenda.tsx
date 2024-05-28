@@ -56,13 +56,9 @@ function SessionBlock({
   return (
     <div
       className={cn(
-        `p-5 border-2 rounded-md flex flex-col justify-between gap-y-4`,
+        `flex-1 p-5 border-2 rounded-md flex flex-col justify-between gap-y-4`,
         {
           "border-[#00993E]": session.color === "#00993E",
-          "md:col-span-6": sessionCount === 1,
-          "md:col-span-3": sessionCount === 2,
-          "md:col-span-2": sessionCount === 3,
-          "md:col-span-6 ": sessionCount > 1 && session.color === "#00993E",
         },
         className
       )}
@@ -226,6 +222,13 @@ function SessionTable({
     return speakers.find((speaker) => session.speakerIDs.includes(speaker.id));
   }
 
+  const sessionLocationSame = s.every((session) => {
+    return (
+      JSON.stringify(session.location) === JSON.stringify(s[0].location) &&
+      session.status !== "Coming Soon"
+    );
+  });
+
   return (
     <>
       <div
@@ -242,33 +245,39 @@ function SessionTable({
         <div className="md:hidden w-4 border border-black"></div>
         <div className="font-bold">{endTime}</div>
       </div>
-      {s.map((session) => {
-        return hasSpeaker(session) && session.status !== "Coming Soon" ? (
-          <SpeakerSessionDialog
-            key={session.id}
-            speaker={sessionSpeaker(session)}
-            session={session}
-            lang={lang}
-            asChild
-          >
+      <div
+        className={cn("md:col-span-6 flex gap-2", {
+          "flex-col": sessionLocationSame,
+        })}
+      >
+        {s.map((session) => {
+          return hasSpeaker(session) && session.status !== "Coming Soon" ? (
+            <SpeakerSessionDialog
+              key={session.id}
+              speaker={sessionSpeaker(session)}
+              session={session}
+              lang={lang}
+              asChild
+            >
+              <SessionBlock
+                sessionCount={s.length}
+                session={session}
+                speakers={speakers}
+                lang={lang}
+                className="cursor-pointer"
+              />
+            </SpeakerSessionDialog>
+          ) : (
             <SessionBlock
+              key={session.id}
               sessionCount={s.length}
               session={session}
-              speakers={speakers}
               lang={lang}
-              className="cursor-pointer"
+              speakers={speakers}
             />
-          </SpeakerSessionDialog>
-        ) : (
-          <SessionBlock
-            key={session.id}
-            sessionCount={s.length}
-            session={session}
-            lang={lang}
-            speakers={speakers}
-          />
-        );
-      })}
+          );
+        })}
+      </div>
     </>
   );
 }
