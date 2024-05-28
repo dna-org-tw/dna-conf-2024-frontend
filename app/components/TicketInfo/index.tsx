@@ -1,15 +1,17 @@
+"use client";
 import TicketBlock from "./TicketBlock";
 import { useServerTranslation } from "@/i18n";
 import { Lang } from "@/types/common";
 import clsx from "clsx";
 import TicketInfoMobile from "./TicketInfoMobile";
 import { Trans } from "react-i18next/TransWithoutContext";
+import Image from "next/image";
 
 export const DNA_FB_LINK = "https://psee.io/5qfm8k";
 export const PURCHASE_TICKET_LINK = "https://psee.io/5qfa4a";
-const GOLDCARD_INFO_LINK_ZH =
+export const GOLDCARD_INFO_LINK_ZH =
   "https://dna.oen.tw/posts/2g318FmSQRI6uJEzVOrSxtbYApo";
-const GOLDCARD_INFO_LINK_EN =
+export const GOLDCARD_INFO_LINK_EN =
   "https://dna.oen.tw/posts/2g33EoSRmhQA5Umcq51QzOAfB2z";
 
 export const ticketColor: { [key: string]: string[] } = {
@@ -183,50 +185,70 @@ export default async function TicketInfo({ lang }: { lang: Lang }) {
       <TicketInfoMobile lang={lang} />
       <div
         className={clsx(
-          "flex flex-col lg:flex-row justify-center gap-y-10 text-center mt-16",
+          "flex flex-col lg:flex-row justify-center gap-y-10 text-center mt-8",
           isZhTw ? "tracking-[4px]" : ""
         )}
       >
-        <div className="flex-1">
-          <Trans
-            t={t}
-            i18nKey="looking for partner"
-            values={{ ticketType: t("group tickets") }}
-            components={{
-              br: <br />,
-              a: (
-                <a
-                  href={DNA_FB_LINK}
-                  className={clsx(
-                    "underline font-bold",
-                    isZhTw ? "tracking-normal" : ""
-                  )}
-                  target="_blank"
-                  rel="noreferrer"
-                />
-              ),
-            }}
+        <div className="relative flex-1 hidden lg:block px-4">
+          <Image
+            src="/images/ticket-team-buy-card.svg"
+            alt="ticket team buy card"
+            width={526}
+            height={151}
+            className="w-full"
           />
+          <div className="absolute text-left top-5 left-[18%]">
+            <Trans
+              t={t}
+              i18nKey="looking for partner"
+              values={{ ticketType: t("group tickets") }}
+              components={{
+                br: <br />,
+                a: (
+                  <a
+                    href={DNA_FB_LINK}
+                    className={clsx(
+                      "underline font-bold",
+                      isZhTw ? "tracking-normal" : ""
+                    )}
+                    target="_blank"
+                    rel="noreferrer"
+                  />
+                ),
+              }}
+            />
+          </div>
         </div>
-        <div className="flex-1">
-          <Trans
-            t={t}
-            i18nKey="goldcard info"
-            components={{
-              br: <br />,
-              a: (
-                <a
-                  href={isZhTw ? GOLDCARD_INFO_LINK_ZH : GOLDCARD_INFO_LINK_EN}
-                  className={clsx(
-                    "underline font-bold",
-                    isZhTw ? "tracking-normal" : ""
-                  )}
-                  target="_blank"
-                  rel="noreferrer"
-                />
-              ),
-            }}
+        <div className="flex-1 hidden lg:block relative px-4">
+          <Image
+            src="/images/ticket-gold-card.svg"
+            alt="ticket gold card"
+            width={526}
+            height={151}
+            className="w-full"
           />
+          <div className="absolute text-left top-5 left-[22%]">
+            <Trans
+              t={t}
+              i18nKey="goldcard info"
+              components={{
+                br: <br />,
+                a: (
+                  <a
+                    href={
+                      isZhTw ? GOLDCARD_INFO_LINK_ZH : GOLDCARD_INFO_LINK_EN
+                    }
+                    className={clsx(
+                      "underline font-bold",
+                      isZhTw ? "tracking-normal" : ""
+                    )}
+                    target="_blank"
+                    rel="noreferrer"
+                  />
+                ),
+              }}
+            />
+          </div>
         </div>
       </div>
     </div>
