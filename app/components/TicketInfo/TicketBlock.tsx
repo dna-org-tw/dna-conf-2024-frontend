@@ -1,5 +1,7 @@
+"use server";
+
 import { TFunction } from "i18next";
-import { TicketType, ticketType } from "./index";
+import { TicketType } from "./index";
 
 export default async function TicketBlock({
   type,

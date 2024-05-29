@@ -1,3 +1,5 @@
+"use server";
+
 import { useServerTranslation } from "@/i18n";
 import { Lang } from "@/types/common";
 import HeaderTitleWithLine from "./HeaderTitleWithLine";
@@ -38,13 +40,11 @@ function hasSpeaker(session: Session) {
 }
 
 function SessionBlock({
-  sessionCount,
   session,
   speakers,
   lang,
   className,
 }: {
-  sessionCount: number;
   session: Session;
   speakers: Speaker[];
   lang: Lang;
@@ -260,7 +260,6 @@ function SessionTable({
               asChild
             >
               <SessionBlock
-                sessionCount={s.length}
                 session={session}
                 speakers={speakers}
                 lang={lang}
@@ -270,7 +269,6 @@ function SessionTable({
           ) : (
             <SessionBlock
               key={session.id}
-              sessionCount={s.length}
               session={session}
               lang={lang}
               speakers={speakers}

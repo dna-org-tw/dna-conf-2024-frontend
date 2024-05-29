@@ -1,3 +1,5 @@
+"use sever";
+
 import { useServerTranslation } from "@/i18n";
 import { Lang } from "@/types/common";
 import clsx from "clsx";
