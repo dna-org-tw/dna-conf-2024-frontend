@@ -3,15 +3,15 @@
 import { useState, useEffect, useRef } from "react";
 import { useClientTranslation } from "@/i18n/client";
 import TicketButtonAndDialog from "./TicketButtonAndDialog";
-import {
-  ticketColor,
-  GOLDCARD_INFO_LINK_ZH,
-  GOLDCARD_INFO_LINK_EN,
-} from "./index";
 import { Lang } from "@/types/common";
 import clsx from "clsx";
 import Image from "next/image";
 import { Trans } from "react-i18next/TransWithoutContext";
+import {
+  GOLDCARD_INFO_LINK_EN,
+  GOLDCARD_INFO_LINK_ZH,
+  ticketColor,
+} from "@/constants";
 
 const ticketType = {
   Single: "single",
