@@ -14,7 +14,7 @@ export default function Carousel({
   const [currentSlide, setCurrentSlide] = useState(0);
   const [cols, setCols] = useState(3);
   const [ref, inView] = useInView({
-    threshold: 1,
+    threshold: [0.1, 0.7],
   });
 
   const childList = children.reduce<ReactElement[][]>((result, child, i) => {
