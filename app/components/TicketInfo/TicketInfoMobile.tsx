@@ -10,7 +10,6 @@ import { Trans } from "react-i18next/TransWithoutContext";
 import {
   GOLDCARD_INFO_LINK_EN,
   GOLDCARD_INFO_LINK_ZH,
-  ticketColor,
 } from "@/constants";
 
 const ticketType = {
@@ -62,7 +61,7 @@ export default function TicketInfoMobile({ lang }: { lang: Lang }) {
         <div className="max-w-[600px] w-full">
           <TicketButtonAndDialog
             t={t}
-            color={ticketColor.yellow}
+            color={["bg-singleTicket", "border-singleTicket"]}
             title={t("single ticket.title")}
             price={t("single ticket.price")}
             availablePeriod={t("single ticket.available period")}
@@ -74,7 +73,7 @@ export default function TicketInfoMobile({ lang }: { lang: Lang }) {
           />
           <TicketButtonAndDialog
             t={t}
-            color={ticketColor.pink}
+            color={["bg-groupTicket", "border-groupTicket"]}
             title={t("two person ticket.title")}
             price={t("two person ticket.price")}
             availablePeriod={t("two person ticket.available period")}
@@ -92,7 +91,7 @@ export default function TicketInfoMobile({ lang }: { lang: Lang }) {
           />
           <TicketButtonAndDialog
             t={t}
-            color={ticketColor.pink}
+            color={["bg-groupTicket", "border-groupTicket"]}
             title={t("five person ticket.title")}
             price={t("five person ticket.price")}
             availablePeriod={t("five person ticket.available period")}
@@ -108,7 +107,7 @@ export default function TicketInfoMobile({ lang }: { lang: Lang }) {
           />
           <TicketButtonAndDialog
             t={t}
-            color={ticketColor.blue}
+            color={["bg-classicTicket", "border-classicTicket"]}
             title={t("single classic ticket.title")}
             price={t("single classic ticket.price")}
             availablePeriod={t("single classic ticket.available period")}
@@ -127,7 +126,7 @@ export default function TicketInfoMobile({ lang }: { lang: Lang }) {
           />
           <TicketButtonAndDialog
             t={t}
-            color={ticketColor.red}
+            color={["bg-vipTicket", "border-vipTicket"]}
             title={t("vip ticket.title")}
             price={t("vip ticket.price")}
             availablePeriod={t("vip ticket.available period")}
