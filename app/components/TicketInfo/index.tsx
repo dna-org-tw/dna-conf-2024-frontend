@@ -11,7 +11,6 @@ import {
   DNA_FB_LINK,
   GOLDCARD_INFO_LINK_EN,
   GOLDCARD_INFO_LINK_ZH,
-  ticketColor,
   ticketType,
 } from "@/constants";
 
@@ -26,7 +25,7 @@ export default async function TicketInfo({ lang }: { lang: Lang }) {
           <TicketBlock
             type={ticketType.single}
             t={t}
-            color={ticketColor.yellow}
+            color={["bg-singleTicket", "border-singleTicket"]}
             title={t("single ticket.title")}
             price={t("single ticket.price")}
             availablePeriod={t("single ticket.available period")}
@@ -36,7 +35,7 @@ export default async function TicketInfo({ lang }: { lang: Lang }) {
           <TicketBlock
             type={ticketType.twoPerson}
             t={t}
-            color={ticketColor.pink}
+            color={["bg-groupTicket", "border-groupTicket"]}
             title={t("two person ticket.title")}
             price={t("two person ticket.price")}
             availablePeriod={t("two person ticket.available period")}
@@ -50,7 +49,7 @@ export default async function TicketInfo({ lang }: { lang: Lang }) {
           <TicketBlock
             type={ticketType.fivePerson}
             t={t}
-            color={ticketColor.pink}
+            color={["bg-groupTicket", "border-groupTicket"]}
             title={t("five person ticket.title")}
             price={t("five person ticket.price")}
             availablePeriod={t("five person ticket.available period")}
@@ -63,7 +62,7 @@ export default async function TicketInfo({ lang }: { lang: Lang }) {
           <TicketBlock
             type={ticketType.singleClassic}
             t={t}
-            color={ticketColor.blue}
+            color={["bg-classicTicket", "border-classicTicket"]}
             title={t("single classic ticket.title")}
             price={t("single classic ticket.price")}
             availablePeriod={t("single classic ticket.available period")}
@@ -108,9 +107,9 @@ export default async function TicketInfo({ lang }: { lang: Lang }) {
             </div>
           </div>
           <div
-            className={`flex-1 bg-[#F6F6F6] mt-[20px] rounded-r-2xl border-[5px] border-l-0 ${ticketColor.red[1]} flex`}
+            className="flex-1 bg-[#F6F6F6] mt-[20px] rounded-r-2xl border-[5px] border-l-0 border-vipTicket flex"
           >
-            <div className={`m-4 p-2 border ${ticketColor.red[1]} flex-1 flex`}>
+            <div className="m-4 p-2 border border-vipTicket flex-1 flex">
               <div className="flex-none max-w-[60px] mr-2">
                 {t("ticket content")}
               </div>

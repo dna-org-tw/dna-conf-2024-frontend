@@ -5,13 +5,6 @@ export const GOLDCARD_INFO_LINK_ZH =
 export const GOLDCARD_INFO_LINK_EN =
   "https://dna.oen.tw/posts/2g33EoSRmhQA5Umcq51QzOAfB2z";
 
-export const ticketColor: { [key: string]: string[] } = {
-  yellow: ["bg-single-ticket", "border-single-ticket"],
-  pink: ["bg-group-ticket", "border-group-ticket"],
-  blue: ["bg-classic-ticket", "border-classic-ticket"],
-  red: ["bg-vip-ticket", "border-vip-ticket"],
-} as const;
-
 export const ticketType = {
   single: "single",
   twoPerson: "twoPerson",
