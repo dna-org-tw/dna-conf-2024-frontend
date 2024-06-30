@@ -13,6 +13,7 @@ import ScrollToTopButton from "@/app/components/ScrollToTopButton";
 import Image from "next/image";
 import { getSessions, getSpeakers } from "@/lib/notion";
 import SpeakerSection from "@/app/components/SpeakerSection";
+import SponsorSession from "@/app/components/SponsorSession";
 export default async function Home({
   params: { lang },
 }: {
@@ -125,8 +126,15 @@ export default async function Home({
         </div>
       </section>
       <section
+        id="sponsors"
+        className="w-full px-6 md:px-24 pt-16 md:pt-20 pb-24 md:pb-6"
+      >
+        <HeaderTitleWithLine title={t("SPONSORS")} lineColor="brightPink" />
+        <SponsorSession lang={lang} />
+      </section>
+      <section
         id="call-for-sponsor"
-        className="w-full px-6 md:px-24 pt-16 md:pt-20 pb-16 md:pb-6"
+        className="w-full px-6 md:px-24 pt-16 md:pt-20 pb-16 md:pb-96"
       >
         <HeaderTitleWithLine title={t("CALL FOR SPONSOR")} lineColor="yellow" />
         <div className="flex flex-col items-center pt-7 md:pt-20 pb-9 md:pb-36">

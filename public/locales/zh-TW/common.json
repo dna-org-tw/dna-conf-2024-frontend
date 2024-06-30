@@ -98,6 +98,18 @@
     "content5": "精選周邊商品，包含\n大會限定-T-shirt (M/XL)\n大會限定-帆布包\n協會 logo 隨行咖啡杯\n協會 logo 行李吊牌",
     "label": "SPECIAL SALE"
   },
+  "sponsor": {
+    "Diamond Sponsor": "鑽石贊助",
+    "Platinum Sponsor": "白金贊助",
+    "Gold Sponsor": "金贊助",
+    "Silver Sponsor": "銀贊助",
+    "Copper Sponsor": "銅贊助",
+    "Personal Sponsor": "個人贊助",
+    "Special Sponsor": "特別贊助",
+    "Organizer": "主辦",
+    "Co-Host Partner": "共同主辦",
+    "Community Partner": "社群夥伴"
+  },
   "buy ticket": "立即購票",
   "back for more": "返回看更多",
   "looking for partner": "{{ticketType}}好心動！？<br />想找人一起買！<br />歡迎來<a>台灣數位遊牧者社群 <br />Taiwan Digital Nomads Hub</a><br />揪團購！",
