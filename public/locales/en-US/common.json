@@ -97,6 +97,18 @@
     "original price": "TWD 14,990",
     "label": "SPECIAL SALE"
   },
+  "sponsor": {
+    "Diamond Sponsor": "DIAMOND SPONSOR",
+    "Platinum Sponsor": "PLATINUM SPONSOR",
+    "Gold Sponsor": "GOLD SPONSOR",
+    "Silver Sponsor": "SILVER SPONSOR",
+    "Copper Sponsor": "COPPER SPONSOR",
+    "Personal Sponsor": "PERSONAL SPONSOR",
+    "Special Sponsor": "SPECIAL SPONSOR",
+    "Organizer": "ORGANIZER",
+    "Co-Host Partner": "CO-HOST PARTNER",
+    "Community Partner": "COMMUNITY PARTNER"
+  },
   "buy ticket": "BUY TICKET",
   "back for more": "back for more",
   "looking for partner": "Tempted by the {{ticketType}}!?<br />Looking for others to buy together!<br />Welcome to join the group purchase at<br /><a>台灣數位遊牧者社群<br />Taiwan Digital Nomads Hub</a>!",
