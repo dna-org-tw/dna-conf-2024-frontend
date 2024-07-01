@@ -63,7 +63,7 @@
     "available period": "Early Bird Discount ends on 06/30",
     "original price": "TWD 3,000",
     "content1": "Full-Day Conference on 08/03/2024\n- Full-Day Conference Ticket ×2\n- Lunch Box Voucher ×2",
-    "content2": "After Party on 08/03/2024 @Emoji Cafe & Bar Admission Ticket ×2",
+    "content2": "<span>After Party</span> on 08/03/2024 @Emoji Cafe & Bar Admission Ticket ×2",
     "label": "most  popular!"
   },
   "five person ticket": {
@@ -72,26 +72,26 @@
     "title": "Five-Person Group Ticket",
     "available period": "Early Bird Discount ends on 06/30",
     "content1": "Full-Day Conference on 08/03/2024\n- Full-Day Conference Ticket ×5\n- Lunch Box Voucher ×5",
-    "content2": "After Party on 08/03/2024 @Emoji Cafe & Bar Admission Ticket ×5"
+    "content2": "<span>After Party</span> on 08/03/2024 @Emoji Cafe & Bar Admission Ticket ×5"
   },
   "single classic ticket": {
     "title": "Single Classic Full Course",
     "price": "TWD 5,100",
     "available period": "Early Bird Discount ends on 06/30",
     "original price": "TWD 5,700",
-    "content1": "Networking Dinner on 08/02/2024 Admission Ticket ×1",
-    "content2": "Full-Day Conference on 08/03/2024\n- Full-Day Conference Ticket ×1\n- Reserved Seating for Full-Day Conference ×1\n- Lunch Box Voucher ×1",
-    "content3": "After Party on 08/03/2024 @Emoji Cafe & Bar Admission Ticket ×1",
-    "content4": "Hualien Two-day Tour from 07/27/2024 to 07/28/2024 Ticket ×1",
+    "content1": "<span>Networking Dinner</span> on 08/02/2024 Admission Ticket ×1",
+    "content2": "Full-Day Conference on 08/03/2024\n- Full-Day Conference Ticket ×1\n- <span>Reserved Seating</span> for Full-Day Conference ×1\n- Lunch Box Voucher ×1",
+    "content3": "<span>After Party</span> on 08/03/2024 @Emoji Cafe & Bar Admission Ticket ×1",
+    "content4": "<span>Hualien Two-day Tour</span> from 07/27/2024 to 07/28/2024 Ticket ×1",
     "label": "best value!"
   },
   "vip ticket": {
     "price": "TWD 9,900",
-    "content1": "Networking Dinner on 08/02/2024 Admission Ticket ×1",
-    "content2": "Full-Day Conference on 08/03/2024\n- Full-Day Conference Ticket ×1\n- Designated Seating for Full-Day Conference ×1\n- Lunch Box Voucher ×1",
-    "content3": "After Party on 08/03/2024 @Emoji Cafe & Bar Admission Ticket ×1",
-    "content4": "Hualien Two-day Tour from 07/27/2024 to 07/28/2024 Ticket ×1",
-    "content5": "Selected Merchandise, including\n- Conference Limited-Edition T-shirt (M/XL)\n- Conference Limited-Edition Canvas Bag\n- Travel Coffee Cup with the association's logo\n- Luggage tag with the association's logo",
+    "content1": "<span>Networking Dinner</span> on 08/02/2024 Admission Ticket ×1",
+    "content2": "Full-Day Conference on 08/03/2024\n- Full-Day Conference Ticket ×1\n- <span>Designated Seating</span> for Full-Day Conference ×1\n- Lunch Box Voucher ×1",
+    "content3": "<span>After Party</span> on 08/03/2024 @Emoji Cafe & Bar Admission Ticket ×1",
+    "content4": "<span>Hualien Two-day Tour</span> from 07/27/2024 to 07/28/2024 Ticket ×1",
+    "content5": "<span>Selected Merchandise</span>, including\n- Conference Limited-Edition T-shirt (M/XL)\n- Conference Limited-Edition Canvas Bag\n- Travel Coffee Cup with the association's logo\n- Luggage tag with the association's logo",
     "title": "Noble VIP",
     "available period": "On sale until 7/20",
     "original price": "TWD 14,990",

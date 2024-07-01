@@ -80,7 +80,13 @@ export default function TicketInfoMobile({ lang }: { lang: Lang }) {
             originalPrice={t("two person ticket.original price")}
             content={[
               t("two person ticket.content1"),
-              t("two person ticket.content2"),
+              <Trans
+                t={t}
+                i18nKey="two person ticket.content2"
+                components={{
+                  span: <span className="text-[#E4003D] font-bold" />,
+                }}
+              />,
             ]}
             label={t("two person ticket.label")}
             showTrumpet
@@ -98,7 +104,13 @@ export default function TicketInfoMobile({ lang }: { lang: Lang }) {
             originalPrice={t("five person ticket.original price")}
             content={[
               t("five person ticket.content1"),
-              t("five person ticket.content2"),
+              <Trans
+                t={t}
+                i18nKey="five person ticket.content2"
+                components={{
+                  span: <span className="text-[#E4003D] font-bold" />,
+                }}
+              />,
             ]}
             isOpen={isOpen === ticketType.FivePerson}
             handleToggle={() => handleToggle(ticketType.FivePerson)}
@@ -113,10 +125,34 @@ export default function TicketInfoMobile({ lang }: { lang: Lang }) {
             availablePeriod={t("single classic ticket.available period")}
             originalPrice={t("single classic ticket.original price")}
             content={[
-              t("single classic ticket.content4"),
-              t("single classic ticket.content1"),
-              t("single classic ticket.content2"),
-              t("single classic ticket.content3"),
+              <Trans
+                t={t}
+                i18nKey="single classic ticket.content4"
+                components={{
+                  span: <span className="text-[#E4003D] font-bold" />,
+                }}
+              />,
+              <Trans
+                t={t}
+                i18nKey="single classic ticket.content1"
+                components={{
+                  span: <span className="text-[#E4003D] font-bold" />,
+                }}
+              />,
+              <Trans
+                t={t}
+                i18nKey="single classic ticket.content2"
+                components={{
+                  span: <span className="text-[#E4003D] font-bold" />,
+                }}
+              />,
+              <Trans
+                t={t}
+                i18nKey="single classic ticket.content3"
+                components={{
+                  span: <span className="text-[#E4003D] font-bold" />,
+                }}
+              />,
             ]}
             label={t("single classic ticket.label")}
             showTrumpet
@@ -132,11 +168,41 @@ export default function TicketInfoMobile({ lang }: { lang: Lang }) {
             availablePeriod={t("vip ticket.available period")}
             originalPrice={t("vip ticket.original price")}
             content={[
-              t("vip ticket.content4"),
-              t("vip ticket.content1"),
-              t("vip ticket.content2"),
-              t("vip ticket.content3"),
-              t("vip ticket.content5"),
+              <Trans
+                t={t}
+                i18nKey="vip ticket.content4"
+                components={{
+                  span: <span className="text-[#E4003D] font-bold" />,
+                }}
+              />,
+              <Trans
+                t={t}
+                i18nKey="vip ticket.content1"
+                components={{
+                  span: <span className="text-[#E4003D] font-bold" />,
+                }}
+              />,
+              <Trans
+                t={t}
+                i18nKey="vip ticket.content2"
+                components={{
+                  span: <span className="text-[#E4003D] font-bold" />,
+                }}
+              />,
+              <Trans
+                t={t}
+                i18nKey="vip ticket.content3"
+                components={{
+                  span: <span className="text-[#E4003D] font-bold" />,
+                }}
+              />,
+              <Trans
+                t={t}
+                i18nKey="vip ticket.content5"
+                components={{
+                  span: <span className="text-[#E4003D] font-bold" />,
+                }}
+              />,
             ]}
             label={t("vip ticket.label")}
             showSpecialLabel

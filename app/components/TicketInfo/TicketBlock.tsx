@@ -21,7 +21,7 @@ export default async function TicketBlock({
   availablePeriod: string;
   originalPrice: string;
   title: string;
-  content: string[];
+  content: (string | React.ReactElement)[];
   label?: string;
 }) {
   return (
@@ -48,8 +48,8 @@ export default async function TicketBlock({
         <p className="font-bold uppercase">{`${t("original price")} ${originalPrice}`}</p>
         <p className="mt-4">{t("ticket content")}</p>
         <ul className="list-disc ml-6">
-          {content.map((item) => (
-            <li className="whitespace-pre-wrap mb-2" key={item}>
+          {content.map((item, i) => (
+            <li className="whitespace-pre-wrap mb-2" key={i}>
               {item}
             </li>
           ))}

@@ -29,7 +29,7 @@ export default function TicketButtonAndDialog({
   availablePeriod: string;
   originalPrice: string;
   title: string;
-  content: string[];
+  content: (string | React.ReactElement)[];
   label?: string;
   isOpen: boolean;
   className?: string;
@@ -126,10 +126,10 @@ export default function TicketButtonAndDialog({
                     {t("ticket content")}
                   </p>
                   <ul className="">
-                    {content.map((item) => (
+                    {content.map((item, i) => (
                       <li
                         className="whitespace-pre-wrap mb-2 text-[#757575] text-center"
-                        key={item}
+                        key={i}
                       >
                         {item}
                       </li>

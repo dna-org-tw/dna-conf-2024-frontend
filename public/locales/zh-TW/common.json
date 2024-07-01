@@ -64,7 +64,7 @@
     "available period": "早鳥優惠至 6/30 止",
     "original price": "TWD 3,000",
     "content1": "2024/08/03 大會\n全天議程票券 ×2張\n午餐餐盒兌換券 ×2張",
-    "content2": "2024/08/03 After Party\n@言文字 入場券 ×2張",
+    "content2": "2024/08/03 <span>After Party</span>\n@言文字 入場券 ×2張",
     "label": "最受歡迎！"
   },
   "five person ticket": {
@@ -73,17 +73,17 @@
     "available period": "早鳥優惠至 6/30 止",
     "original price": "TWD 7,500",
     "content1": "2024/08/03 大會\n全天議程票券 ×5張\n午餐餐盒兌換券 ×5張",
-    "content2": "2024/08/03 After Party\n@言文字 入場券 ×5張"
+    "content2": "2024/08/03 <span>After Party</span>\n@言文字 入場券 ×5張"
   },
   "single classic ticket": {
     "price": "TWD 5,100",
     "title": "單人經典全席",
     "available period": "早鳥優惠至 6/30 止",
     "original price": "TWD 5,700",
-    "content1": "2024/08/02 交流餐敘\n入場券 ×1張",
-    "content2": "2024/08/03 大會\n全天議程票券 ×1張\n全天議程保留座位 ×1席\n午餐餐盒兌換券 ×1張",
-    "content3": "2024/08/03 After Party\n@言文字 入場券 ×1張",
-    "content4": "2024/07/27-07/28 花蓮二日遊\n票券 ×1張",
+    "content1": "2024/08/02 <span>交流餐敘</span>\n入場券 ×1張",
+    "content2": "2024/08/03 大會\n全天議程票券 ×1張\n全天議程<span>保留座位</span> ×1席\n午餐餐盒兌換券 ×1張",
+    "content3": "2024/08/03 <span>After Party</span>\n@言文字 入場券 ×1張",
+    "content4": "2024/07/27-07/28 <span>花蓮二日遊</span>\n票券 ×1張",
     "label": "最最超值！"
   },
   "vip ticket": {
@@ -91,11 +91,11 @@
     "price": "TWD 9,900",
     "available period": "銷售至 7/20 止",
     "original price": "TWD 14,990",
-    "content1": "2024/08/02 交流餐敘\n入場券 ×1張",
-    "content2": "2024/08/03 大會\n全天議程票券 ×1張\n全天議程指定座位 ×1席\n午餐餐盒兌換券 ×1張",
-    "content3": "2024/08/03 After Party\n@言文字 入場券 ×1張",
-    "content4": "2024/07/27-07/28 花蓮二日遊\n票券 ×1張",
-    "content5": "精選周邊商品，包含\n大會限定-T-shirt (M/XL)\n大會限定-帆布包\n協會 logo 隨行咖啡杯\n協會 logo 行李吊牌",
+    "content1": "2024/08/02 <span>交流餐敘</span>\n入場券 ×1張",
+    "content2": "2024/08/03 大會\n全天議程票券 ×1張\n全天議程<span>指定座位</span> ×1席\n午餐餐盒兌換券 ×1張",
+    "content3": "2024/08/03 <span>After Party</span>\n@言文字 入場券 ×1張",
+    "content4": "2024/07/27-07/28 <span>花蓮二日遊</span>\n票券 ×1張",
+    "content5": "<span>精選周邊</span>商品，包含\n大會限定-T-shirt (M/XL)\n大會限定-帆布包\n協會 logo 隨行咖啡杯\n協會 logo 行李吊牌",
     "label": "SPECIAL SALE"
   },
   "sponsor": {
