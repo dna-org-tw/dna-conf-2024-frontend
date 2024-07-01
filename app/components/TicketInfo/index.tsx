@@ -42,7 +42,13 @@ export default async function TicketInfo({ lang }: { lang: Lang }) {
             originalPrice={t("two person ticket.original price")}
             content={[
               t("two person ticket.content1"),
-              t("two person ticket.content2"),
+              <Trans
+                t={t}
+                i18nKey="two person ticket.content2"
+                components={{
+                  span: <span className="text-[#E4003D] font-bold" />,
+                }}
+              />,
             ]}
             label={t("two person ticket.label")}
           />
@@ -56,7 +62,13 @@ export default async function TicketInfo({ lang }: { lang: Lang }) {
             originalPrice={t("five person ticket.original price")}
             content={[
               t("five person ticket.content1"),
-              t("five person ticket.content2"),
+              <Trans
+                t={t}
+                i18nKey="five person ticket.content2"
+                components={{
+                  span: <span className="text-[#E4003D] font-bold" />,
+                }}
+              />,
             ]}
           />
           <TicketBlock
@@ -68,10 +80,34 @@ export default async function TicketInfo({ lang }: { lang: Lang }) {
             availablePeriod={t("single classic ticket.available period")}
             originalPrice={t("single classic ticket.original price")}
             content={[
-              t("single classic ticket.content4"),
-              t("single classic ticket.content1"),
-              t("single classic ticket.content2"),
-              t("single classic ticket.content3"),
+              <Trans
+                t={t}
+                i18nKey="single classic ticket.content4"
+                components={{
+                  span: <span className="text-[#E4003D] font-bold" />,
+                }}
+              />,
+              <Trans
+                t={t}
+                i18nKey="single classic ticket.content1"
+                components={{
+                  span: <span className="text-[#E4003D] font-bold" />,
+                }}
+              />,
+              <Trans
+                t={t}
+                i18nKey="single classic ticket.content2"
+                components={{
+                  span: <span className="text-[#E4003D] font-bold" />,
+                }}
+              />,
+              <Trans
+                t={t}
+                i18nKey="single classic ticket.content3"
+                components={{
+                  span: <span className="text-[#E4003D] font-bold" />,
+                }}
+              />,
             ]}
             label={t("single classic ticket.label")}
           />
@@ -88,22 +124,22 @@ export default async function TicketInfo({ lang }: { lang: Lang }) {
               <h3 className="text-3xl font-bold">{t("vip ticket.price")}</h3>
             </div>
             <div className="h-[40%] flex flex-col items-center justify-center">
-              <p
+              {/* <p
                 className={clsx(
                   "text-[#F9D2E5] font-bold",
                   isZhTw ? "" : "text-sm"
                 )}
               >
                 {t("vip ticket.available period")}
-              </p>
-              <p
+              </p> */}
+              {/* <p
                 className={clsx(
                   "text-[#F9D2E5] font-bold",
                   isZhTw ? "" : "text-sm"
                 )}
               >
                 {`${t("original price")} ${t("vip ticket.original price")}`}
-              </p>
+              </p> */}
             </div>
           </div>
           <div
@@ -118,23 +154,53 @@ export default async function TicketInfo({ lang }: { lang: Lang }) {
                   <>
                     <ul className="list-disc ml-6 mr-6">
                       <li className="whitespace-pre-wrap mb-2">
-                        {t("vip ticket.content4")}
+                        <Trans
+                          t={t}
+                          i18nKey="vip ticket.content4"
+                          components={{
+                            span: <span className="text-[#E4003D] font-bold" />,
+                          }}
+                        />
                       </li>
                       <li className="whitespace-pre-wrap mb-2">
-                        {t("vip ticket.content1")}
+                        <Trans
+                          t={t}
+                          i18nKey="vip ticket.content1"
+                          components={{
+                            span: <span className="text-[#E4003D] font-bold" />,
+                          }}
+                        />
                       </li>
                     </ul>
                     <ul className="list-disc ml-6 mr-6">
                       <li className="whitespace-pre-wrap mb-2">
-                        {t("vip ticket.content2")}
+                        <Trans
+                          t={t}
+                          i18nKey="vip ticket.content2"
+                          components={{
+                            span: <span className="text-[#E4003D] font-bold" />,
+                          }}
+                        />
                       </li>
                       <li className="whitespace-pre-wrap mb-2">
-                        {t("vip ticket.content3")}
+                        <Trans
+                          t={t}
+                          i18nKey="vip ticket.content3"
+                          components={{
+                            span: <span className="text-[#E4003D] font-bold" />,
+                          }}
+                        />
                       </li>
                     </ul>
                     <ul className="list-disc ml-6 mr-6">
                       <li className="whitespace-pre-wrap mb-2">
-                        {t("vip ticket.content5")}
+                        <Trans
+                          t={t}
+                          i18nKey="vip ticket.content5"
+                          components={{
+                            span: <span className="text-[#E4003D] font-bold" />,
+                          }}
+                        />
                       </li>
                     </ul>
                   </>
@@ -142,21 +208,51 @@ export default async function TicketInfo({ lang }: { lang: Lang }) {
                   <>
                     <ul className="list-disc ml-6 mr-6">
                       <li className="whitespace-pre-wrap mb-2">
-                        {t("vip ticket.content4")}
+                        <Trans
+                          t={t}
+                          i18nKey="vip ticket.content4"
+                          components={{
+                            span: <span className="text-[#E4003D] font-bold" />,
+                          }}
+                        />
                       </li>
                       <li className="whitespace-pre-wrap mb-2">
-                        {t("vip ticket.content1")}
+                        <Trans
+                          t={t}
+                          i18nKey="vip ticket.content1"
+                          components={{
+                            span: <span className="text-[#E4003D] font-bold" />,
+                          }}
+                        />
                       </li>
                       <li className="whitespace-pre-wrap mb-2">
-                        {t("vip ticket.content2")}
+                        <Trans
+                          t={t}
+                          i18nKey="vip ticket.content2"
+                          components={{
+                            span: <span className="text-[#E4003D] font-bold" />,
+                          }}
+                        />
                       </li>
                     </ul>
                     <ul className="list-disc ml-6 mr-6">
                       <li className="whitespace-pre-wrap mb-2">
-                        {t("vip ticket.content3")}
+                        <Trans
+                          t={t}
+                          i18nKey="vip ticket.content3"
+                          components={{
+                            span: <span className="text-[#E4003D] font-bold" />,
+                          }}
+                        />
                       </li>
                       <li className="whitespace-pre-wrap mb-2">
-                        {t("vip ticket.content5")}
+                        <Trans
+                          t={t}
+                          i18nKey="vip ticket.content5"
+                          components={{
+                            span: <span className="text-[#E4003D] font-bold" />,
+                          }}
+                        />
                       </li>
                     </ul>
                   </>
