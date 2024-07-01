@@ -52,14 +52,14 @@
   "click for details": "Click For details!",
   "single ticket": {
     "title": "Single Ticket",
-    "price": "TWD 1,000",
+    "price": "TWD 1,300",
     "available period": "Early Bird Discount ends on 06/30",
     "original price": "TWD 1,300",
     "content1": "Full-Day Conference on 08/03/2024\nFull-Day Conference Ticket ×1\nLunch Box Voucher ×1 "
   },
   "two person ticket": {
     "title": "Two-Person Group Ticket",
-    "price": "TWD 1,900",
+    "price": "TWD 3,000",
     "available period": "Early Bird Discount ends on 06/30",
     "original price": "TWD 3,000",
     "content1": "Full-Day Conference on 08/03/2024\n- Full-Day Conference Ticket ×2\n- Lunch Box Voucher ×2",
@@ -67,7 +67,7 @@
     "label": "most  popular!"
   },
   "five person ticket": {
-    "price": "TWD 4,500",
+    "price": "TWD 7,500",
     "original price": "TWD 7,500",
     "title": "Five-Person Group Ticket",
     "available period": "Early Bird Discount ends on 06/30",
@@ -76,7 +76,7 @@
   },
   "single classic ticket": {
     "title": "Single Classic Full Course",
-    "price": "TWD 5,100",
+    "price": "TWD 5,700",
     "available period": "Early Bird Discount ends on 06/30",
     "original price": "TWD 5,700",
     "content1": "<span>Networking Dinner</span> on 08/02/2024 Admission Ticket ×1",
@@ -86,7 +86,7 @@
     "label": "best value!"
   },
   "vip ticket": {
-    "price": "TWD 9,900",
+    "price": "TWD 14,990",
     "content1": "<span>Networking Dinner</span> on 08/02/2024 Admission Ticket ×1",
     "content2": "Full-Day Conference on 08/03/2024\n- Full-Day Conference Ticket ×1\n- <span>Designated Seating</span> for Full-Day Conference ×1\n- Lunch Box Voucher ×1",
     "content3": "<span>After Party</span> on 08/03/2024 @Emoji Cafe & Bar Admission Ticket ×1",

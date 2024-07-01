@@ -93,7 +93,7 @@ export default function TicketButtonAndDialog({
               >
                 {price}
               </h3>
-              <p className="line-through uppercase text-center">{`${t("original price")} ${originalPrice}`}</p>
+              {/* <p className="line-through uppercase text-center">{`${t("original price")} ${originalPrice}`}</p> */}
               {(showTrumpet || showSpecialLabel) && (
                 <div
                   className={clsx(
@@ -118,9 +118,9 @@ export default function TicketButtonAndDialog({
             </div>
             <div className="overflow-auto pb-10">
               <div className="mx-auto max-w-[500px] px-2 pt-[38px]">
-                <p className="font-bold mb-1 text-center text-[#E74310] text-lg">
+                {/* <p className="font-bold mb-1 text-center text-[#E74310] text-lg">
                   {availablePeriod}
-                </p>
+                </p> */}
                 <div className="px-4">
                   <p className="mt-4 text-center text-[#757575] text-lg font-bold">
                     {t("ticket content")}

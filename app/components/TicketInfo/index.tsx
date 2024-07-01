@@ -124,22 +124,22 @@ export default async function TicketInfo({ lang }: { lang: Lang }) {
               <h3 className="text-3xl font-bold">{t("vip ticket.price")}</h3>
             </div>
             <div className="h-[40%] flex flex-col items-center justify-center">
-              <p
+              {/* <p
                 className={clsx(
                   "text-[#F9D2E5] font-bold",
                   isZhTw ? "" : "text-sm"
                 )}
               >
                 {t("vip ticket.available period")}
-              </p>
-              <p
+              </p> */}
+              {/* <p
                 className={clsx(
                   "text-[#F9D2E5] font-bold",
                   isZhTw ? "" : "text-sm"
                 )}
               >
                 {`${t("original price")} ${t("vip ticket.original price")}`}
-              </p>
+              </p> */}
             </div>
           </div>
           <div

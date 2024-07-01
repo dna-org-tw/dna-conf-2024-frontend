@@ -44,9 +44,9 @@ export default async function TicketBlock({
         <h3 className="text-4xl font-bold text-[#E4003D] uppercase">{price}</h3>
       </div>
       <div className="p-4 bg-[#F6F6F6] rounded-b-xl flex-1">
-        <p className="font-bold">{availablePeriod}</p>
-        <p className="font-bold uppercase">{`${t("original price")} ${originalPrice}`}</p>
-        <p className="mt-4">{t("ticket content")}</p>
+        {/* <p className="font-bold">{availablePeriod}</p> */}
+        {/* <p className="font-bold uppercase">{`${t("original price")} ${originalPrice}`}</p> */}
+        <p>{t("ticket content")}</p>
         <ul className="list-disc ml-6">
           {content.map((item, i) => (
             <li className="whitespace-pre-wrap mb-2" key={i}>
