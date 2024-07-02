@@ -2,40 +2,61 @@ import { useServerTranslation } from "@/i18n";
 import Sponsor from "./Sponsor";
 import { Lang } from "@/types/common";
 
-const diamond = ["digigoldcard.png", "digitalnomad.png"];
-const gold = ["chain.png"];
-const copper = ["leo-travel.png"];
-const special = ["zeabur.svg", "emoji.svg"];
-const organizer = ["emoji.svg"];
+const organizer = [{ image: "TDNA.svg", link: "https://dna.oen.tw/" }];
 const coHost = [
-  "CrossroadsTaiwan.svg",
-  "taiwan-kotlin-user-group.jpeg",
-  "JDNA.png",
+  { image: "JDNA.png", link: "https://japandigitalnomad.com/" },
+  {
+    image: "CrossroadsTaiwan.svg",
+    link: "https://www.facebook.com/CrossroadsTaiwan",
+  },
+  {
+    image: "taiwan-kotlin-user-group.jpeg",
+    link: "https://taiwan-kotlin-user-group.github.io/",
+  },
+];
+const diamond = [
+  { image: "digigoldcard.png", link: "https://digigoldcard.tca.org.tw/" },
+  { image: "digitalnomad.png", link: "https://digitalnomad.press/" },
+];
+const gold = [{ image: "chain.png", link: "https://www.chain.tw" }];
+const copper = [
+  { image: "leo-travel.png", link: "https://www.leo-travel.idv.tw/" },
+];
+const special = [
+  { image: "emoji.svg", link: "https://www.instagram.com/emoji0701/" },
+  { image: "zeabur.svg", link: "https://zeabur.com/zh-TW" },
 ];
 const community = [
-  "sidd-blue.png",
-  "Digitalnomadstaiwan.png",
-  "tw_dnvillage.png",
-  "thesingularity.png",
-  "yugyo.png",
-  "Manabu.svg",
-  "Fukuoka.svg",
-  "Dinsight.jpg",
+  {
+    image: "Digitalnomadstaiwan.png",
+    link: "https://linktr.ee/digitalnomadstaiwan",
+  },
+  {
+    image: "tw_dnvillage.png",
+    link: "https://www.instagram.com/tw_dnvillage?igsh=MXY0ODMxeHNhem9zbA==",
+  },
+  { image: "yugyo.png", link: "#" },
+  { image: "Manabu.svg", link: "https://digitalnomads.jp/" },
+  { image: "Fukuoka.svg", link: "https://www.linkedin.com/groups/13972107" },
+  { image: "Dinsight.jpg", link: "https://www.facebook.com/cryptodinsight" },
+  { image: "sidd-blue.png", link: "https://www.instagram.com/sidd.blue/" },
+  { image: "thesingularity.png", link: "https://thesingularity.tw/" },
 ];
 
 export default async function SponsorSession({ lang }: { lang: Lang }) {
   const { t } = await useServerTranslation(lang);
   return (
     <div className="flex flex-col items-center gap-5 min-w-full min-h-0 md:px-20">
+      <Sponsor sponsorType={t("sponsor.Organizer")} sponsors={organizer} />
+      <Sponsor sponsorType={t("sponsor.Co-Host Partner")} sponsors={coHost} />
       <Sponsor sponsorType={t("sponsor.Diamond Sponsor")} sponsors={diamond} />
       <Sponsor sponsorType={t("sponsor.Gold Sponsor")} sponsors={gold} />
       <Sponsor sponsorType={t("sponsor.Copper Sponsor")} sponsors={copper} />
       <Sponsor sponsorType={t("sponsor.Special Sponsor")} sponsors={special} />
-      <Sponsor sponsorType={t("sponsor.Organizer")} sponsors={organizer} />
-      <Sponsor sponsorType={t("sponsor.Co-Host Partner")} sponsors={coHost} />
       <Sponsor
         sponsorType={t("sponsor.Community Partner")}
         sponsors={community}
+        isCommunity
       />
     </div>
   );
