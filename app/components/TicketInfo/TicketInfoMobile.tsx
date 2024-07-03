@@ -56,8 +56,8 @@ export default function TicketInfoMobile({ lang }: { lang: Lang }) {
   return (
     <>
       <div className="flex xl:hidden flex-col items-center px-4">
-        <p className="text-center mb-1">{t("available period")}</p>
-        <p className="text-center mb-5">{t("click for details")}</p>
+        {/* <p className="text-center mb-1">{t("available period")}</p> */}
+        {/* <p className="text-center mb-5">{t("click for details")}</p> */}
         <div className="max-w-[600px] w-full">
           <TicketButtonAndDialog
             t={t}
