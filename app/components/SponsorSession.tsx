@@ -17,14 +17,17 @@ const coHost = [
 const diamond = [
   { image: "digigoldcard.png", link: "https://digigoldcard.tca.org.tw/" },
   { image: "digitalnomad.png", link: "https://digitalnomad.press/" },
+  { image: "TLI.svg", link: "https://tli1956.com/?lang=tc" },
 ];
 const gold = [{ image: "chain.png", link: "https://www.chain.tw" }];
 const copper = [
-  { image: "leo-travel.png", link: "https://www.leo-travel.idv.tw/" },
+  { image: "leo-travel.svg", link: "https://www.leo-travel.idv.tw/" },
+  { image: "xfriend.svg", link: "#" },
 ];
 const special = [
   { image: "emoji.svg", link: "https://www.instagram.com/emoji0701/" },
   { image: "zeabur.svg", link: "https://zeabur.com/zh-TW" },
+  { image: "routea0601.svg", link: "https://www.instagram.com/routea0601/" },
 ];
 const community = [
   {
