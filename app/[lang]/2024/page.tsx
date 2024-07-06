@@ -127,21 +127,10 @@ export default async function Home({
       </section>
       <section
         id="sponsors"
-        className="w-full px-6 md:px-24 pt-16 md:pt-20 pb-24 md:pb-6"
+        className="w-full px-6 md:px-24 pt-16 md:pt-20 pb-24 md:pb-12 lg:pb-[500px] xl:pb-[900px]"
       >
         <HeaderTitleWithLine title={t("SPONSORS")} lineColor="brightPink" />
         <SponsorSession lang={lang} />
-      </section>
-      <section
-        id="call-for-sponsor"
-        className="w-full px-6 md:px-24 pt-16 md:pt-20 pb-16 md:pb-96"
-      >
-        <HeaderTitleWithLine title={t("CALL FOR SPONSOR")} lineColor="yellow" />
-        <div className="flex flex-col items-center pt-7 md:pt-20 pb-9 md:pb-36">
-          <ColorfulButton href="https://forms.gle/u5XVdrCqjpwitT2m7">
-            {t("APPLICATION FORM")}
-          </ColorfulButton>
-        </div>
       </section>
     </main>
   );

@@ -35,8 +35,8 @@ const MenuContent: React.FC<MenuContentProp> = ({
     <Link href={`/${lng}/2024#transportation`} onClick={onClick}>
       {translatedData.TRANSPORTATION}
     </Link>
-    <Link href={`/${lng}/2024#call-for-sponsor`} onClick={onClick}>
-      {translatedData.CALL_FOR_SPONSOR}
+    <Link href={`/${lng}/2024#sponsors`} onClick={onClick}>
+      {translatedData.SPONSORS}
     </Link>
     <Button
       asChild
