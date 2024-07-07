@@ -93,7 +93,7 @@ function SessionBlock({
       ) : (
         <>
           <div className="font-bold">{session.title[lang]}</div>
-          <div className="inline-flex gap-x-2">
+          <div className="flex-wrap inline-flex gap-2">
             {session.tags?.[lang].map((tag, i) => (
               <Badge
                 key={`${tag}-${i}`}
