@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Fragment } from "react";
 
 export default function Sponsor({
   sponsorType,
@@ -15,10 +16,9 @@ export default function Sponsor({
       <h2 className="text-2xl	font-bold	text-slate-500">{sponsorType}</h2>
       <div className="flex gap-5 justify-center flex-wrap">
         {sponsors.map((sponsor) => (
-          <>
+          <Fragment key={sponsor.link}>
             {sponsor.link !== "#" ? (
               <Link
-                key={sponsor.link}
                 href={sponsor.link}
                 target="_blank"
                 className="flex bg-white border-solid border-2 rounded-md"
@@ -40,7 +40,7 @@ export default function Sponsor({
                 alt="sponsor"
               />
             )}
-          </>
+          </Fragment>
         ))}
       </div>
     </>
