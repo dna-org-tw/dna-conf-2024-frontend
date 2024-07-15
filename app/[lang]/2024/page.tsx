@@ -173,10 +173,8 @@ export default async function Home({
           />
         </div>
       </section>
-      <section
-        id="sponsors"
-        className="w-full px-6 md:px-24 pt-16 md:pt-20 pb-24 md:pb-12 lg:pb-[500px] xl:pb-[900px]"
-      >
+      <section id="partners" className="w-full px-6 md:px-24 pt-16 md:pt-20">
+        <HeaderTitleWithLine title={t("PARTNERS")} lineColor="brightPink" />
         <div className="flex flex-col items-center gap-5 min-w-full min-h-0 md:px-20">
           <Sponsor sponsorType={t("sponsor.Organizer")} sponsors={organizer} />
           <Sponsor
@@ -184,18 +182,21 @@ export default async function Home({
             sponsors={coHost}
           />
         </div>
-        <div className="mt-5">
-          <HeaderTitleWithLine title={t("SPONSORS")} lineColor="brightPink" />
-          <SponsorSession lang={lang} />
-        </div>
-        <div className="mt-5">
-          <HeaderTitleWithLine
-            title={t("COMMUNITY PARTNER")}
-            lineColor="brightPink"
-          />
-          <div className="flex flex-col items-center gap-5 min-w-full min-h-0 md:px-20">
-            <Sponsor sponsors={community} isCommunity />
-          </div>
+      </section>
+      <section id="sponsors" className="w-full px-6 md:px-24 pt-16 md:pt-20">
+        <HeaderTitleWithLine title={t("SPONSORS")} lineColor="brightPink" />
+        <SponsorSession lang={lang} />
+      </section>
+      <section
+        id="community-partner"
+        className="w-full px-6 md:px-24 pt-16 md:pt-20 pb-24 md:pb-12 lg:pb-[500px] xl:pb-[900px]"
+      >
+        <HeaderTitleWithLine
+          title={t("COMMUNITY PARTNERS")}
+          lineColor="brightPink"
+        />
+        <div className="flex flex-col items-center gap-5 min-w-full min-h-0 md:px-20">
+          <Sponsor sponsors={community} isCommunity />
         </div>
       </section>
     </main>
