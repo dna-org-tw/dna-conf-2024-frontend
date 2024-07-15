@@ -13,7 +13,7 @@ export interface TranslationData {
   AGENDA: string;
   TICKETS: string;
   TRANSPORTATION: string;
-  SPONSORS: string;
+  PARTNERS: string;
   BUY_TICKET: string;
 }
 
@@ -29,7 +29,7 @@ export default function Nav() {
     AGENDA: translate?.("AGENDA") || "",
     TICKETS: translate?.("TICKETS") || "",
     TRANSPORTATION: translate?.("TRANSPORTATION") || "",
-    SPONSORS: translate?.("SPONSORS") || "",
+    PARTNERS: translate?.("PARTNERS") || "",
     BUY_TICKET: translate?.("BUY_TICKET") || "",
   };
 
