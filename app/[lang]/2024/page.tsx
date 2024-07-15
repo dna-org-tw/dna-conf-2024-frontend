@@ -14,6 +14,54 @@ import Image from "next/image";
 import { getSessions, getSpeakers } from "@/lib/notion";
 import SpeakerSection from "@/app/components/SpeakerSection";
 import SponsorSession from "@/app/components/SponsorSession";
+import Sponsor from "@/app/components/Sponsor";
+
+const organizer = [{ image: "TDNA.svg", link: "https://dna.oen.tw/" }];
+const coHost = [
+  { image: "JDNA.png", link: "https://japandigitalnomad.com/" },
+  {
+    image: "CrossroadsTaiwan.svg",
+    link: "https://www.facebook.com/CrossroadsTaiwan",
+  },
+  {
+    image: "taiwan-kotlin-user-group.jpeg",
+    link: "https://taiwan-kotlin-user-group.github.io/",
+  },
+];
+
+const community = [
+  {
+    image: "Digitalnomadstaiwan.png",
+    link: "https://linktr.ee/digitalnomadstaiwan",
+  },
+  {
+    image: "tw_dnvillage.png",
+    link: "https://www.instagram.com/tw_dnvillage?igsh=MXY0ODMxeHNhem9zbA==",
+  },
+  { image: "yugyo.png", link: "#" },
+  { image: "Manabu.svg", link: "https://digitalnomads.jp/" },
+  { image: "Fukuoka.svg", link: "https://www.linkedin.com/groups/13972107" },
+  { image: "Dinsight.jpg", link: "https://www.facebook.com/cryptodinsight" },
+  { image: "sidd-blue.png", link: "https://www.instagram.com/sidd.blue/" },
+  { image: "thesingularity.png", link: "https://thesingularity.tw/" },
+  {
+    image: "LaVitaNomad.svg",
+    link: "https://www.instagram.com/lavita_nomad?igsh=djZleTJqYjFhNXU2",
+  },
+  {
+    image: "JustCo.svg",
+    link: "https://www.justcoglobal.com/tw/",
+  },
+  {
+    image: "WorkationLab.png",
+    link: "https://workationlab.com/",
+  },
+  {
+    image: "Co-WorkingOnline.svg",
+    link: "https://www.instagram.com/co_working_online/",
+  },
+];
+
 export default async function Home({
   params: { lang },
 }: {
@@ -129,8 +177,26 @@ export default async function Home({
         id="sponsors"
         className="w-full px-6 md:px-24 pt-16 md:pt-20 pb-24 md:pb-12 lg:pb-[500px] xl:pb-[900px]"
       >
-        <HeaderTitleWithLine title={t("SPONSORS")} lineColor="brightPink" />
-        <SponsorSession lang={lang} />
+        <div className="flex flex-col items-center gap-5 min-w-full min-h-0 md:px-20">
+          <Sponsor sponsorType={t("sponsor.Organizer")} sponsors={organizer} />
+          <Sponsor
+            sponsorType={t("sponsor.Co-Host Partner")}
+            sponsors={coHost}
+          />
+        </div>
+        <div className="mt-5">
+          <HeaderTitleWithLine title={t("SPONSORS")} lineColor="brightPink" />
+          <SponsorSession lang={lang} />
+        </div>
+        <div className="mt-5">
+          <HeaderTitleWithLine
+            title={t("COMMUNITY PARTNER")}
+            lineColor="brightPink"
+          />
+          <div className="flex flex-col items-center gap-5 min-w-full min-h-0 md:px-20">
+            <Sponsor sponsors={community} isCommunity />
+          </div>
+        </div>
       </section>
     </main>
   );

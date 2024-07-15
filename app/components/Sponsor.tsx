@@ -7,13 +7,15 @@ export default function Sponsor({
   sponsors,
   isCommunity,
 }: {
-  sponsorType: string;
+  sponsorType?: string;
   sponsors: { image: string; link: string }[];
   isCommunity?: boolean;
 }) {
   return (
     <>
-      <h2 className="text-2xl	font-bold	text-slate-500">{sponsorType}</h2>
+      {sponsorType && (
+        <h2 className="text-2xl	font-bold	text-slate-500">{sponsorType}</h2>
+      )}
       <div className="flex gap-5 justify-center flex-wrap">
         {sponsors.map((sponsor) => (
           <Fragment key={sponsor.link}>
