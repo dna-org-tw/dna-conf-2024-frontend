@@ -173,8 +173,8 @@ export default async function Home({
           />
         </div>
       </section>
-      <section id="partners" className="w-full px-6 md:px-24 pt-16 md:pt-20">
-        <HeaderTitleWithLine title={t("PARTNERS")} lineColor="brightPink" />
+      <section id="partnership" className="w-full px-6 md:px-24 pt-16 md:pt-20">
+        <HeaderTitleWithLine title={t("PARTNERSHIP")} lineColor="brightPink" />
         <div className="flex flex-col items-center gap-5 min-w-full min-h-0 md:px-20">
           <Sponsor sponsorType={t("sponsor.Organizer")} sponsors={organizer} />
           <Sponsor
