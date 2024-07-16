@@ -9,6 +9,26 @@ import { Badge } from "@/components/ui/badge";
 import { Speaker, Session } from "@/lib/notion";
 import { SpeakerSessionDialog } from "./SpeakerSessionDialog";
 
+const UnconferenceSessionData = {
+  id: "133a25f7-b2a2-4c2e-838b-32f4a913e3c2",
+  title: {
+    "zh-TW": "Unconference Open Space",
+    "en-US": "Unconference Open Space",
+  },
+  location: { "zh-TW": "1003 會議室", "en-US": "Room 1003" },
+  tags: { "zh-TW": [], "en-US": [] },
+  status: "Released",
+  timeSlots: ["16:00-16:30"],
+  timeSection: "after tea",
+  color: "#E74310",
+  order: 15,
+  speakerIDs: [],
+  description: {
+    "zh-TW": "即將公佈講題與其摘要",
+    "en-US": "The topic and its abstract will be announced soon.",
+  },
+};
+
 const getSessionsDuringTimeSection = (
   sessions: Session[],
   timeSection: string
@@ -174,16 +194,11 @@ export default async function Agenda({
         <div className="md:col-span-7 flex m-5 p-2 justify-center text-center font-bold">
           {t("Tea time")}
         </div>
-        {Object.keys(afterTeaSessions).map((timeSlot, i) => (
-          <SessionTable
-            key={`session-table-${i}`}
-            timeSlotSessions={afterTeaSessions}
-            timeSlot={timeSlot}
-            i={i}
-            lang={lang}
-            speakers={speakers}
-          />
-        ))}
+        <AfterTeaSessionTableWhole
+          afterTeaSessions={afterTeaSessions}
+          speakers={speakers}
+          lang={lang}
+        />
         <div className="md:col-span-7 flex m-5 p-2 justify-center text-center font-bold">
           {t("Closing Speech and Endowment")}
         </div>
@@ -277,5 +292,156 @@ function SessionTable({
         })}
       </div>
     </>
+  );
+}
+
+function AfterTeaSessionTableWhole({
+  afterTeaSessions,
+  speakers,
+  lang,
+}: {
+  afterTeaSessions: Record<string, Session[]>;
+  speakers: Speaker[];
+  lang: Lang;
+}) {
+  return (
+    <>
+      <div className="grid md:hidden gap-2 max-w-[772px] mx-auto">
+        {Object.keys(afterTeaSessions).map((timeSlot, i) => (
+          <SessionTable
+            key={`session-table-${i}`}
+            timeSlotSessions={afterTeaSessions}
+            timeSlot={timeSlot}
+            i={i}
+            lang={lang}
+            speakers={speakers}
+          />
+        ))}
+      </div>
+      <div className="hidden md:grid md:col-span-7 md:grid-cols-7 gap-2">
+        {Object.keys(afterTeaSessions).map((timeSlot, i) => (
+          <AfterTeaSessionTableTime
+            key={`session-table-${i}`}
+            timeSlotSessions={afterTeaSessions}
+            timeSlot={timeSlot}
+            i={i}
+            lang={lang}
+            speakers={speakers}
+          />
+        ))}
+        {Object.keys(afterTeaSessions).map((timeSlot, i) => (
+          <AfterTeaSessionTableSession
+            key={`session-table-${i}`}
+            timeSlotSessions={afterTeaSessions}
+            timeSlot={timeSlot}
+            i={i}
+            lang={lang}
+            speakers={speakers}
+          />
+        ))}
+        <SessionBlock
+          session={UnconferenceSessionData}
+          speakers={speakers}
+          lang={lang}
+          className="col-start-5 row-start-1 col-span-3 row-span-3 p-10 justify-center items-center gap-1 text-center"
+        />
+      </div>
+    </>
+  );
+}
+
+function AfterTeaSessionTableTime({
+  timeSlotSessions,
+  timeSlot,
+  i,
+}: {
+  timeSlotSessions: Record<string, Session[]>;
+  timeSlot: string;
+  i: number;
+  lang: Lang;
+  speakers: Speaker[];
+}) {
+  const s = timeSlotSessions[timeSlot];
+  const [startTime, endTime] = timeSlot.split("-");
+
+  return (
+    <div
+      key={`row-${i}`}
+      className={cn(
+        "flex md:flex-col justify-center items-center gap-y-1 gap-x-2 bg-[#FFD028] border-[#FFD028] border-2 py-1 md:py-3 px-4 rounded-md mt-6 md:mt-0 col-start-1",
+        {
+          [`row-span-${s.length}`]: s.length > 1 && hasSameLocation(s),
+        }
+      )}
+    >
+      <div className="font-bold">{startTime}</div>
+      <div className="hidden md:block h-6 w-0 border border-black"></div>
+      <div className="md:hidden w-4 border border-black"></div>
+      <div className="font-bold">{endTime}</div>
+    </div>
+  );
+}
+
+function AfterTeaSessionTableSession({
+  timeSlotSessions,
+  timeSlot,
+  i,
+  lang,
+  speakers,
+}: {
+  timeSlotSessions: Record<string, Session[]>;
+  timeSlot: string;
+  i: number;
+  lang: Lang;
+  speakers: Speaker[];
+}) {
+  const s = timeSlotSessions[timeSlot].filter(
+    (x) => x.title["en-US"] !== "Unconference Open Space"
+  );
+
+  function sessionSpeaker(session: Session) {
+    return speakers.find((speaker) => session.speakerIDs.includes(speaker.id));
+  }
+
+  const sessionLocationSame = s.every((session) => {
+    return (
+      JSON.stringify(session.location) === JSON.stringify(s[0].location) &&
+      session.status !== "Coming Soon"
+    );
+  });
+
+  return (
+    <div
+      className={cn("md:col-start-2 md:col-span-3 flex gap-2", {
+        "flex-col": sessionLocationSame,
+      })}
+      style={{ gridRowStart: i + 1 }}
+    >
+      {s.map((session) => {
+        return hasSpeaker(session) && session.status !== "Coming Soon" ? (
+          <SpeakerSessionDialog
+            key={session.id}
+            speaker={sessionSpeaker(session)}
+            session={session}
+            lang={lang}
+            asChild
+          >
+            <SessionBlock
+              session={session}
+              speakers={speakers}
+              lang={lang}
+              className="cursor-pointer"
+            />
+          </SpeakerSessionDialog>
+        ) : (
+          <SessionBlock
+            key={session.id}
+            session={session}
+            lang={lang}
+            speakers={speakers}
+          />
+        );
+      })}
+    </div>
   );
 }
