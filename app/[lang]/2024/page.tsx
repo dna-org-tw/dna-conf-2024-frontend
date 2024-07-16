@@ -189,7 +189,7 @@ export default async function Home({
       </section>
       <section
         id="community-partner"
-        className="w-full px-6 md:px-24 pt-16 md:pt-20 pb-24 md:pb-12 lg:pb-[500px] xl:pb-[900px]"
+        className="w-full px-6 md:px-24 pt-16 md:pt-20 pb-24 md:pb-12 xl:pb-[100px]"
       >
         <HeaderTitleWithLine
           title={t("COMMUNITY PARTNERS")}
