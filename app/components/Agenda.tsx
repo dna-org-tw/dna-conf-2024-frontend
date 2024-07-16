@@ -306,7 +306,7 @@ function AfterTeaSessionTableWhole({
 }) {
   return (
     <>
-      <div className="grid md:hidden gap-2 max-w-[772px] mx-auto">
+      <div className="w-full grid md:hidden gap-2 max-w-[772px] mx-auto">
         {Object.keys(afterTeaSessions).map((timeSlot, i) => (
           <SessionTable
             key={`session-table-${i}`}
