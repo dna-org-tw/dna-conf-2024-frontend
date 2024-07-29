@@ -12,21 +12,24 @@ export function generateMetadata({ params }: { params: LangParams }): Metadata {
     case "en-US":
       return {
         metadataBase: new URL("https://conf.dna.org.tw"),
-        title: "TDNA Taiwan Digital Nomad Conference 2024 - Exploring the Infinite Possibilities of Future Work",
+        title:
+          "TDNA Taiwan Digital Nomad Conference 2024 - Exploring the Infinite Possibilities of Future Work",
         description:
           "TDNA 2024 is a premier gathering designed for digital nomads and remote work enthusiasts, offering a platform for learning, sharing, and innovation. Join us to explore the future trends of remote working!",
         icons: [{ url: "/images/favicon.ico", type: "image/x-icon" }],
         openGraph: {
           locale: "en_US",
           type: "website",
-          title: "TDNA Taiwan Digital Nomad Conference 2024 - Exploring the Infinite Possibilities of Future Work",
+          title:
+            "TDNA Taiwan Digital Nomad Conference 2024 - Exploring the Infinite Possibilities of Future Work",
           description:
             "Join TDNA 2024 to discover the latest trends in remote working, network with like-minded professionals, and create new opportunities for work and life.",
           images: [{ url: "/images/meta.png" }],
           url: "http://conf.dna.org.tw/en-US/2024",
         },
         twitter: {
-          title: "TDNA Taiwan Digital Nomad Conference 2024 - Exploring the Infinite Possibilities of Future Work",
+          title:
+            "TDNA Taiwan Digital Nomad Conference 2024 - Exploring the Infinite Possibilities of Future Work",
           description:
             "Join TDNA 2024 to discover the latest trends in remote working, network with like-minded professionals, and create new opportunities for work and life.",
           images: [{ url: "/images/meta.png" }],
@@ -68,7 +71,7 @@ export default function RootLayout({
   params: LangParams;
 }>) {
   return (
-    <html lang={params.lang}>
+    <html lang={params.lang} style={{ scrollBehavior: "smooth" }}>
       <I18nTranslateProvider lng={params.lang}>
         <body>
           <div className="relative">

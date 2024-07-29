@@ -30,7 +30,7 @@ const lineColors: Record<LineColor, string> = {
 
 const HeaderTitleWithLine = ({ title, lineColor }: Props) => {
   return (
-    <div className="flex justify-center items-center mx-auto mb-10 lg:gap-x-8 gap-x-4">
+    <div className="flex justify-center items-center mx-auto mb-5 md:mb-10 lg:gap-x-8 gap-x-4">
       <div
         className={`border-[2px] w-full md:w-[120px] ${lineColors[lineColor]}`}
       ></div>

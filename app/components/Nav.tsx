@@ -6,7 +6,6 @@ import MenuDropdown from "./MenuDropdown";
 import MenuContent from "./MenuContent";
 import { useContext } from "react";
 import { i18nTranslateContext } from "@/context/I18nTranslateProvider";
-import { useClientTranslation } from "@/i18n/client";
 
 export interface TranslationData {
   EVENT: string;
@@ -14,7 +13,7 @@ export interface TranslationData {
   AGENDA: string;
   TICKETS: string;
   TRANSPORTATION: string;
-  CALL_FOR_SPONSOR: string;
+  PARTNERSHIP: string;
   BUY_TICKET: string;
 }
 
@@ -30,12 +29,12 @@ export default function Nav() {
     AGENDA: translate?.("AGENDA") || "",
     TICKETS: translate?.("TICKETS") || "",
     TRANSPORTATION: translate?.("TRANSPORTATION") || "",
-    CALL_FOR_SPONSOR: translate?.("CALL FOR SPONSOR") || "",
+    PARTNERSHIP: translate?.("PARTNERSHIP") || "",
     BUY_TICKET: translate?.("BUY_TICKET") || "",
   };
 
   return (
-    <nav className="w-full h-[60px] lg:h-[94px] flex items-center justify-center lg:justify-between px-24 bg-brand-gray relative z-50">
+    <nav className="fixed w-full h-[60px] lg:h-[94px] flex items-center ps-6 lg:justify-between lg:px-24 bg-brand-gray z-50">
       <MenuDropdown translatedData={translatedData} lng={lng} />
       <Link
         href={`/${lng}/2024`}

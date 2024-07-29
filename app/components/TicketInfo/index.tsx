@@ -1,28 +1,18 @@
+"use server";
+
 import TicketBlock from "./TicketBlock";
 import { useServerTranslation } from "@/i18n";
 import { Lang } from "@/types/common";
 import clsx from "clsx";
 import TicketInfoMobile from "./TicketInfoMobile";
 import { Trans } from "react-i18next/TransWithoutContext";
-
-export const DNA_FB_LINK = "https://psee.io/5qfm8k";
-export const PURCHASE_TICKET_LINK = "https://psee.io/5qfa4a";
-
-export const ticketColor: { [key: string]: string[] } = {
-  yellow: ["bg-single-ticket", "border-single-ticket"],
-  pink: ["bg-group-ticket", "border-group-ticket"],
-  blue: ["bg-classic-ticket", "border-classic-ticket"],
-  red: ["bg-vip-ticket", "border-vip-ticket"],
-} as const;
-
-export const ticketType = {
-  single: "single",
-  twoPerson: "twoPerson",
-  fivePerson: "fivePerson",
-  singleClassic: "singleClassic",
-  vip: "vip",
-} as const;
-export type TicketType = (typeof ticketType)[keyof typeof ticketType];
+import Image from "next/image";
+import {
+  DNA_FB_LINK,
+  GOLDCARD_INFO_LINK_EN,
+  GOLDCARD_INFO_LINK_ZH,
+  ticketType,
+} from "@/constants";
 
 export default async function TicketInfo({ lang }: { lang: Lang }) {
   const { t } = await useServerTranslation(lang);
@@ -35,7 +25,7 @@ export default async function TicketInfo({ lang }: { lang: Lang }) {
           <TicketBlock
             type={ticketType.single}
             t={t}
-            color={ticketColor.yellow}
+            color={["bg-singleTicket", "border-singleTicket"]}
             title={t("single ticket.title")}
             price={t("single ticket.price")}
             availablePeriod={t("single ticket.available period")}
@@ -45,43 +35,79 @@ export default async function TicketInfo({ lang }: { lang: Lang }) {
           <TicketBlock
             type={ticketType.twoPerson}
             t={t}
-            color={ticketColor.pink}
+            color={["bg-groupTicket", "border-groupTicket"]}
             title={t("two person ticket.title")}
             price={t("two person ticket.price")}
             availablePeriod={t("two person ticket.available period")}
             originalPrice={t("two person ticket.original price")}
             content={[
               t("two person ticket.content1"),
-              t("two person ticket.content2"),
+              <Trans
+                t={t}
+                i18nKey="two person ticket.content2"
+                components={{
+                  span: <span className="text-[#E4003D] font-bold" />,
+                }}
+              />,
             ]}
             label={t("two person ticket.label")}
           />
           <TicketBlock
             type={ticketType.fivePerson}
             t={t}
-            color={ticketColor.pink}
+            color={["bg-groupTicket", "border-groupTicket"]}
             title={t("five person ticket.title")}
             price={t("five person ticket.price")}
             availablePeriod={t("five person ticket.available period")}
             originalPrice={t("five person ticket.original price")}
             content={[
               t("five person ticket.content1"),
-              t("five person ticket.content2"),
+              <Trans
+                t={t}
+                i18nKey="five person ticket.content2"
+                components={{
+                  span: <span className="text-[#E4003D] font-bold" />,
+                }}
+              />,
             ]}
           />
           <TicketBlock
             type={ticketType.singleClassic}
             t={t}
-            color={ticketColor.blue}
+            color={["bg-classicTicket", "border-classicTicket"]}
             title={t("single classic ticket.title")}
             price={t("single classic ticket.price")}
             availablePeriod={t("single classic ticket.available period")}
             originalPrice={t("single classic ticket.original price")}
             content={[
-              t("single classic ticket.content4"),
-              t("single classic ticket.content1"),
-              t("single classic ticket.content2"),
-              t("single classic ticket.content3"),
+              <Trans
+                t={t}
+                i18nKey="single classic ticket.content4"
+                components={{
+                  span: <span className="text-[#E4003D] font-bold" />,
+                }}
+              />,
+              <Trans
+                t={t}
+                i18nKey="single classic ticket.content1"
+                components={{
+                  span: <span className="text-[#E4003D] font-bold" />,
+                }}
+              />,
+              <Trans
+                t={t}
+                i18nKey="single classic ticket.content2"
+                components={{
+                  span: <span className="text-[#E4003D] font-bold" />,
+                }}
+              />,
+              <Trans
+                t={t}
+                i18nKey="single classic ticket.content3"
+                components={{
+                  span: <span className="text-[#E4003D] font-bold" />,
+                }}
+              />,
             ]}
             label={t("single classic ticket.label")}
           />
@@ -98,28 +124,28 @@ export default async function TicketInfo({ lang }: { lang: Lang }) {
               <h3 className="text-3xl font-bold">{t("vip ticket.price")}</h3>
             </div>
             <div className="h-[40%] flex flex-col items-center justify-center">
-              <p
+              {/* <p
                 className={clsx(
                   "text-[#F9D2E5] font-bold",
-                  isZhTw ? "" : "text-sm",
+                  isZhTw ? "" : "text-sm"
                 )}
               >
                 {t("vip ticket.available period")}
-              </p>
-              <p
+              </p> */}
+              {/* <p
                 className={clsx(
                   "text-[#F9D2E5] font-bold",
-                  isZhTw ? "" : "text-sm",
+                  isZhTw ? "" : "text-sm"
                 )}
               >
                 {`${t("original price")} ${t("vip ticket.original price")}`}
-              </p>
+              </p> */}
             </div>
           </div>
           <div
-            className={`flex-1 bg-[#F6F6F6] mt-[20px] rounded-r-2xl border-[5px] border-l-0 ${ticketColor.red[1]} flex`}
+            className="flex-1 bg-[#F6F6F6] mt-[20px] rounded-r-2xl border-[5px] border-l-0 border-vipTicket flex"
           >
-            <div className={`m-4 p-2 border ${ticketColor.red[1]} flex-1 flex`}>
+            <div className="m-4 p-2 border border-vipTicket flex-1 flex">
               <div className="flex-none max-w-[60px] mr-2">
                 {t("ticket content")}
               </div>
@@ -128,23 +154,53 @@ export default async function TicketInfo({ lang }: { lang: Lang }) {
                   <>
                     <ul className="list-disc ml-6 mr-6">
                       <li className="whitespace-pre-wrap mb-2">
-                        {t("vip ticket.content4")}
+                        <Trans
+                          t={t}
+                          i18nKey="vip ticket.content4"
+                          components={{
+                            span: <span className="text-[#E4003D] font-bold" />,
+                          }}
+                        />
                       </li>
                       <li className="whitespace-pre-wrap mb-2">
-                        {t("vip ticket.content1")}
+                        <Trans
+                          t={t}
+                          i18nKey="vip ticket.content1"
+                          components={{
+                            span: <span className="text-[#E4003D] font-bold" />,
+                          }}
+                        />
                       </li>
                     </ul>
                     <ul className="list-disc ml-6 mr-6">
                       <li className="whitespace-pre-wrap mb-2">
-                        {t("vip ticket.content2")}
+                        <Trans
+                          t={t}
+                          i18nKey="vip ticket.content2"
+                          components={{
+                            span: <span className="text-[#E4003D] font-bold" />,
+                          }}
+                        />
                       </li>
                       <li className="whitespace-pre-wrap mb-2">
-                        {t("vip ticket.content3")}
+                        <Trans
+                          t={t}
+                          i18nKey="vip ticket.content3"
+                          components={{
+                            span: <span className="text-[#E4003D] font-bold" />,
+                          }}
+                        />
                       </li>
                     </ul>
                     <ul className="list-disc ml-6 mr-6">
                       <li className="whitespace-pre-wrap mb-2">
-                        {t("vip ticket.content5")}
+                        <Trans
+                          t={t}
+                          i18nKey="vip ticket.content5"
+                          components={{
+                            span: <span className="text-[#E4003D] font-bold" />,
+                          }}
+                        />
                       </li>
                     </ul>
                   </>
@@ -152,21 +208,51 @@ export default async function TicketInfo({ lang }: { lang: Lang }) {
                   <>
                     <ul className="list-disc ml-6 mr-6">
                       <li className="whitespace-pre-wrap mb-2">
-                        {t("vip ticket.content4")}
+                        <Trans
+                          t={t}
+                          i18nKey="vip ticket.content4"
+                          components={{
+                            span: <span className="text-[#E4003D] font-bold" />,
+                          }}
+                        />
                       </li>
                       <li className="whitespace-pre-wrap mb-2">
-                        {t("vip ticket.content1")}
+                        <Trans
+                          t={t}
+                          i18nKey="vip ticket.content1"
+                          components={{
+                            span: <span className="text-[#E4003D] font-bold" />,
+                          }}
+                        />
                       </li>
                       <li className="whitespace-pre-wrap mb-2">
-                        {t("vip ticket.content2")}
+                        <Trans
+                          t={t}
+                          i18nKey="vip ticket.content2"
+                          components={{
+                            span: <span className="text-[#E4003D] font-bold" />,
+                          }}
+                        />
                       </li>
                     </ul>
                     <ul className="list-disc ml-6 mr-6">
                       <li className="whitespace-pre-wrap mb-2">
-                        {t("vip ticket.content3")}
+                        <Trans
+                          t={t}
+                          i18nKey="vip ticket.content3"
+                          components={{
+                            span: <span className="text-[#E4003D] font-bold" />,
+                          }}
+                        />
                       </li>
                       <li className="whitespace-pre-wrap mb-2">
-                        {t("vip ticket.content5")}
+                        <Trans
+                          t={t}
+                          i18nKey="vip ticket.content5"
+                          components={{
+                            span: <span className="text-[#E4003D] font-bold" />,
+                          }}
+                        />
                       </li>
                     </ul>
                   </>
@@ -175,31 +261,76 @@ export default async function TicketInfo({ lang }: { lang: Lang }) {
             </div>
           </div>
         </div>
-        <div
-          className={clsx("text-center mt-16", isZhTw ? "tracking-[4px]" : "")}
-        >
-          <Trans
-            t={t}
-            i18nKey="looking for partner"
-            values={{ ticketType: t("group tickets") }}
-            components={{
-              br: <br />,
-              a: (
-                <a
-                  href={DNA_FB_LINK}
-                  className={clsx(
-                    "underline font-bold",
-                    isZhTw ? "tracking-normal" : "",
-                  )}
-                  target="_blank"
-                  rel="noreferrer"
-                />
-              ),
-            }}
-          />
-        </div>
       </div>
       <TicketInfoMobile lang={lang} />
+      <div
+        className={clsx(
+          "flex flex-col lg:flex-row justify-center gap-y-10 text-center mt-8",
+          isZhTw ? "tracking-[4px]" : ""
+        )}
+      >
+        <div className="relative flex-1 hidden lg:block px-4">
+          <Image
+            src="/images/ticket-team-buy-card.svg"
+            alt="ticket team buy card"
+            width={526}
+            height={151}
+            className="w-full"
+          />
+          <div className="absolute text-left top-5 left-[18%]">
+            <Trans
+              t={t}
+              i18nKey="looking for partner"
+              values={{ ticketType: t("group tickets") }}
+              components={{
+                br: <br />,
+                a: (
+                  <a
+                    href={DNA_FB_LINK}
+                    className={clsx(
+                      "underline font-bold",
+                      isZhTw ? "tracking-normal" : ""
+                    )}
+                    target="_blank"
+                    rel="noreferrer"
+                  />
+                ),
+              }}
+            />
+          </div>
+        </div>
+        <div className="flex-1 hidden lg:block relative px-4">
+          <Image
+            src="/images/ticket-gold-card.svg"
+            alt="ticket gold card"
+            width={526}
+            height={151}
+            className="w-full"
+          />
+          <div className="absolute text-left top-5 left-[22%]">
+            <Trans
+              t={t}
+              i18nKey="goldcard info"
+              components={{
+                br: <br />,
+                a: (
+                  <a
+                    href={
+                      isZhTw ? GOLDCARD_INFO_LINK_ZH : GOLDCARD_INFO_LINK_EN
+                    }
+                    className={clsx(
+                      "underline font-bold",
+                      isZhTw ? "tracking-normal" : ""
+                    )}
+                    target="_blank"
+                    rel="noreferrer"
+                  />
+                ),
+              }}
+            />
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

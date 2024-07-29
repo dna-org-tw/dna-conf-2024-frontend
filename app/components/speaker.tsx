@@ -8,31 +8,31 @@ interface IProps {
   imgSrc?: string;
 }
 
-function Speaker(props: IProps) {
-  const { name = "", nameEN = "", title = "", imgSrc = "" } = props;
+function Speaker({ name = "", nameEN = "", title = "", imgSrc = "" }: IProps) {
   return (
-    <section className="flex justify-center w-full">
-      <div className={clsx("flex flex-col", "md:flex-row")}>
-        <Image
-          src={imgSrc}
-          alt={`${name} ${title}`}
-          width={493}
-          height={468}
-          className="w-full max-w-[493px]"
-        />
+    <section className="flex justify-center items-center w-full">
+      <div className={clsx("flex flex-col")}>
+        {imgSrc && (
+          <div className="w-[180px] h-[180px] flex justify-center items-center">
+            <Image
+              src={imgSrc}
+              alt={`speaker ${name} ${title}`}
+              width={180}
+              height={180}
+              className="h-full w-auto"
+            />
+          </div>
+        )}
         <div
           className={clsx(
             "mt-[30px] flex flex-col justify-center text-center text-nowrap text-[#004E9D]",
-            "md:flex md:flex-col md:justify-center md:text-end"
+            "md:flex md:flex-col md:justify-center "
           )}
         >
-          <div
-            className={clsx("text-[#004E9D] font-bold text-2xl md:text-4xl")}
-          >
+          <div className={clsx("text-[#004E9D] font-bold text-2xl md:text-xl")}>
             {name}
-            <span className={clsx("text-2xl ml-3 md:text-base")}>{title}</span>
           </div>
-          <div className={clsx("font-light text-2xl")}>{nameEN}</div>
+          <div className={clsx("font-light text-base")}>{nameEN}</div>
         </div>
       </div>
     </section>

@@ -72,6 +72,10 @@ const config = {
           gray: "#1E1F1C",
         },
         cta: "#E74310",
+        singleTicket: "#FFD028",
+        groupTicket: "#F9D2E5",
+        classicTicket: "#10B8D9",
+        vipTicket: "#E4003D",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -93,18 +97,6 @@ const config = {
         "accordion-up": "accordion-up 0.2s ease-out",
         "highlight-text-gradient":
           "linear-gradient(135deg, #fff 41px, #000 41px)",
-      },
-      backgroundColor: {
-        "single-ticket": "#FFD028",
-        "group-ticket": "#F9D2E5",
-        "classic-ticket": "#10B8D9",
-        "vip-ticket": "#E4003D",
-      },
-      borderColor: {
-        "single-ticket": "#FFD028",
-        "group-ticket": "#F9D2E5",
-        "classic-ticket": "#10B8D9",
-        "vip-ticket": "#E4003D",
       },
     },
   },

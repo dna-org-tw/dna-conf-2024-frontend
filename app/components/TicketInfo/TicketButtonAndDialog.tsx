@@ -2,8 +2,8 @@ import React from "react";
 import { TFunction } from "i18next";
 import clsx from "clsx";
 import { Trans } from "react-i18next/TransWithoutContext";
-import { DNA_FB_LINK, PURCHASE_TICKET_LINK } from "./index";
 import Image from "next/image";
+import { DNA_FB_LINK, PURCHASE_TICKET_LINK } from "@/constants";
 
 export default function TicketButtonAndDialog({
   t,
@@ -29,7 +29,7 @@ export default function TicketButtonAndDialog({
   availablePeriod: string;
   originalPrice: string;
   title: string;
-  content: string[];
+  content: (string | React.ReactElement)[];
   label?: string;
   isOpen: boolean;
   className?: string;
@@ -62,14 +62,14 @@ export default function TicketButtonAndDialog({
             ? "before:content-[''] before:absolute before:w-[56px] before:h-[56px] before:top-[-18px] before:left-[-24px] before:bg-[url('/images/ticket-mobile-label-special.svg')]"
             : "",
           className,
-          disabled ? "cursor-default" : "cursor-pointer",
+          disabled ? "cursor-default" : "cursor-pointer"
         )}
         onClick={handleButtonClick}
       >
         <div
           className={clsx(
             `${color[0]} p-3 text-xl uppercase`,
-            color[0] === "bg-vip-ticket" ? "text-white" : "",
+            color[0] === "bg-vip-ticket" ? "text-white" : ""
           )}
         >
           {title}
@@ -79,30 +79,28 @@ export default function TicketButtonAndDialog({
         </div>
       </div>
       {isOpen && (
-        <div className="bg-[#757575cc] h-lvh w-lvw fixed top-0 left-0 z-10 flex items-center justify-center">
-          <div className="bg-white h-[calc(100%-160px)] w-[85%] mt-[40px] lg:mt-[120px] rounded-lg">
+        <div className="bg-[#757575cc] h-lvh w-lvw fixed top-0 left-0 z-20 flex items-start justify-center">
+          <div className="bg-white max-h-[calc(100%-260px)] w-[85%] mt-[100px] lg:mt-[120px] rounded-lg flex flex-col">
             <div
-              className={`pt-[30px] pb-[30px] ${color[0]} flex flex-col items-center relative rounded-t-lg`}
+              className={`pt-[30px] pb-[30px] ${color[0]} flex flex-col items-center relative rounded-t-lg flex-shrink-0`}
             >
               <h2 className="text-2xl font-bold mb-2">{title}</h2>
               <h3
                 className={clsx(
                   "text-2xl font-bold ",
-                  color[0] === "bg-vip-ticket"
-                    ? "text-white"
-                    : "text-[#E4003D]",
+                  color[0] === "bg-vip-ticket" ? "text-white" : "text-[#E4003D]"
                 )}
               >
                 {price}
               </h3>
-              <p className="line-through uppercase text-center">{`${t("original price")} ${originalPrice}`}</p>
+              {/* <p className="line-through uppercase text-center">{`${t("original price")} ${originalPrice}`}</p> */}
               {(showTrumpet || showSpecialLabel) && (
                 <div
                   className={clsx(
                     "w-[201px] h-[38px] absolute bottom-[-20px] px-[10px] uppercase text-white text-xl flex items-center justify-center font-bold",
                     showSpecialLabel
                       ? "bg-[url('/images/ticket-mobile-label-yellow.svg')]"
-                      : "bg-[url('/images/ticket-mobile-label-red.svg')]",
+                      : "bg-[url('/images/ticket-mobile-label-red.svg')]"
                   )}
                 >
                   {label}
@@ -118,20 +116,20 @@ export default function TicketButtonAndDialog({
                 />
               </button>
             </div>
-            <div className="overflow-auto h-[calc(100%-156px)] pb-[80px]">
+            <div className="overflow-auto pb-10">
               <div className="mx-auto max-w-[500px] px-2 pt-[38px]">
-                <p className="font-bold mb-1 text-center text-[#E74310] text-lg">
+                {/* <p className="font-bold mb-1 text-center text-[#E74310] text-lg">
                   {availablePeriod}
-                </p>
+                </p> */}
                 <div className="px-4">
                   <p className="mt-4 text-center text-[#757575] text-lg font-bold">
                     {t("ticket content")}
                   </p>
                   <ul className="">
-                    {content.map((item) => (
+                    {content.map((item, i) => (
                       <li
                         className="whitespace-pre-wrap mb-2 text-[#757575] text-center"
-                        key={item}
+                        key={i}
                       >
                         {item}
                       </li>

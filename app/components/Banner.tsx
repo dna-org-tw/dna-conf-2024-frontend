@@ -1,3 +1,5 @@
+"use sever";
+
 import React from "react";
 import Image from "next/image";
 import clsx from "clsx";
@@ -30,7 +32,7 @@ export default async function Banner({ lang }: { lang: Lang }) {
                 : "/images/banner-slogan-en.svg"
             }
             alt="adventuring in 2024"
-            objectFit="cover"
+            className="object-cover"
             fill
           />
         </div>
@@ -82,8 +84,8 @@ export default async function Banner({ lang }: { lang: Lang }) {
             >
               <Image
                 src="/images/time-icon.svg"
-                width={16}
-                height={21}
+                width={19}
+                height={19}
                 alt="time icon"
               />
               {`${t("conf date")} ${t("conf time")}`}
@@ -95,8 +97,8 @@ export default async function Banner({ lang }: { lang: Lang }) {
             >
               <Image
                 src="/images/place-icon.svg"
-                width={16}
-                height={21}
+                width={17}
+                height={22}
                 alt="place icon"
               />
               {t("conf location")}
