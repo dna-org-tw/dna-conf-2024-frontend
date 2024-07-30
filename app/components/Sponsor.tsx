@@ -36,7 +36,7 @@ export default function Sponsor({
             ) : (
               <Image
                 src={`/images/sponsor/${sponsor.image}`}
-                className="flex bg-white border-solid border-2 rounded-md p-4"
+                className="flex bg-white border-solid border-2 rounded-md p-2"
                 width={isCommunity ? "100" : "150"}
                 height={isCommunity ? "100" : "150"}
                 alt="sponsor"
