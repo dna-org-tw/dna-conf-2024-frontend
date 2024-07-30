@@ -27,7 +27,7 @@ export default function Sponsor({
               >
                 <Image
                   src={`/images/sponsor/${sponsor.image}`}
-                  className="p-4"
+                  className="p-2"
                   width={isCommunity ? "100" : "150"}
                   height={isCommunity ? "100" : "150"}
                   alt="sponsor"
