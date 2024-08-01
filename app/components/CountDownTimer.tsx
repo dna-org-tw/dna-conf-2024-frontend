@@ -11,6 +11,7 @@ export default function CountDownTimer({ lang }: { lang: Lang }) {
   const [hours, setHours] = useState(0);
   const [minutes, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);
+  const [isDisabled, setIsDisabled] = useState(true);
 
   useEffect(() => {
     const target = new Date("8/3/2024 23:59:59");
@@ -64,14 +65,16 @@ export default function CountDownTimer({ lang }: { lang: Lang }) {
             <span> {isZhTw ? "秒" : "SECS"} </span>
           </div>
 
-          <Button
-            asChild
-            className="rounded-3xl bg-[#E74310] hover:bg-[#E74310] border-white border-2 ml-auto md:hidden"
-          >
-            <Link href="https://psee.io/5qfa4a" target="_blank">
-              {isZhTw ? "線上購票" : "TICKET"}
-            </Link>
-          </Button>
+        <Button
+          disabled={isDisabled}
+          className={`rounded-3xl ${
+            isDisabled
+              ? "bg-gray-400 border-gray-300 cursor-not-allowed"
+              : "bg-[#E74310] hover:bg-[#E74310] border-white"
+          } border-2 ml-auto md:hidden`}
+        >
+          <span>{isZhTw ? "線上購票" : "TICKET"}</span>
+        </Button>
         </div>
       </div>
     </div>

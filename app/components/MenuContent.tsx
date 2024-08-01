@@ -39,8 +39,8 @@ const MenuContent: React.FC<MenuContentProp> = ({
       {translatedData.PARTNERSHIP}
     </Link>
     <Button
-      asChild
-      className="bg-cta hover:bg-cta/90 rounded-lg px-4 py-2 w-fit"
+      disabled
+      className="bg-gray-400 rounded-lg px-4 py-2 w-fit cursor-not-allowed"
     >
       <Link href="https://psee.io/5qfa4a" target="_blank" onClick={onClick}>
         {translatedData.BUY_TICKET}
