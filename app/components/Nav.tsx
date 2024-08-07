@@ -15,6 +15,8 @@ export interface TranslationData {
   TRANSPORTATION: string;
   PARTNERSHIP: string;
   BUY_TICKET: string;
+  QUIZ: string;
+  QUIZ_URL: string;
 }
 
 export default function Nav() {
@@ -31,6 +33,8 @@ export default function Nav() {
     TRANSPORTATION: translate?.("TRANSPORTATION") || "",
     PARTNERSHIP: translate?.("PARTNERSHIP") || "",
     BUY_TICKET: translate?.("BUY_TICKET") || "",
+    QUIZ: translate?.("QUIZ") || "",
+    QUIZ_URL: translate?.("QUIZ_URL") || "",
   };
 
   return (

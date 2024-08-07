@@ -14,10 +14,11 @@ export default function CountDownTimer({ lang }: { lang: Lang }) {
   const [isDisabled, setIsDisabled] = useState(true);
 
   useEffect(() => {
-    const target = new Date("8/3/2024 23:59:59");
+    const target = new Date("8/3/2024 09:00:00");
     const interval = setInterval(() => {
       const now = new Date();
-      const difference = target.getTime() - now.getTime();
+      let difference = target.getTime() - now.getTime();
+      if(difference <= 0) difference = 0;
 
       const d = Math.floor(difference / (1000 * 60 * 60 * 24));
       setDays(d);

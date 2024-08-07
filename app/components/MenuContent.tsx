@@ -39,6 +39,14 @@ const MenuContent: React.FC<MenuContentProp> = ({
       {translatedData.PARTNERSHIP}
     </Link>
     <Button
+      asChild
+      className="bg-[#FFD028] hover:bg-[#FFD028]/90 rounded-lg px-4 py-2 w-fit mr-2"
+    >
+      <Link href={translatedData.QUIZ_URL} target="_blank" onClick={onClick}>
+        <span className="font-bold text-black">{translatedData.QUIZ}</span>
+      </Link>
+    </Button>
+    <Button
       disabled
       className="bg-gray-400 rounded-lg px-4 py-2 w-fit cursor-not-allowed"
     >
