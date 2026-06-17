@@ -28,14 +28,6 @@ export function middleware(request: NextRequest) {
     return NextResponse.redirect(request.nextUrl);
   }
 
-  const localeInPath = pathname.split("/")[1];
-
-  // if pathname is /{locale} or /{locale}/, we need to redirect to /{locale}/2024
-  if (pathname === `/${localeInPath}` || pathname === `/${localeInPath}/`) {
-    request.nextUrl.pathname = `/${localeInPath}/2024`;
-    return NextResponse.redirect(request.nextUrl);
-  }
-
   return;
 }
 

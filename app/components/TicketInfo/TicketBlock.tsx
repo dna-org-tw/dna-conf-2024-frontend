@@ -31,7 +31,7 @@ export default async function TicketBlock({
       {label && (
         <div
           className="absolute top-[-70px] left-[-10px] w-[250px] h-[73px] bg-no-repeat bg-contain text-white text-2xl font-bold pt-[5px] pl-[48px] pr-[10px] flex justify-center items-center uppercase tracking-[-1px]"
-          style={{ backgroundImage: "url(/images/ticket-label.svg)" }}
+          style={{ backgroundImage: "url(/2024/images/ticket-label.svg)" }}
         >
           {label}
         </div>

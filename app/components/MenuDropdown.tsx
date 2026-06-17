@@ -18,7 +18,7 @@ export default function MenuDropdown({
   return (
     <>
       <div className="absolute flex xl:hidden right-4 items-center">
-        <Link href={`/${lng === "en-US" ? "zh-TW" : "en-US"}/2024`}>
+        <Link href={`/${lng === "en-US" ? "zh-TW" : "en-US"}`}>
           <Image
             src={
               lng === "en-US" ? "/images/i18n-zh.svg" : "/images/i18n-en.svg"

@@ -9,7 +9,7 @@ export default function ColorfulButton({
   children: React.ReactNode;
 }) {
   return (
-    <div className="bg-[url('/images/button-bg.png')] bg-cover rounded-[40px] p-3">
+    <div className="bg-[url('/2024/images/button-bg.png')] bg-cover rounded-[40px] p-3">
       <Button
         asChild
         variant="ghost"

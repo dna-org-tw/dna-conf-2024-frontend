@@ -56,10 +56,10 @@ export default function TicketButtonAndDialog({
         className={clsx(
           `rounded-2xl border-4 ${color[1]} text-center relative`,
           showTrumpet
-            ? "before:content-[''] before:absolute before:w-[48px] before:h-[48px] before:top-[-18px] before:left-[-20px] before:bg-[url('/images/ticket-mobile-label-trumpet.svg')]"
+            ? "before:content-[''] before:absolute before:w-[48px] before:h-[48px] before:top-[-18px] before:left-[-20px] before:bg-[url('/2024/images/ticket-mobile-label-trumpet.svg')]"
             : "",
           showSpecialLabel
-            ? "before:content-[''] before:absolute before:w-[56px] before:h-[56px] before:top-[-18px] before:left-[-24px] before:bg-[url('/images/ticket-mobile-label-special.svg')]"
+            ? "before:content-[''] before:absolute before:w-[56px] before:h-[56px] before:top-[-18px] before:left-[-24px] before:bg-[url('/2024/images/ticket-mobile-label-special.svg')]"
             : "",
           className,
           disabled ? "cursor-default" : "cursor-pointer"
@@ -99,8 +99,8 @@ export default function TicketButtonAndDialog({
                   className={clsx(
                     "w-[201px] h-[38px] absolute bottom-[-20px] px-[10px] uppercase text-white text-xl flex items-center justify-center font-bold",
                     showSpecialLabel
-                      ? "bg-[url('/images/ticket-mobile-label-yellow.svg')]"
-                      : "bg-[url('/images/ticket-mobile-label-red.svg')]"
+                      ? "bg-[url('/2024/images/ticket-mobile-label-yellow.svg')]"
+                      : "bg-[url('/2024/images/ticket-mobile-label-red.svg')]"
                   )}
                 >
                   {label}

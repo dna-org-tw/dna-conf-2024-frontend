@@ -16,26 +16,26 @@ const MenuContent: React.FC<MenuContentProp> = ({
   onClick,
 }) => (
   <>
-    <Link href={`/${lng}/2024#event`} onClick={onClick}>
+    <Link href={`/${lng}#event`} onClick={onClick}>
       {" "}
       {translatedData.EVENT}
     </Link>
-    <Link href={`/${lng}/2024#speaker`} onClick={onClick}>
+    <Link href={`/${lng}#speaker`} onClick={onClick}>
       {" "}
       {translatedData.SPEAKER}
     </Link>
-    <Link href={`/${lng}/2024#agenda`} onClick={onClick}>
+    <Link href={`/${lng}#agenda`} onClick={onClick}>
       {" "}
       {translatedData.AGENDA}
     </Link>
-    <Link href={`/${lng}/2024#ticket`} onClick={onClick}>
+    <Link href={`/${lng}#ticket`} onClick={onClick}>
       {" "}
       {translatedData.TICKETS}
     </Link>
-    <Link href={`/${lng}/2024#transportation`} onClick={onClick}>
+    <Link href={`/${lng}#transportation`} onClick={onClick}>
       {translatedData.TRANSPORTATION}
     </Link>
-    <Link href={`/${lng}/2024#partnership`} onClick={onClick}>
+    <Link href={`/${lng}#partnership`} onClick={onClick}>
       {translatedData.PARTNERSHIP}
     </Link>
     <Button
@@ -55,7 +55,7 @@ const MenuContent: React.FC<MenuContentProp> = ({
       </Link>
     </Button>
     <Link
-      href={`/${lng === "en-US" ? "zh-TW" : "en-US"}/2024`}
+      href={`/${lng === "en-US" ? "zh-TW" : "en-US"}`}
       onClick={onClick}
     >
       <Image

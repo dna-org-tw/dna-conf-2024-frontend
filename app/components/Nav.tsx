@@ -41,7 +41,7 @@ export default function Nav() {
     <nav className="fixed w-full h-[60px] lg:h-[94px] flex items-center ps-6 lg:justify-between lg:px-24 bg-brand-gray z-50">
       <MenuDropdown translatedData={translatedData} lng={lng} />
       <Link
-        href={`/${lng}/2024`}
+        href={`/${lng}`}
         className="h-2/5  flex justify-center items-center"
       >
         <Image

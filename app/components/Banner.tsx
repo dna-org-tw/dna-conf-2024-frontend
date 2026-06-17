@@ -13,7 +13,7 @@ export default async function Banner({ lang }: { lang: Lang }) {
     <section
       id="event"
       className="w-full bg-right-top bg-no-repeat bg-w-100% lg:py-8"
-      style={{ backgroundImage: "url(/images/banner-background.png)" }}
+      style={{ backgroundImage: "url(/2024/images/banner-background.png)" }}
     >
       <div className="container md:container pt-36 md:pt-28">
         <div
@@ -62,7 +62,7 @@ export default async function Banner({ lang }: { lang: Lang }) {
           </div>
           <div
             className="flex w-[30px] h-[180px] bg-no-repeat bg-center bg-contain"
-            style={{ backgroundImage: "url(/images/divider-vertical.svg)" }}
+            style={{ backgroundImage: "url(/2024/images/divider-vertical.svg)" }}
           />
           <div className="flex flex-col gap-y-2">
             <h1 className="text-4xl tracking-[10px]">{t("conf")}</h1>
@@ -106,7 +106,7 @@ export default async function Banner({ lang }: { lang: Lang }) {
           </div>
           <div
             className="flex w-[300px] h-[14px] bg-no-repeat bg-center bg-contain my-7"
-            style={{ backgroundImage: "url(/images/divider-horizontal.svg)" }}
+            style={{ backgroundImage: "url(/2024/images/divider-horizontal.svg)" }}
           />
           <div className={clsx(isZhTw ? "flex flex-col" : "")}>
             <h1
@@ -145,7 +145,7 @@ export default async function Banner({ lang }: { lang: Lang }) {
           </h2>
           <div
             className="mx-auto flex w-[173px] h-[8px] bg-no-repeat bg-center bg-contain my-12"
-            style={{ backgroundImage: "url(/images/divider-horizontal.svg)" }}
+            style={{ backgroundImage: "url(/2024/images/divider-horizontal.svg)" }}
           />
           <div className="text-[#5C5C5C]">
             <h1 className="text-[#1E1F1C] lg:text-xl lg:tracking-[2px] font-bold inline mb-0">

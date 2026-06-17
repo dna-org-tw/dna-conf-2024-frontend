@@ -13,7 +13,7 @@ export default async function HighLights({ lang }: { lang: Lang }) {
   const { t } = await useServerTranslation(lang);
 
   return (
-    <section className="w-full px-3 md:px-10 pt-8 md:pt-20 pb-4 md:pb-6 bg-no-repeat bg-cover bg-center bg-[url(/images/highlights-background.svg)] lg:bg-none">
+    <section className="w-full px-3 md:px-10 pt-8 md:pt-20 pb-4 md:pb-6 bg-no-repeat bg-cover bg-center bg-[url(/2024/images/highlights-background.svg)] lg:bg-none">
       <div className="flex flex-col lg:items-center">
         <h2 className="text-2xl mx-10 lg:text-3xl lg:text-center font-bold tracking-[10%] mb-6 lg:mb-[70px] whitespace-pre-wrap lg:whitespace-normal leading-loose lg:leading-normal">
           {t("ENGAGE AND SHAPE OUR FUTURE")}

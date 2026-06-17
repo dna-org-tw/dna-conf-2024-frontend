@@ -115,7 +115,7 @@ export default async function TicketInfo({ lang }: { lang: Lang }) {
         <div className="flex mt-2 mx-4 h-[241px]">
           <div
             className="flex-none w-[381px] h-[241px] bg-no-repeat bg-contain pt-[46px] pr-[57px] pb-[25px] pl-[61px]"
-            style={{ background: "url(/images/ticket-vip-bg.svg)" }}
+            style={{ background: "url(/2024/images/ticket-vip-bg.svg)" }}
           >
             <div className="h-[60%] flex flex-col items-center justify-center">
               <h2 className="text-3xl font-bold text-white uppercase">
