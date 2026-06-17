@@ -4,7 +4,7 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        hostname: "conf.dna.org.tw",
+        hostname: "www.taiwandigitalfest.com",
       },
       {
         hostname: "drive.dna.org.tw",

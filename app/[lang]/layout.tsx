@@ -11,7 +11,7 @@ export function generateMetadata({ params }: { params: LangParams }): Metadata {
   switch (params.lang) {
     case "en-US":
       return {
-        metadataBase: new URL("https://conf.dna.org.tw"),
+        metadataBase: new URL("https://www.taiwandigitalfest.com"),
         title:
           "TDNA Taiwan Digital Nomad Conference 2024 - Exploring the Infinite Possibilities of Future Work",
         description:
@@ -25,7 +25,7 @@ export function generateMetadata({ params }: { params: LangParams }): Metadata {
           description:
             "Join TDNA 2024 to discover the latest trends in remote working, network with like-minded professionals, and create new opportunities for work and life.",
           images: [{ url: "/images/meta.png" }],
-          url: "http://conf.dna.org.tw/en-US/2024",
+          url: "https://www.taiwandigitalfest.com/en-US/2024",
         },
         twitter: {
           title:
@@ -38,7 +38,7 @@ export function generateMetadata({ params }: { params: LangParams }): Metadata {
       };
     default:
       return {
-        metadataBase: new URL("https://conf.dna.org.tw"),
+        metadataBase: new URL("https://www.taiwandigitalfest.com"),
         title: "TDNA 台灣數位遊牧者大會 2024 - 探索未來工作方式的無限可能",
         description:
           "TDNA 2024 是一場為數位遊牧者與遠端工作愛好者設計的頂尖交流盛會，提供一個促進學習、分享與創新的平台。加入我們，一起探索遠程工作的未來趨勢！",
@@ -50,7 +50,7 @@ export function generateMetadata({ params }: { params: LangParams }): Metadata {
           description:
             "加入 TDNA 2024，探索遠端工作的最新趨勢，與志同道合的專業人士交流，共同創造新的工作與生活機會。",
           images: [{ url: "/images/meta.png" }],
-          url: "http://conf.dna.org.tw/zh-TW/2024",
+          url: "https://www.taiwandigitalfest.com/zh-TW/2024",
         },
         twitter: {
           title: "TDNA 台灣數位遊牧者大會 2024 - 探索未來工作方式的無限可能",
