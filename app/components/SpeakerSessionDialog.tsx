@@ -5,6 +5,7 @@ import { Session, Speaker } from "@/lib/notion";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
+import SpeakerPhoto from "./SpeakerPhoto";
 import { Lang } from "@/types/common";
 
 export function SpeakerSessionDialog({
@@ -31,7 +32,7 @@ export function SpeakerSessionDialog({
           >
             <div className="flex-none flex justify-center items-start">
               {speaker?.photo && (
-                <Image
+                <SpeakerPhoto
                   src={speaker.photo}
                   alt={speaker.name}
                   width={178}

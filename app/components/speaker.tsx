@@ -1,5 +1,5 @@
-import Image from "next/image";
 import clsx from "clsx";
+import SpeakerPhoto from "./SpeakerPhoto";
 
 interface IProps {
   name?: string;
@@ -14,7 +14,7 @@ function Speaker({ name = "", nameEN = "", title = "", imgSrc = "" }: IProps) {
       <div className={clsx("flex flex-col")}>
         {imgSrc && (
           <div className="w-[180px] h-[180px] flex justify-center items-center">
-            <Image
+            <SpeakerPhoto
               src={imgSrc}
               alt={`speaker ${name} ${title}`}
               width={180}
