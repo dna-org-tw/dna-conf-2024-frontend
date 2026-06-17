@@ -23,7 +23,9 @@ export function middleware(request: NextRequest) {
 
   if (!pathnameHasLocale) {
     const locale = getLocale(request);
-    request.nextUrl.pathname = `/${locale}${pathname}`;
+    // basePath 根 (pathname 為 "/") 要避免產生 "/zh-TW/" 雙斜線
+    request.nextUrl.pathname =
+      pathname === "/" ? `/${locale}` : `/${locale}${pathname}`;
 
     return NextResponse.redirect(request.nextUrl);
   }
@@ -32,5 +34,6 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/((?!(?:_next|images)).*)"],
+  // 第一條明確匹配 basePath 根 (/2024)，否則裸根不會進 middleware 而 404
+  matcher: ["/", "/((?!_next|images).*)"],
 };
