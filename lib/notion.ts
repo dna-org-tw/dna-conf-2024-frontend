@@ -79,6 +79,27 @@ export interface Session {
   speakerIDs: string[];
 }
 
+// Notion API 偶發 "Premature close" / 串流截斷等暫時性錯誤；重試以提高韌性。
+async function withRetry<T>(
+  fn: () => Promise<T>,
+  label: string,
+  retries = 3,
+): Promise<T> {
+  let lastErr: unknown;
+  for (let attempt = 1; attempt <= retries; attempt++) {
+    try {
+      return await fn();
+    } catch (err) {
+      lastErr = err;
+      if (attempt < retries) {
+        await new Promise((r) => setTimeout(r, 300 * attempt));
+      }
+    }
+  }
+  console.error(`[notion] ${label} failed after ${retries} attempts:`, lastErr);
+  throw lastErr;
+}
+
 function extractProperty(property: any): any {
   switch (property.type) {
     case "title":
@@ -97,22 +118,33 @@ function extractProperty(property: any): any {
   }
 }
 
-export const getSpeakers = async () => {
-  const notion = new Client({ auth: process.env.NOTION_TOKEN });
-  const pages = (await notion.databases.query({
-    database_id: process.env.NOTION_DATABASE_ID!,
-  })) as any as QuerySpeakersResult;
-  const speakerIDs: string[] = pages.results.map((page) => page.id);
-  return (await Promise.all(
-    speakerIDs.map((speakerId) => getSpeaker(speakerId))
-  )).sort((a, b) => a.order! - b.order!);
+export const getSpeakers = async (): Promise<Speaker[]> => {
+  try {
+    const notion = new Client({ auth: process.env.NOTION_TOKEN });
+    const pages = (await withRetry(
+      () =>
+        notion.databases.query({
+          database_id: process.env.NOTION_DATABASE_ID!,
+        }),
+      "getSpeakers.query",
+    )) as any as QuerySpeakersResult;
+    const speakerIDs: string[] = pages.results.map((page) => page.id);
+    return (
+      await Promise.all(speakerIDs.map((speakerId) => getSpeaker(speakerId)))
+    ).sort((a, b) => a.order! - b.order!);
+  } catch (err) {
+    // Notion 暫時不可用時不讓整頁 500；首頁降級為無講者但保持可索引。
+    console.error("[notion] getSpeakers failed, returning empty list:", err);
+    return [];
+  }
 };
 
 export const getSpeaker = async (speakerId: string) => {
   const notion = new Client({ auth: process.env.NOTION_TOKEN });
-  const page = (await notion.pages.retrieve({
-    page_id: speakerId,
-  })) as any as SpeakerInNotion;
+  const page = (await withRetry(
+    () => notion.pages.retrieve({ page_id: speakerId }),
+    `getSpeaker.${speakerId}`,
+  )) as any as SpeakerInNotion;
   const properties = page.properties;
   const speakerInfo: Speaker = {
     order: properties.order?.number || 999,
@@ -136,12 +168,21 @@ export const getSpeaker = async (speakerId: string) => {
   return speakerInfo;
 };
 
-export const getSessions = async () => {
-  const notion = new Client({ auth: process.env.NOTION_TOKEN });
-  const pages = (await notion.databases.query({
-    database_id: "9e5ad6893ac742e88779db8dc7bdc59c",
-  })) as any as QuerySessionsResult;
-  return pages.results.map(transformSessionFromNotion) as Session[];
+export const getSessions = async (): Promise<Session[]> => {
+  try {
+    const notion = new Client({ auth: process.env.NOTION_TOKEN });
+    const pages = (await withRetry(
+      () =>
+        notion.databases.query({
+          database_id: "9e5ad6893ac742e88779db8dc7bdc59c",
+        }),
+      "getSessions.query",
+    )) as any as QuerySessionsResult;
+    return pages.results.map(transformSessionFromNotion) as Session[];
+  } catch (err) {
+    console.error("[notion] getSessions failed, returning empty list:", err);
+    return [];
+  }
 };
 
 export const getSession = async (sessionId: string) => {
