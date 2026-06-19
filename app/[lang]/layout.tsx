@@ -17,6 +17,14 @@ export function generateMetadata({ params }: { params: LangParams }): Metadata {
         description:
           "TDNA 2024 is a premier gathering designed for digital nomads and remote work enthusiasts, offering a platform for learning, sharing, and innovation. Join us to explore the future trends of remote working!",
         icons: [{ url: "/2024/images/favicon.ico", type: "image/x-icon" }],
+        alternates: {
+          canonical: "https://www.taiwandigitalfest.com/2024/en-US",
+          languages: {
+            "zh-TW": "https://www.taiwandigitalfest.com/2024/zh-TW",
+            "en-US": "https://www.taiwandigitalfest.com/2024/en-US",
+            "x-default": "https://www.taiwandigitalfest.com/2024/zh-TW",
+          },
+        },
         openGraph: {
           locale: "en_US",
           type: "website",
@@ -43,6 +51,14 @@ export function generateMetadata({ params }: { params: LangParams }): Metadata {
         description:
           "TDNA 2024 是一場為數位遊牧者與遠端工作愛好者設計的頂尖交流盛會，提供一個促進學習、分享與創新的平台。加入我們，一起探索遠程工作的未來趨勢！",
         icons: [{ url: "/2024/images/favicon.ico", type: "image/x-icon" }],
+        alternates: {
+          canonical: "https://www.taiwandigitalfest.com/2024/zh-TW",
+          languages: {
+            "zh-TW": "https://www.taiwandigitalfest.com/2024/zh-TW",
+            "en-US": "https://www.taiwandigitalfest.com/2024/en-US",
+            "x-default": "https://www.taiwandigitalfest.com/2024/zh-TW",
+          },
+        },
         openGraph: {
           locale: "zh-TW",
           type: "website",

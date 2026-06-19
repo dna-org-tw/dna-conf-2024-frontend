@@ -35,5 +35,6 @@ export function middleware(request: NextRequest) {
 
 export const config = {
   // 第一條明確匹配 basePath 根 (/2024)，否則裸根不會進 middleware 而 404
-  matcher: ["/", "/((?!_next|images).*)"],
+  // 排除 sitemap.xml / robots.txt，否則 metadata route 會被重導到 locale 而 404
+  matcher: ["/", "/((?!_next|images|sitemap.xml|robots.txt).*)"],
 };

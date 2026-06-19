@@ -72,8 +72,40 @@ export default async function Home({
   const speakers = await getSpeakers();
   const sessions = await getSessions();
 
+  const pageUrl = `https://www.taiwandigitalfest.com/2024/${lang}`;
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    name: t("conf"),
+    startDate: "2024-08-03T08:30:00+08:00",
+    endDate: "2024-08-03T17:30:00+08:00",
+    eventStatus: "https://schema.org/EventScheduled",
+    eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+    url: pageUrl,
+    image: "https://www.taiwandigitalfest.com/2024/images/meta.png",
+    location: {
+      "@type": "Place",
+      name: t("TRANSPORTATION_TITLE"),
+      address: t("TRANSPORTATION_ADDRESS"),
+    },
+    organizer: {
+      "@type": "Organization",
+      name: "TDNA",
+      url: "https://dna.oen.tw/",
+    },
+    offers: {
+      "@type": "Offer",
+      url: "https://psee.io/5qfa4a",
+      availability: "https://schema.org/SoldOut",
+    },
+  };
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-between">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <ScrollToTopButton />
       <Banner lang={lang} />
       <section className="fixed bottom-0 z-30 w-full md:h-1/4 bg-[url('/2024/images/mobile-countdown-background.png')] bg-cover md:relative md:py-12 md:bg-[url('/2024/images/countdown-background.png')] md:bg-contain">
